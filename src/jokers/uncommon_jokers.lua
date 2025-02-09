@@ -39,7 +39,7 @@ create_joker({
         idea = "astrapboy",
         code = "astrapboy & Aiksi Lotl"
     },
-    config = { extra = {reroll_bonus = 1, reroll_total = 5, reroll_max = 10, win_reroll = true}},
+    config = { extra = {reroll_bonus = 1, reroll_total = 0, reroll_max = 10, win_reroll = true}},
     loc_vars = function(self, info_queue, card)
         return {vars = {card.ability.extra.reroll_bonus, card.ability.extra.reroll_max, card.ability.extra.reroll_total}}
     end,
