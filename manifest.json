@@ -11,7 +11,7 @@
 	"badge_text_colour": "770000",
 	"version": "0.1.0",
 	"dependencies": [
-        "Steamodded (>=1.0.0~ALPHA-1321a)",
+        "Steamodded (>=1.0.0~ALPHA-1409a)",
 		"Lovely (>=0.6)",
 		"joker_refactor (>=0.5)"
     ]

@@ -33,6 +33,17 @@ function rank_count(hand, rank)
     return rank_counter
 end
 
+-- Checks how many times a played hand contains a rank that's part of a specified table
+function ranks_count(hand, ranks)
+    local rank_counter = 0
+    for hand_index = 1, #hand do
+        for rank_index = 1, #ranks do
+            if hand[hand_index]:get_id() == ranks[rank_index] then rank_counter = rank_counter + 1 end
+        end
+    end
+    return rank_counter
+end
+
 -- Checks if a card matches a specified table of ranks
 function matches_rank(card, ranks)
     for i = 1, #ranks do
