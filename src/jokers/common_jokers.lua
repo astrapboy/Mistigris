@@ -29,7 +29,7 @@ create_joker {
         idea = "astrapboy",
         code = "astrapboy"
     },
-    config = { extra = { threshold = 0.4, mult_bonus = 16 } },
+    config = { extra = { threshold = 0.6, mult_bonus = 12 } },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult_bonus, card.ability.extra.threshold * 100 } }
     end,
