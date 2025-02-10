@@ -18,7 +18,16 @@ return {
             }
         },
         --- Blinds
-        Blind={},
+        Blind={
+            bl_mstg_hill = {
+                name = "The Hill",
+                text = {
+                    "Each consecutive hand must have",
+                    "a higher (or equal) base score",
+                    "than the previous one"
+                }
+            }
+        },
         Edition={},
         Enhanced={},
         --- Jokers

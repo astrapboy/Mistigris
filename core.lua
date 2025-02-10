@@ -6,7 +6,7 @@ local dependencies = {
 
 -- ...and then load them before we do anything else.
 for _, dep_file in ipairs(dependencies) do
-    assert(SMODS.load_file('src/utils/dependencies'..dep_file..'.lua'))()
+    assert(SMODS.load_file('src/utils/dependencies/'..dep_file..'.lua'))()
 end
 
 -- Now that we have our dependencies, we can load whatever we want! Yay!
@@ -14,7 +14,8 @@ local preload = {
     --- Files in the base src directory
     [""] = {
         "decks",
-        "atlas"
+        "atlas",
+        "blinds"
     },
 
     --- Joker Files
