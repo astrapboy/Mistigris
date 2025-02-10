@@ -35,4 +35,5 @@ for type, collection in pairs(preload) do
             assert(SMODS.load_file('src/'..type..'/'..file..'.lua'))()
         end
     end
-end 
+end
+

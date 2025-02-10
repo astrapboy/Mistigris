@@ -61,10 +61,10 @@ create_joker {
     cost = 6,
     calculate = function(self, card, context)
         if context.cardarea == G.play and context.individual then
-            if not context.other_card.doitagain then
+            if not context.other_card.timesheeted then
                 local othercard = context.other_card
-                context.other_card.doitagain = true
-                add_event(function() if othercard then othercard.doitagain = nil end return true end)
+                context.other_card.timesheeted = true
+                add_event(function() if othercard then othercard.timesheeted = nil end return true end)
             else
                 ease_dollars(card.ability.extra.money)
             end
