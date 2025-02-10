@@ -71,25 +71,3 @@ create_joker {
         end
     end
 }
-
-
-
---[[
-create_joker {
-    name = "Allan please add details",
-    key = "allan",
-    config = { extra = {} },
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    rarity = "C",
-    cost = 1,
-    calculate = function(self, card, context)
-        if context.joker_main then 
-            update_hand_text({sound = 'button', volume = 0.7, pitch = 0.8, delay = 0.3}, {handname="Straight",chips = G.GAME.hands["Straight"].chips, mult = G.GAME.hands["Straight"].mult, level=G.GAME.hands["Straight"].level}) 
-            level_up_hand(self, "Straight", nil, 1) 
-            update_hand_text({sound = 'button', volume = 0.7, pitch = 0.8, delay = 0.3}, {handname=context.scoring_name,chips = G.GAME.hands[context.scoring_name].chips, mult = G.GAME.hands[context.scoring_name].mult, level=G.GAME.hands[context.scoring_name].level})
-        end
-    end
-}
-]]

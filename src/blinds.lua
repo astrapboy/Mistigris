@@ -1,4 +1,5 @@
-﻿SMODS.Blind({
+﻿-- The Journey
+SMODS.Blind({
     key = 'journey',
     dollars = 5,
     mult = 2,

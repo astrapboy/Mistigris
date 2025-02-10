@@ -38,21 +38,7 @@ create_joker = function(joker)
         joker.soul = get_coordinates(joker.soul_index, width)
     end
 
-    if joker.credits ~= nil then
-        joker.set_badges = function(self, card, badges)
-            if joker.credits.idea ~= nil then
-                badges[#badges+1] = create_badge(localize({type = "variable", key = "k_mstg_credit_idea", vars = {joker.credits.idea}}), HEX("867100FF"), G.C.WHITE, 0.8 )
-            end
-
-            if joker.credits.art ~= nil then
-                badges[#badges+1] = create_badge(localize({type = "variable", key = "k_mstg_credit_art", vars = {joker.credits.art}}), HEX("860000FF"), G.C.WHITE, 0.8 )
-            end
-
-            if joker.credits.code ~= nil then
-                badges[#badges+1] = create_badge(localize({type = "variable", key = "k_mstg_credit_code", vars = {joker.credits.code}}), HEX("00862eFF"), G.C.WHITE, 0.8 )
-            end
-        end
-    end
+    add_credits(joker)
 
     -- Index = where the Joker is on the atlas (from 0)
     joker.position = get_coordinates(joker.index, width)
