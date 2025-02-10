@@ -1,5 +1,5 @@
 ﻿SMODS.Blind({
-    key = 'hill',
+    key = 'journey',
     dollars = 5,
     mult = 2,
     boss = {min = 1},

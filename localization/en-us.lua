@@ -19,8 +19,8 @@ return {
         },
         --- Blinds
         Blind={
-            bl_mstg_hill = {
-                name = "The Hill",
+            bl_mstg_journey = {
+                name = "The Journey",
                 text = {
                     "Each consecutive hand must have",
                     "a higher (or equal) base score",
