@@ -22,9 +22,9 @@ return {
             bl_mstg_journey = {
                 name = "The Journey",
                 text = {
-                    "Each consecutive hand must have",
-                    "a higher (or equal) base score",
-                    "than the previous one"
+                    "Base hand score",
+                    "must not be less",
+                    "than previous"
                 }
             }
         },
