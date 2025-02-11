@@ -26,22 +26,19 @@ create_joker = function(joker)
     -- Placeholder atlas
     if joker.atlas == nil then
         joker.atlas = "placeholder"
-        joker.index = joker.rarity - 1
+        joker.x_index = joker.rarity
+        joker.y_index = 1
     end
     
-    -- Get width of atlas (in Jokers)
-    local width = atlas_collection[joker.atlas].width or 10
-
+    -- One-indexed positioning
+    joker.position = {x = joker.x_index-1, y = joker.y_index-1}
+    
     -- Soul Sprite
     if joker.rarity == 'L' then
-        -- Soul index is a separate variable used for Legendary jokers and Hologram
-        joker.soul = get_coordinates(joker.soul_index, width)
+        joker.soul = {x = joker.soul_x_index-1, y = joker.soul_y_index-1}
     end
 
     add_credits(joker)
-
-    -- Index = where the Joker is on the atlas (from 0)
-    joker.position = get_coordinates(joker.index, width)
 
     -- Auto-generate a key, if the Joker does not already have one assigned
     if joker.key == nil then

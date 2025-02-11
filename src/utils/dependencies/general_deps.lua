@@ -1,13 +1,6 @@
 ﻿-- Converts Chips data to Talisman
 to_big = to_big or function(x) return x end
 
--- Index-based coordinates generation
---- Taken from Bunco
-get_coordinates = function(position, width)
-    if width == nil then width = 10 end -- 10 is default for Jokers
-    return {x = (position) % width, y = math.floor((position) / width)}
-end
-
 -- Debug messages
 print_line = function(message)
     if verbose then

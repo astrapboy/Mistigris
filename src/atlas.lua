@@ -2,8 +2,6 @@
 atlas_collection = {
     -- Placeholder Atlas
     ["placeholder"] = {
-        -- Width (in Jokers)
-        width = 5,
         path = "placeholders.png",
         px = 71,
         py = 95
