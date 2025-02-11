@@ -1,6 +1,5 @@
 -- Power of Three
 create_joker({
-    name = "Power of Three",
     key = "powerofthree",
     credits = {
         idea = "astrapboy",
@@ -33,7 +32,6 @@ create_joker({
 
 -- Boulder
 create_joker({
-    name = "Boulder",
     key = "boulder",
     credits = {
         idea = "astrapboy",
@@ -80,7 +78,6 @@ create_joker({
 
 -- Comedian
 create_joker({
-    name = "Comedian",
     key = "comedian",
     credits = {
         idea = "astrapboy",

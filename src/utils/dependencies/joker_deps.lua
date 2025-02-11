@@ -41,7 +41,7 @@ create_joker = function(joker)
     add_credits(joker)
 
     -- Auto-generate a key, if the Joker does not already have one assigned
-    if joker.key == nil then
+    if joker.key == nil and joker.name ~= nil then
         joker.key = string.gsub(string.lower(joker.name), '%s', '_') -- Removes spaces and uppercase letters
     end
     

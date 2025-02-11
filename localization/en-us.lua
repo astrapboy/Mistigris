@@ -56,6 +56,14 @@ return {
                     '{C:attention}#2#%{} of required chips',
                 }
             },
+            j_mstg_ninjajoker = {
+                name = 'Ninja Joker',
+                text = {
+                    '{C:chips}+#1#{} Chips if chips',
+                    'scored are less than',
+                    '{C:attention}#2#%{} of required chips',
+                }
+            },
             j_mstg_timesheet = {
                 name = 'Timesheet',
                 text = {
@@ -89,7 +97,18 @@ return {
                     "Retrigger",
                     "each played",
                     "{C:attention}#1#{}, {C:attention}#2#{}, {C:attention}#3#{}, or {C:attention}#4#{}",                }
-            }
+            },
+            --- Rare
+            j_mstg_outcast = {
+                name = 'Outcast',
+                text = {
+                    '{X:mult,C:white} X#1# {} Mult for every',
+                    'hand played that includes a',
+                    '{C:attention}non-scoring{} card, resets',
+                    'if all cards score.',
+                    '{C:inactive}(Currently {X:mult,C:white} X#2# {C:inactive} Mult)',
+                }
+            },
         },
         Other={},
         Planet={},

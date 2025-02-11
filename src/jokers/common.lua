@@ -1,6 +1,5 @@
 -- Diminishing Returns
 create_joker({
-    name = "Diminishing Returns",
     key = "diminishingreturns",
     config = { extra = {base_xmult = 3.5, penalty = 0.5}},
     loc_vars = function(self, info_queue, card)
@@ -23,7 +22,6 @@ create_joker({
 
 -- Peeking Joker
 create_joker {
-    name = "Peeking Joker",
     key = "peekingjoker",
     credits = {
         idea = "astrapboy",
@@ -38,7 +36,29 @@ create_joker {
     calculate = function(self, card, context)
         if context.joker_main and to_big(G.GAME.chips) / to_big(G.GAME.blind.chips) >= to_big(card.ability.extra.threshold) then
             return {
-                mult = card.ability.extra.mult_bonus,
+                mult = card.ability.extra.mult_bonus
+            }
+        end
+    end
+}
+
+-- Ninja Joker
+create_joker {
+    key = "ninjajoker",
+    credits = {
+        idea = "astrapboy",
+        code = "astrapboy"
+    },
+    config = { extra = { threshold = 0.6, chip_bonus = 150 } },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.chip_bonus, card.ability.extra.threshold * 100 } }
+    end,
+    rarity = "C",
+    cost = 6,
+    calculate = function(self, card, context)
+        if context.joker_main and to_big(G.GAME.chips) / to_big(G.GAME.blind.chips) < to_big(card.ability.extra.threshold) then
+            return {
+                chips = card.ability.extra.chip_bonus
             }
         end
     end
@@ -46,7 +66,6 @@ create_joker {
 
 -- Timesheet
 create_joker {
-    name = "Timesheet",
     key = "timesheet",
     credits = {
         idea = "astrapboy",
@@ -71,3 +90,4 @@ create_joker {
         end
     end
 }
+
