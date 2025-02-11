@@ -11,6 +11,7 @@ create_joker({
         idea = "astrapboy",
         code = "astrapboy"
     },
+    blueprint = true,
     calculate = function(self, card, context)
         if context.joker_main then
             return {
@@ -27,6 +28,7 @@ create_joker {
         idea = "astrapboy",
         code = "astrapboy"
     },
+    blueprint = true,
     config = { extra = { threshold = 0.6, mult_bonus = 12 } },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult_bonus, card.ability.extra.threshold * 100 } }
@@ -49,6 +51,7 @@ create_joker {
         idea = "astrapboy",
         code = "astrapboy"
     },
+    blueprint = true,
     config = { extra = { threshold = 0.6, chip_bonus = 150 } },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.chip_bonus, card.ability.extra.threshold * 100 } }

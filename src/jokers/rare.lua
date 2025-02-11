@@ -9,6 +9,7 @@ create_joker({
         idea = "astrapboy",
         code = "astrapboy"
     },
+    blueprint = true,
     rarity = "R",
     cost = 9,
     calculate = function(self, card, context)

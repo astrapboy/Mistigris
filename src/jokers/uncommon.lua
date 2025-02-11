@@ -10,6 +10,7 @@ create_joker({
         return {vars = {card.ability.extra.bonus_xmult, 3, card.ability.extra.current_xmult}}
     end,
     rarity = "U",
+    blueprint = true,
     cost = 7,
     calculate = function(self, card, context)
         local multiples = {3, 6, 9}
@@ -57,7 +58,7 @@ create_joker({
             card.ability.extra.win_reroll = true
         end
         
-        if context.reroll_shop then
+        if context.reroll_shop and not context.blueprint then
             card.ability.extra.win_reroll = false
             if not G.GAME.current_round.reroll_shop_context_caught and card.ability.extra.reroll_total > 0 then
                 G.GAME.current_round.reroll_shop_context_caught = true
@@ -65,7 +66,7 @@ create_joker({
                 end
             end
         
-        if context.ending_shop and card.ability.extra.reroll_total < card.ability.extra.reroll_max and card.ability.extra.win_reroll then
+        if context.ending_shop and card.ability.extra.reroll_total < card.ability.extra.reroll_max and card.ability.extra.win_reroll and not context.blueprint then
             card.ability.extra.reroll_total = card.ability.extra.reroll_total + 1
             G.GAME.current_round.free_rerolls = G.GAME.current_round.free_rerolls + 1
             calculate_reroll_cost(true)
@@ -83,6 +84,7 @@ create_joker({
         idea = "astrapboy",
         code = "astrapboy"
     },
+    blueprint = true,
     config = { extra = {retrigger_ranks = {6, 7, 8, 9}, retriggers = 1}},
     loc_vars = function(self, info_queue, card)
         return {vars = {6, 7, 8, 9}}
