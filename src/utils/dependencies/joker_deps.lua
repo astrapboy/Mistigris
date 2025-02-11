@@ -26,16 +26,16 @@ create_joker = function(joker)
     -- Placeholder atlas
     if joker.atlas == nil then
         joker.atlas = "placeholder"
-        joker.x_index = joker.rarity
-        joker.y_index = 1
+        joker.x_index = joker.rarity-1
+        joker.y_index = 0
     end
     
     -- One-indexed positioning
-    joker.position = {x = joker.x_index-1, y = joker.y_index-1}
+    joker.position = {x = joker.x_index, y = joker.y_index}
     
     -- Soul Sprite
     if joker.rarity == 'L' then
-        joker.soul = {x = joker.soul_x_index-1, y = joker.soul_y_index-1}
+        joker.soul = {x = joker.soul_x_index, y = joker.soul_y_index}
     end
 
     add_credits(joker)
