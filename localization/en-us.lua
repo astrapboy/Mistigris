@@ -72,15 +72,6 @@ return {
                 }
             },
             --- Uncommon
-            j_mstg_powerofthree= {
-                name = 'Power of Three',
-                text = {
-                    '{X:mult,C:white} X#1# {} Mult for each',
-                    'scored hand this run that',
-                    'contains a multiple of {C:attention}#2#{}',
-                    "{C:inactive}(Currently {X:mult,C:white} X#3# {C:inactive} Mult)",
-                }
-            },
             j_mstg_boulder= {
                 name = 'Boulder',
                 text = {
@@ -105,8 +96,25 @@ return {
                     '{X:mult,C:white} X#1# {} Mult for every',
                     'hand played that includes a',
                     '{C:attention}non-scoring{} card, resets',
-                    'if all cards score.',
+                    'if all cards score',
                     '{C:inactive}(Currently {X:mult,C:white} X#2# {C:inactive} Mult)',
+                }
+            },
+            j_mstg_powerofthree= {
+                name = 'Power of Three',
+                text = {
+                    '{X:mult,C:white} X#1# {} Mult for each',
+                    'scored hand this run that',
+                    'contains a multiple of {C:attention}#2#{}',
+                    "{C:inactive}(Currently {X:mult,C:white} X#3# {C:inactive} Mult)",
+                }
+            },
+            j_mstg_plasmajoker= {
+                name = 'Plasma Joker',
+                text = {
+                    'Up to {X:mult,C:white} X#1# {} Mult',
+                    'depending on how close',
+                    '{C:chips}Chips{} and {C:mult}Mult{} are'
                 }
             },
         },

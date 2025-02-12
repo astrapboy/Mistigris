@@ -34,6 +34,7 @@ create_joker({
         end
     end
 })
+
 -- Power of Three
 create_joker({
     key = "powerofthree",
@@ -47,7 +48,7 @@ create_joker({
     end,
     rarity = "R",
     blueprint = true,
-    cost = 7,
+    cost = 9,
     calculate = function(self, card, context)
         local multiples = {3, 6, 9}
         if context.before and not context.blueprint then
@@ -62,6 +63,32 @@ create_joker({
         if context.joker_main then
             return {
                 Xmult = card.ability.extra.current_xmult
+            }
+        end
+    end
+})
+
+-- Plasma Joker
+create_joker({
+    key = "plasmajoker",
+    credits = {
+        idea = "astrapboy",
+        code = "astrapboy"
+    },
+    config = { extra = {base_xmult = 1, extra_xmult = 5}},
+    loc_vars = function(self, info_queue, card)
+        return {vars = {card.ability.extra.base_xmult + card.ability.extra.extra_xmult}}
+    end,
+    rarity = "R",
+    blueprint = true,
+    cost = 9,
+    calculate = function(self, card, context)
+        if context.joker_main then
+            local smallerNum = math.min(to_number(hand_chips), to_number(mult))
+            local biggerNum = math.max(to_number(hand_chips), to_number(mult))
+            local bonus_xmult = smallerNum / biggerNum * card.ability.extra.extra_xmult
+            return {
+                Xmult = bonus_xmult + card.ability.extra.base_xmult
             }
         end
     end

@@ -1,5 +1,6 @@
-﻿-- Converts Chips data to Talisman
+﻿-- Talisman functions
 to_big = to_big or function(x) return x end
+to_number = to_number or function(x) return x end
 
 -- Debug messages
 print_line = function(message)

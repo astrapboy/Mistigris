@@ -1,4 +1,3 @@
-
 -- Boulder
 create_joker({
     key = "boulder",
