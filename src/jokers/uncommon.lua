@@ -91,19 +91,16 @@ create_joker({
             local matches_card_count = 0
             local example_card_count = #example_table
             for _, v in ipairs(example_table) do
-                local scores = v[2]
-                if scores then
-                    local options = {}
-                    for letter in string.gmatch(v[1], '[^_]+') do
-                        table.insert(options, letter)
-                    end
+                local options = {}
+                for letter in string.gmatch(v[1], '[^_]+') do
+                    table.insert(options, letter)
+                end
 
-                    local active_suit = suits[options[1]]
-                    local active_card = cards[options[2]]
-                    for hand_index = 1, #context.full_hand do
-                        if context.full_hand[hand_index]:is_suit(active_suit) and context.full_hand[hand_index]:get_id() == active_card then
-                            matches_card_count = matches_card_count + 1
-                        end
+                local active_suit = suits[options[1]]
+                local active_card = cards[options[2]]
+                for hand_index = 1, #context.full_hand do
+                    if context.full_hand[hand_index]:is_suit(active_suit) and context.full_hand[hand_index]:get_id() == active_card then
+                        matches_card_count = matches_card_count + 1
                     end
                 end
             end
