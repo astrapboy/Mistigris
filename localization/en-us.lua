@@ -89,6 +89,15 @@ return {
                     "each played",
                     "{C:attention}#1#{}, {C:attention}#2#{}, {C:attention}#3#{}, or {C:attention}#4#{}",                }
             },
+            j_mstg_handyman = {
+                name = 'Handyman',
+                text = {
+                    '{X:mult,C:white} X#1# {} Mult if',
+                    '{C:attention}played hand{} matches',
+                    'example in the menu',
+                    '{C:inactive}(Includes non-scoring cards){}'
+                }
+            },
             --- Rare
             j_mstg_outcast = {
                 name = 'Outcast',
@@ -113,7 +122,7 @@ return {
                 name = 'Plasma Joker',
                 text = {
                     'Up to {X:mult,C:white} X#1# {} Mult',
-                    'depending on how close',
+                    'depending on how balanced',
                     '{C:chips}Chips{} and {C:mult}Mult{} are'
                 }
             },

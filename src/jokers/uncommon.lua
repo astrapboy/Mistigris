@@ -67,3 +67,52 @@ create_joker({
         end
     end
 })
+
+-- Handyman
+create_joker({
+    key = "handyman",
+    credits = {
+        idea = "astrapboy",
+        code = "astrapboy"
+    },
+    blueprint = true,
+    config = { extra = {bonus = 6}},
+    loc_vars = function(self, info_queue, card)
+        return {vars = {card.ability.extra.bonus}}
+    end,
+    rarity = "U",
+    cost = 7,
+    calculate = function(self, card, context)
+        if context.joker_main then
+            local example_table = G.GAME.hands[G.GAME.current_round.current_hand.handname].example
+            local suits = {["S"] = 'Spades', ['H'] = 'Hearts', ['D'] = 'Diamonds', ['C'] = 'Clubs'}
+            local cards = {['2'] = 2, ['3'] = 3, ['4'] = 4, ['5'] = 5, ['6'] = 6, ['7'] = 7, ['8'] = 8, ['9'] = 9, ['10'] = 10, ['J'] = 11, ['Q'] = 12, ['K'] = 13, ['A'] = 14}
+
+            local matches_card_count = 0
+            local example_card_count = #example_table
+            for _, v in ipairs(example_table) do
+                local scores = v[2]
+                if scores then
+                    local options = {}
+                    for letter in string.gmatch(v[1], '[^_]+') do
+                        table.insert(options, letter)
+                    end
+
+                    local active_suit = suits[options[1]]
+                    local active_card = cards[options[2]]
+                    for hand_index = 1, #context.full_hand do
+                        if context.full_hand[hand_index]:is_suit(active_suit) and context.full_hand[hand_index]:get_id() == active_card then
+                            matches_card_count = matches_card_count + 1
+                        end
+                    end
+                end
+            end
+
+            if matches_card_count == example_card_count then
+                return {
+                    Xmult = card.ability.extra.bonus
+                }
+            end
+        end
+    end
+})
