@@ -94,13 +94,6 @@ create_joker({
     end
 })
 
-local base_endround = end_round
-function end_round()
-    base_endround()
-    print_line("UNRIGGED")
-    G.GAME.rig_all_probs = false
-end
-
 create_joker({
     key = "weighteddice",
     credits = {

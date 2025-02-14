@@ -1,16 +1,4 @@
-﻿--[[
-SELF-DESTRUCT CODE
-
-add_event(function()
-    play_sound("tarot1")
-    card.T.r = -0.2
-    card:juice_up(0.3, 0.4)
-    card.states.drag.is = true
-    card.children.center.pinch.x = true
-    add_event(function() G.jokers:remove_card(self) card:remove() card = nil return true end, 0.3, nil, "after", false) end)
-]]
-
--- Joker creation wrapper
+﻿-- Joker creation wrapper
 --- Taken from Bunco and rewritten + simplified
 create_joker = function(joker)
     -- Rarity conversion

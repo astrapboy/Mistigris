@@ -17,6 +17,11 @@ local preload = {
         "atlas",
         "blinds"
     },
+    
+    --- Utilities (do not put dependencies here!)
+    ["utils"] = {
+        "hooks"
+    },
 
     --- Joker Files
     ["jokers"] = {
