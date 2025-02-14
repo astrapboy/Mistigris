@@ -100,13 +100,19 @@ create_joker({
         idea = "astrapboy",
         code = "astrapboy"
     },
-    config = { extra = {}},
+    config = { extra = {jiggle = false}},
     rarity = "R",
     blueprint = false,
     cost = 9,
     calculate = function(self, card, context)
-        if context.selling_self == true and not context.blueprint then
+        local eval = function() return (context.setting_blind) and not G.RESET_JIGGLES end
+        juice_card_until(card, eval, true)
+        
+        if context.selling_self and not G.RESET_JIGGLES and not context.blueprint then
             G.GAME.rig_all_probs = true
+            return {
+                message = localize('k_mstg_rigged_ex')
+            }
         end
     end
 })

@@ -129,9 +129,10 @@ return {
             j_mstg_weighteddice= {
                 name = 'Weighted Dice',
                 text = {
-                    'Sell this Joker to {C:attention}guarantee',
+                    'When Blind is selected,',
+                    'sell this Joker to {C:attention}guarantee',
                     '{C:green}all probabilities{} until the',
-                    'end of the round'
+                    'end of the round',
                 }
             },
         },
@@ -150,6 +151,7 @@ return {
         challenge_names={},
         collabs={},
         dictionary={
+            k_mstg_rigged_ex="Rigged!",
         },
         high_scores={},
         labels={},
