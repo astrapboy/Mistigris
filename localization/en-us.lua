@@ -126,6 +126,14 @@ return {
                     '{C:chips}Chips{} and {C:mult}Mult{} are'
                 }
             },
+            j_mstg_weighteddice= {
+                name = 'Weighted Dice',
+                text = {
+                    'Sell this Joker to {C:attention}guarantee',
+                    '{C:green}all probabilities{} until the',
+                    'end of the round'
+                }
+            },
         },
         Other={},
         Planet={},

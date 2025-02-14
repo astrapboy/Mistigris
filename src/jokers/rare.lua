@@ -93,3 +93,27 @@ create_joker({
         end
     end
 })
+
+local base_endround = end_round
+function end_round()
+    base_endround()
+    print_line("UNRIGGED")
+    G.GAME.rig_all_probs = false
+end
+
+create_joker({
+    key = "weighteddice",
+    credits = {
+        idea = "astrapboy",
+        code = "astrapboy"
+    },
+    config = { extra = {}},
+    rarity = "R",
+    blueprint = false,
+    cost = 9,
+    calculate = function(self, card, context)
+        if context.selling_self == true and not context.blueprint then
+            G.GAME.rig_all_probs = true
+        end
+    end
+})

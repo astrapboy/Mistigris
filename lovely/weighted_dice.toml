@@ -1,0 +1,28 @@
+﻿[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 5
+
+# Introduce the variable
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = "won = false,"
+position = "after"
+payload = '''
+rig_all_probs = false,
+'''
+match_indent = true
+times = 1
+
+# Actually utilize it
+[[patches]]
+[patches.pattern]
+target = "functions/misc_functions.lua"
+pattern = "if type(seed) == 'string' then seed = pseudoseed(seed) end"
+position = "after"
+payload = '''
+if G.GAME.rig_all_probs == true then return 0 end
+'''
+match_indent = true
+times = 1
