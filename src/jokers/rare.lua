@@ -103,6 +103,8 @@ create_joker({
     config = { extra = {jiggle = false}},
     rarity = "R",
     blueprint = false,
+    eternal = false,
+    perishable = false,
     cost = 9,
     calculate = function(self, card, context)
         local eval = function() return (context.setting_blind) and not G.RESET_JIGGLES end
