@@ -122,3 +122,30 @@ create_joker({
         end
     end
 })
+
+-- Banana Factory
+create_joker {
+    key = "bananafactory",
+    credits = {
+        idea = "astrapboy",
+        code = "astrapboy"
+    },
+    config = { extra = {} },
+    blueprint = false,
+    rarity = "U",
+    cost = 7,
+    calculate = function(self, card, context)
+        if context.entering_shop and not context.blueprint then
+            if not next(SMODS.find_card("j_gros_michel")) and not next(SMODS.find_card("j_cavendish")) and not next(SMODS.find_card("j_showman")) then
+                local delete = G.shop_jokers:remove_card(G.shop_jokers.cards[2])
+                delete:remove()
+                local key = G.GAME.pool_flags.gros_michel_extinct and "j_cavendish" or "j_gros_michel"
+                local sold_card = SMODS.create_card({set = 'Joker', area = G.shop_jokers, key = key})
+                create_shop_card_ui(sold_card, "Joker", G.shop_jokers)
+                G.shop_jokers:emplace(sold_card)
+                sold_card:start_materialize()
+                sold_card:set_cost()
+            end
+        end
+    end
+}

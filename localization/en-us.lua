@@ -71,15 +71,6 @@ return {
                     'a playing card is {C:attention}retriggered{}',
                 }
             },
-            j_mstg_bananafactory = {
-                name = 'Banana Factory',
-                text = {
-                    'Guarantees a {C:attention}Gros Michel{}',
-                    'or {C:attention}Cavendish{} in the',
-                    'next shop',
-                    '{C:inactive}(If not owned){}'
-                }
-            },
             --- Uncommon
             j_mstg_boulder= {
                 name = 'Boulder',
@@ -105,6 +96,15 @@ return {
                     '{C:attention}played hand{} matches',
                     'example in the menu',
                     '{C:inactive}(Includes non-scoring cards){}'
+                }
+            },
+            j_mstg_bananafactory = {
+                name = 'Banana Factory',
+                text = {
+                    'Guarantees a {C:attention}Gros Michel{}',
+                    'or {C:attention}Cavendish{} in the',
+                    'next shop',
+                    '{C:inactive}(If not owned){}'
                 }
             },
             --- Rare
