@@ -109,7 +109,7 @@ create_joker({
         juice_card_until(card, eval, true)
         
         if context.selling_self and not G.RESET_JIGGLES and not context.blueprint then
-            G.GAME.rig_all_probs = true
+            G.GAME.probabilities.normal = 1e6
             return {
                 message = localize('k_mstg_rigged_ex')
             }

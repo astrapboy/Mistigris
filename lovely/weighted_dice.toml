@@ -7,10 +7,10 @@ priority = 5
 [[patches]]
 [patches.pattern]
 target = "game.lua"
-pattern = "won = false,"
+pattern = "normal = 1,"
 position = "after"
 payload = '''
-rig_all_probs = false,
+base_normal = 1,
 '''
 match_indent = true
 times = 1
@@ -18,11 +18,11 @@ times = 1
 # Actually utilize it
 [[patches]]
 [patches.pattern]
-target = "functions/misc_functions.lua"
-pattern = "if type(seed) == 'string' then seed = pseudoseed(seed) end"
+target = "functions/state_events.lua"
+pattern = "SMODS.calculate_context({end_of_round = true, game_over = game_over })"
 position = "after"
 payload = '''
-if G.GAME.rig_all_probs == true then return 0 end
+G.GAME.probabilities.normal = G.GAME.probabilities.base_normal
 '''
 match_indent = true
 times = 1
