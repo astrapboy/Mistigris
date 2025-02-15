@@ -93,3 +93,15 @@ create_joker {
         end
     end
 }
+
+-- Up To Eleven
+create_joker {
+    key = "uptoeleven",
+    credits = {
+        idea = "astrapboy",
+        code = "astrapboy"
+    },
+    blueprint = false,
+    rarity = "C",
+    cost = 6
+}

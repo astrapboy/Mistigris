@@ -71,6 +71,14 @@ return {
                     'a playing card is {C:attention}retriggered{}',
                 }
             },
+            j_mstg_uptoeleven = {
+                name = 'Up To 11',
+                text = {
+                    '{C:attention}10{}s and {C:attention}Aces{}',
+                    'are considered',
+                    '{C:attention}face{} cards'
+                }
+            },
             --- Uncommon
             j_mstg_boulder= {
                 name = 'Boulder',

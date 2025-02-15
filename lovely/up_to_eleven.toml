@@ -1,0 +1,16 @@
+﻿[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 5
+
+# Adds to the Is Face detector
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = "if not id then return end"
+position = "after"
+payload = '''
+if next(SMODS.find_card("j_mstg_uptoeleven")) and id >= 10 then return true end
+'''
+match_indent = true
+times = 1
