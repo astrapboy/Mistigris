@@ -71,13 +71,22 @@ return {
                     'a playing card is {C:attention}retriggered{}',
                 }
             },
+            j_mstg_bananafactory = {
+                name = 'Banana Factory',
+                text = {
+                    'Guarantees a {C:attention}Gros Michel{}',
+                    'or {C:attention}Cavendish{} in the',
+                    'next shop',
+                    '{C:inactive}(If not owned){}'
+                }
+            },
             --- Uncommon
             j_mstg_boulder= {
                 name = 'Boulder',
                 text = {
                     '{C:attention}+#1#{} free {C:green}Reroll{} every',
                     'time you leave a shop',
-                    'without {C:attention}rerolling.{}',
+                    'without {C:attention}rerolling{}',
                     "{C:inactive}(Max of {C:green}#2#{C:inactive} Rerolls)",
                     "{C:inactive}(Currently {C:green}#3#{C:inactive} Rerolls)",
                 }
@@ -129,7 +138,7 @@ return {
             j_mstg_weighteddice= {
                 name = 'Weighted Dice',
                 text = {
-                    'When Blind is selected,',
+                    'After Blind is selected,',
                     'sell this Joker to {C:attention}guarantee',
                     '{C:green}all probabilities{} until the',
                     'end of the round',
