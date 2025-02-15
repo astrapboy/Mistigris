@@ -108,11 +108,11 @@ create_joker {
     calculate = function(self, card, context)
         if context.entering_shop and not context.blueprint then
             if not next(SMODS.find_card("j_gros_michel")) and not next(SMODS.find_card("j_cavendish")) and not next(SMODS.find_card("j_showman")) then
-                change_shop_size(1)
                 local key = G.GAME.pool_flags.gros_michel_extinct and "j_cavendish" or "j_gros_michel"
                 local sold_card = SMODS.create_card({set = 'Joker', area = G.shop_jokers, key = key})
                 create_shop_card_ui(sold_card, "Joker", G.shop_jokers)
                 G.shop_jokers:emplace(sold_card)
+                change_shop_size(1)
                 sold_card:start_materialize()
                 sold_card:set_cost()
             end
