@@ -2,5 +2,5 @@
 local base_end_round = end_round
 end_round = function()
     base_end_round()
-    G.GAME.rig_all_probs = false
+    G.GAME.probabilities.normal = G.GAME.probabilities.base_normal
 end
