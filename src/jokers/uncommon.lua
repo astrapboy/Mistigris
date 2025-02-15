@@ -130,7 +130,6 @@ create_joker {
         idea = "astrapboy",
         code = "astrapboy"
     },
-    config = { extra = {} },
     blueprint = false,
     rarity = "U",
     cost = 7,
