@@ -42,17 +42,16 @@ create_joker({
         idea = "astrapboy",
         code = "astrapboy"
     },
-    config = { extra = {bonus_xmult = 0.33, current_xmult = 1, multiple_of = 3}},
+    config = { extra = {bonus_xmult = 0.33, current_xmult = 1, target = 3}},
     loc_vars = function(self, info_queue, card)
-        return {vars = {card.ability.extra.bonus_xmult, 3, card.ability.extra.current_xmult}}
+        return {vars = {card.ability.extra.bonus_xmult, card.ability.extra.target, card.ability.extra.current_xmult}}
     end,
     rarity = "R",
     blueprint = true,
     cost = 9,
     calculate = function(self, card, context)
-        local multiples = {3, 6, 9}
         if context.before and not context.blueprint then
-            if ranks_count(context.scoring_hand, multiples) > 0 then
+            if rank_count(context.scoring_hand, card.ability.extra.target) > 0 then
                 card.ability.extra.current_xmult = card.ability.extra.current_xmult + card.ability.extra.bonus_xmult
                 return {
                     message = localize('k_upgrade_ex')

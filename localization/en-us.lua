@@ -122,8 +122,8 @@ return {
                 name = 'Power of Three',
                 text = {
                     '{X:mult,C:white} X#1# {} Mult for each',
-                    'scored hand this run that',
-                    'contains a multiple of {C:attention}#2#{}',
+                    'scored hand this run',
+                    'that contains a {C:attention}#2#{}',
                     "{C:inactive}(Currently {X:mult,C:white} X#3# {C:inactive} Mult)",
                 }
             },
