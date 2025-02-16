@@ -152,7 +152,7 @@ create_joker {
 }
 
 -- Conscription
-create_joker {
+create_joker({
     key = "conscription",
     credits = {
         idea = "astrapboy",
@@ -163,24 +163,9 @@ create_joker {
     cost = 7,
     calculate = function(self, card, context)
         if context.after and G.GAME.current_round.hands_played == 0 and not context.blueprint then
-            local safes = {}
-            for s_idx = 1, #context.scoring_hand do
-                local c = context.scoring_hand[s_idx]
-                table.insert(safes, c:get_id())
-            end -- full_hand
             for c_idx = 1, #context.full_hand do
                 local c = context.full_hand[c_idx]
-
-                local found = false
-
-                for _, id in pairs(safes) do
-                    if id == c:get_id() then
-                        found = true
-                        break
-                    end
-                end
-                
-                if not found then
+                if not SMODS.in_scoring(c, context.scoring_hand) then
                     add_event(function()
                         if G.jokers then
                             c:juice_up(0.8, 0.8)
@@ -192,4 +177,4 @@ create_joker {
             end
         end
     end
-}
+})
