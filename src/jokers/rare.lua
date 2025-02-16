@@ -93,7 +93,6 @@ create_joker({
     end
 })
 
--- Weighted Dice
 create_joker({
     key = "weighteddice",
     credits = {
@@ -122,44 +121,23 @@ create_joker({
 })
 
 -- Conscription
-create_joker {
+create_joker({
     key = "conscription",
     credits = {
         idea = "astrapboy",
-        code = "astrapboy and Khaki"
+        code = "astrapboy, Khaki & Eremel"
     },
     blueprint = false,
-    rarity = "U",
-    cost = 7,
+    rarity = "R",
+    cost = 9,
     calculate = function(self, card, context)
-        if context.after and G.GAME.current_round.hands_played == 0 and not context.blueprint then
-            local safes = {}
-            for s_idx = 1, #context.scoring_hand do
-                local c = context.scoring_hand[s_idx]
-                table.insert(safes, c:get_id())
-            end -- full_hand
-            for c_idx = 1, #context.full_hand do
-                local c = context.full_hand[c_idx]
-
-                local found = false
-
-                for _, id in pairs(safes) do
-                    if id == c:get_id() then
-                        found = true
-                        break
-                    end
-                end
-
-                if not found then
-                    add_event(function()
-                        if G.jokers then
-                            c:juice_up(0.8, 0.8)
-                            c:start_dissolve({ HEX("63f06b") }, nil, 1.6)
-                            return true
-                        end
-                    end, nil, nil)
-                end
-            end
+        local eval = function() return (G.GAME.current_round.hands_played == 0 and not context.blueprint) and not G.RESET_JIGGLES end
+        juice_card_until(card, eval, true)
+        
+        if context.destroying_card and context.cardarea == "unscored" and G.GAME.current_round.hands_played == 0 and not context.blueprint then
+            return {
+                remove = true
+            }
         end
     end
-}
+})

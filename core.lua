@@ -1,3 +1,6 @@
+-- Required for unscoring cards
+SMODS.optional_features.cardareas.unscored = true
+
 -- Dependencies are files that contain functions re-used across multiple files, so we want to grab them...
 local dependencies = {
     'general_deps',
