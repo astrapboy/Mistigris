@@ -115,6 +115,13 @@ return {
                     "{C:inactive}(If not owned){}"
                 }
             },
+            j_mstg_conscription = {
+                name = "Conscription",
+                text = {
+                    "When first hand is played,",
+                    "{C:attention}destroy{} all {C:attention}unscoring cards{}",
+                }
+            },
             --- Rare
             j_mstg_outcast = {
                 name = "Outcast",

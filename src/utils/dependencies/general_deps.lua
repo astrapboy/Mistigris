@@ -81,7 +81,7 @@ end
 add_event = function(func, delay, timer, trigger, blockable, blocking)
     G.E_MANAGER:add_event(Event({
         timer = timer,
-        trigger = trigger,
+        trigger = trigger or "after",
         blocking = blocking or true,
         blockable = blockable,
         func = func,
