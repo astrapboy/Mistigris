@@ -156,7 +156,7 @@ create_joker({
     key = "conscription",
     credits = {
         idea = "astrapboy",
-        code = "astrapboy and Khaki"
+        code = "astrapboy & Khaki"
     },
     blueprint = false,
     rarity = "U",
