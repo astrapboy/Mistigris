@@ -144,7 +144,7 @@ create_joker({
                             c:start_dissolve({ HEX("63f06b") }, nil, 1.6)
                             return true
                         end
-                    end, nil, nil)
+                    end, nil, nil, "immediate")
                 end
             end
         end
