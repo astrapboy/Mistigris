@@ -106,15 +106,10 @@ create_joker({
     perishable = false,
     cost = 9,
     calculate = function(self, card, context)
-        if context.setting_blind then
-            card.ability.extra.can_rig = true
-        end
-
-        if context.end_of_round then
-            card.ability.extra.can_rig = false
-        end
+        if context.setting_blind then card.ability.extra.can_rig = true end
+        if context.end_of_round then card.ability.extra.can_rig = false end
         
-        local eval = function() return (context.setting_blind) and not G.RESET_JIGGLES end
+        local eval = function() return (context.setting_blind and not context.blueprint) and not G.RESET_JIGGLES end
         juice_card_until(card, eval, true)
         
         if context.selling_self and not G.RESET_JIGGLES and not context.blueprint and card.ability.extra.can_rig then
