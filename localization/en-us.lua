@@ -115,13 +115,6 @@ return {
                     "{C:inactive}(If not owned){}"
                 }
             },
-            j_mstg_conscription = {
-                name = "Conscription",
-                text = {
-                    "When first hand is played,",
-                    "{C:attention}destroy{} all {C:attention}unscoring cards{}",
-                }
-            },
             --- Rare
             j_mstg_outcast = {
                 name = "Outcast",
@@ -157,6 +150,13 @@ return {
                     "sell this Joker to {C:attention}guarantee",
                     "{C:green}all probabilities{} until the",
                     "end of the round",
+                }
+            },
+            j_mstg_conscription = {
+                name = "Conscription",
+                text = {
+                    "When first hand is played,",
+                    "{C:attention}destroy{} all {C:attention}unscoring cards{}",
                 }
             },
         },
