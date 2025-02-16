@@ -129,8 +129,8 @@ create_joker({
         code = "astrapboy & Khaki"
     },
     blueprint = false,
-    rarity = "U",
-    cost = 7,
+    rarity = "R",
+    cost = 9,
     calculate = function(self, card, context)
         if context.after and G.GAME.current_round.hands_played == 0 and not context.blueprint then
             for c_idx = 1, #context.full_hand do
