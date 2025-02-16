@@ -106,10 +106,9 @@ create_joker({
     perishable = false,
     cost = 9,
     calculate = function(self, card, context)
-        if context.setting_blind then card.ability.extra.can_rig = true end
-        if context.end_of_round then card.ability.extra.can_rig = false end
+        card.ability.extra.can_rig = G.GAME.blind.in_blind
         
-        local eval = function() return (context.setting_blind and not context.blueprint) and not G.RESET_JIGGLES end
+        local eval = function() return (card.ability.extra.can_rig and not context.blueprint) and not G.RESET_JIGGLES end
         juice_card_until(card, eval, true)
         
         if context.selling_self and not G.RESET_JIGGLES and not context.blueprint and card.ability.extra.can_rig then
@@ -132,6 +131,9 @@ create_joker({
     rarity = "R",
     cost = 9,
     calculate = function(self, card, context)
+        local eval = function() return (G.GAME.current_round.hands_played == 0 and not context.blueprint) and not G.RESET_JIGGLES end
+        juice_card_until(card, eval, true)
+
         if context.after and G.GAME.current_round.hands_played == 0 and not context.blueprint then
             for c_idx = 1, #context.full_hand do
                 local c = context.full_hand[c_idx]
