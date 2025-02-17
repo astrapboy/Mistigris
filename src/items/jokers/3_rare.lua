@@ -1,16 +1,16 @@
 ﻿-- Outcast
-create_joker({
+SMODS.Joker({
     key = "outcast",
     config = {extra = {Xmult = 1, bonus = 0.1}},
     loc_vars = function(self, info_queue, card)
         return {vars = {card.ability.extra.bonus, card.ability.extra.Xmult}}
     end,
-    credits = {
+    mstg_credits = {
         idea = "astrapboy",
         code = "astrapboy"
     },
-    blueprint = true,
-    rarity = "R",
+    blueprint_compat = true,
+    rarity = 3,
     cost = 9,
     calculate = function(self, card, context)
         if context.before and not context.blueprint then
@@ -36,9 +36,9 @@ create_joker({
 })
 
 -- Power of Three
-create_joker({
+SMODS.Joker({
     key = "powerofthree",
-    credits = {
+    mstg_credits = {
         idea = "astrapboy",
         code = "astrapboy"
     },
@@ -46,8 +46,8 @@ create_joker({
     loc_vars = function(self, info_queue, card)
         return {vars = {card.ability.extra.bonus_xmult, card.ability.extra.target, card.ability.extra.current_xmult}}
     end,
-    rarity = "R",
-    blueprint = true,
+    rarity = 3,
+    blueprint_compat = true,
     cost = 9,
     calculate = function(self, card, context)
         if context.before and not context.blueprint then
@@ -68,9 +68,9 @@ create_joker({
 })
 
 -- Plasma Joker
-create_joker({
+SMODS.Joker({
     key = "plasmajoker",
-    credits = {
+    mstg_credits = {
         idea = "astrapboy",
         code = "astrapboy"
     },
@@ -78,8 +78,8 @@ create_joker({
     loc_vars = function(self, info_queue, card)
         return {vars = {card.ability.extra.base_xmult + card.ability.extra.extra_xmult}}
     end,
-    rarity = "R",
-    blueprint = true,
+    rarity = 3,
+    blueprint_compat = true,
     cost = 9,
     calculate = function(self, card, context)
         if context.joker_main then
@@ -94,17 +94,17 @@ create_joker({
 })
 
 -- Weighted Dice
-create_joker({
+SMODS.Joker({
     key = "weighteddice",
-    credits = {
+    mstg_credits = {
         idea = "astrapboy",
         code = "astrapboy"
     },
     config = { extra = {can_rig = false}},
-    rarity = "R",
-    blueprint = false,
-    eternal = false,
-    perishable = false,
+    rarity = 3,
+    blueprint_compat = false,
+    eternal_compat = false,
+    perishable_compat = false,
     cost = 9,
     calculate = function(self, card, context)
         card.ability.extra.can_rig = G.GAME.blind.in_blind
@@ -122,14 +122,14 @@ create_joker({
 })
 
 -- Conscription
-create_joker({
+SMODS.Joker({
     key = "conscription",
-    credits = {
+    mstg_credits = {
         idea = "astrapboy",
         code = "astrapboy, Khaki & Eremel"
     },
-    blueprint = false,
-    rarity = "R",
+    blueprint_compat = false,
+    rarity = 3,
     cost = 9,
     calculate = function(self, card, context)
         local eval = function() return (G.GAME.current_round.hands_played == 0 and not context.blueprint) and not G.RESET_JIGGLES end

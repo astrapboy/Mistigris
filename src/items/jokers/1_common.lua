@@ -1,17 +1,17 @@
 -- Diminishing Returns
-create_joker({
+SMODS.Joker({
     key = "diminishingreturns",
     config = { extra = {base_xmult = 3.5, penalty = 0.5}},
     loc_vars = function(self, info_queue, card)
         return {vars = {card.ability.extra.base_xmult, card.ability.extra.penalty}}
     end,
-    rarity = "C",
+    rarity = 1,
     cost = 6,
-    credits = {
+    mstg_credits = {
         idea = "astrapboy",
         code = "astrapboy"
     },
-    blueprint = true,
+    blueprint_compat = true,
     calculate = function(self, card, context)
         if context.joker_main then
             return {
@@ -22,18 +22,18 @@ create_joker({
 })
 
 -- Peeking Joker
-create_joker {
+SMODS.Joker({
     key = "peekingjoker",
-    credits = {
+    mstg_credits = {
         idea = "astrapboy",
         code = "astrapboy"
     },
-    blueprint = true,
+    blueprint_compat = true,
     config = { extra = { threshold = 0.6, mult_bonus = 12 } },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult_bonus, card.ability.extra.threshold * 100 } }
     end,
-    rarity = "C",
+    rarity = 1,
     cost = 6,
     calculate = function(self, card, context)
         if context.joker_main and to_big(G.GAME.chips) / to_big(G.GAME.blind.chips) >= to_big(card.ability.extra.threshold) then
@@ -42,21 +42,21 @@ create_joker {
             }
         end
     end
-}
+})
 
 -- Ninja Joker
-create_joker {
+SMODS.Joker({
     key = "ninjajoker",
-    credits = {
+    mstg_credits = {
         idea = "astrapboy",
         code = "astrapboy"
     },
-    blueprint = true,
+    blueprint_compat = true,
     config = { extra = { threshold = 0.6, chip_bonus = 150 } },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.chip_bonus, card.ability.extra.threshold * 100 } }
     end,
-    rarity = "C",
+    rarity = 1,
     cost = 6,
     calculate = function(self, card, context)
         if context.joker_main and to_big(G.GAME.chips) / to_big(G.GAME.blind.chips) < to_big(card.ability.extra.threshold) then
@@ -65,12 +65,12 @@ create_joker {
             }
         end
     end
-}
+})
 
 -- Timesheet
-create_joker {
+SMODS.Joker({
     key = "timesheet",
-    credits = {
+    mstg_credits = {
         idea = "astrapboy",
         code = "astrapboy"
     },
@@ -78,8 +78,8 @@ create_joker {
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.money } }
     end,
-    blueprint = true,
-    rarity = "C",
+    blueprint_compat = true,
+    rarity = 1,
     cost = 6,
     calculate = function(self, card, context)
         if context.cardarea == G.play and context.individual then
@@ -92,16 +92,16 @@ create_joker {
             end
         end
     end
-}
+})
 
 -- Up To Eleven
-create_joker {
+SMODS.Joker({
     key = "uptoeleven",
-    credits = {
+    mstg_credits = {
         idea = "astrapboy",
         code = "astrapboy"
     },
-    blueprint = false,
-    rarity = "C",
+    blueprint_compat = false,
+    rarity = 1,
     cost = 6
-}
+})

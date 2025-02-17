@@ -57,25 +57,6 @@ matches_rank = function(card, ranks)
     return false
 end
 
--- Adds credits to a card (if possible)
-add_credits = function(thing)
-    if thing.credits ~= nil then
-        thing.set_badges = function(self, card, badges)
-            if thing.credits.idea ~= nil then
-                badges[#badges+1] = create_badge(localize({type = "variable", key = "k_mstg_credit_idea", vars = {thing.credits.idea}}), HEX("867100FF"), G.C.WHITE, 0.8 )
-            end
-
-            if thing.credits.art ~= nil then
-                badges[#badges+1] = create_badge(localize({type = "variable", key = "k_mstg_credit_art", vars = {thing.credits.art}}), HEX("860000FF"), G.C.WHITE, 0.8 )
-            end
-
-            if thing.credits.code ~= nil then
-                badges[#badges+1] = create_badge(localize({type = "variable", key = "k_mstg_credit_code", vars = {thing.credits.code}}), HEX("00862eFF"), G.C.WHITE, 0.8 )
-            end
-        end
-    end
-end
-
 -- Gets tiring to type all the G.E_MANAGER mumbojumbo every time for things that are simple
 --- Taken from JenLib
 add_event = function(func, delay, timer, trigger, blockable, blocking)

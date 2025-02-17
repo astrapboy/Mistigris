@@ -1,7 +1,7 @@
 -- Boulder
-create_joker({
+SMODS.Joker({
     key = "boulder",
-    credits = {
+    mstg_credits = {
         idea = "astrapboy",
         code = "astrapboy & Aiksi Lotl"
     },
@@ -9,14 +9,14 @@ create_joker({
     loc_vars = function(self, info_queue, card)
         return {vars = {card.ability.extra.reroll_bonus, card.ability.extra.reroll_max, card.ability.extra.reroll_total}}
     end,
-    rarity = "U",
-    blueprint = false,
+    rarity = 2,
+    blueprint_compat = false,
     cost = 7,
-    add = function(self, card, from_debuff)
+    add_to_deck = function(self, card, from_debuff)
         G.GAME.current_round.free_rerolls = G.GAME.current_round.free_rerolls + card.ability.extra.reroll_total
         calculate_reroll_cost(true)
     end,
-    remove = function(self, card, from_debuff)
+    remove_from_deck = function(self, card, from_debuff)
         G.GAME.current_round.free_rerolls = G.GAME.current_round.free_rerolls - card.ability.extra.reroll_total
         calculate_reroll_cost(true)
     end,
@@ -45,18 +45,18 @@ create_joker({
 })
 
 -- Comedian
-create_joker({
+SMODS.Joker({
     key = "comedian",
-    credits = {
+    mstg_credits = {
         idea = "astrapboy",
         code = "astrapboy"
     },
-    blueprint = true,
+    blueprint_compat = true,
     config = { extra = {retrigger_ranks = {6, 7, 8, 9}, retriggers = 1}},
     loc_vars = function(self, info_queue, card)
         return {vars = {6, 7, 8, 9}}
     end,
-    rarity = "U",
+    rarity = 2,
     cost = 7,
     calculate = function(self, card, context)
         if context.repetition and matches_rank(context.other_card, card.ability.extra.retrigger_ranks) then
@@ -69,18 +69,18 @@ create_joker({
 })
 
 -- Handyman
-create_joker({
+SMODS.Joker({
     key = "handyman",
-    credits = {
+    mstg_credits = {
         idea = "astrapboy",
         code = "astrapboy"
     },
-    blueprint = true,
+    blueprint_compat = true,
     config = { extra = {bonus = 6}},
     loc_vars = function(self, info_queue, card)
         return {vars = {card.ability.extra.bonus}}
     end,
-    rarity = "U",
+    rarity = 2,
     cost = 7,
     calculate = function(self, card, context)
         if context.joker_main then
@@ -124,14 +124,14 @@ create_joker({
 })
 
 -- Banana Factory
-create_joker {
+SMODS.Joker({
     key = "bananafactory",
-    credits = {
+    mstg_credits = {
         idea = "astrapboy",
         code = "astrapboy"
     },
-    blueprint = false,
-    rarity = "U",
+    blueprint_compat = false,
+    rarity = 2,
     cost = 7,
     calculate = function(self, card, context)
         if context.entering_shop and not context.blueprint then
@@ -149,20 +149,20 @@ create_joker {
             return {}
         end
     end
-}
+})
 
 -- Medusa
-create_joker {
+SMODS.Joker({
     key = "medusa",
-    credits = {
+    mstg_credits = {
         idea = "astrapboy",
         code = "astrapboy"
     },
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = G.P_CENTERS.m_stone
     end,
-    blueprint = false,
-    rarity = "U",
+    blueprint_compat = false,
+    rarity = 2,
     cost = 7,
     calculate = function(self, card, context)
         if context.before and not context.blueprint then
@@ -182,21 +182,21 @@ create_joker {
             end
         end
     end
-}
+})
 
 -- Tortoise
-create_joker {
+SMODS.Joker({
     key = "tortoise",
-    credits = {
+    mstg_credits = {
         idea = "astrapboy",
         code = "astrapboy"
     },
-    blueprint = true,
+    blueprint_compat = true,
     config = { extra = {round_bonus = 0.5, total_bonus = 1}},
     loc_vars = function(self, info_queue, card)
         return {vars = {card.ability.extra.round_bonus, card.ability.extra.total_bonus}}
     end,
-    rarity = "U",
+    rarity = 2,
     cost = 7,
     calculate = function(self, card, context)
         if context.end_of_round and context.cardarea == G.jokers and not context.blueprint and G.GAME.current_round.hands_left == 0 and G.GAME.current_round.discards_left == 0 then
@@ -212,4 +212,4 @@ create_joker {
             }
         end
     end
-}
+})
