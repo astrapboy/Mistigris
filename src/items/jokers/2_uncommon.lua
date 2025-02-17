@@ -131,8 +131,8 @@ SMODS.Joker({
         code = "astrapboy & Autumn"
     },
     loc_vars = function(self, info_queue, card)
-        info_queue[#info_queue+1] = G.P_CENTERS['j_gros_michel']
-        info_queue[#info_queue+1] = G.P_CENTERS['j_cavendish']
+        info_queue[#info_queue+1] = G.P_CENTERS["j_gros_michel"]
+        info_queue[#info_queue+1] = G.P_CENTERS["j_cavendish"]
     end,
     blueprint_compat = false,
     rarity = 2,
@@ -163,7 +163,7 @@ SMODS.Joker({
         code = "astrapboy"
     },
     loc_vars = function(self, info_queue, card)
-        info_queue[#info_queue+1] = G.P_CENTERS.m_stone
+        info_queue[#info_queue+1] = G.P_CENTERS["m_stone"]
     end,
     blueprint_compat = false,
     rarity = 2,
