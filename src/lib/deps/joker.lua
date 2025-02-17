@@ -1,5 +1,7 @@
 ﻿-- Joker creation wrapper
 --- Taken from Bunco and rewritten + simplified
+-- TODO: maybe rewrite this into a hook for SMODS.Joker?
+
 create_joker = function(joker)
     -- Rarity conversion
     local rarities = {
@@ -18,7 +20,6 @@ create_joker = function(joker)
         joker.y_index = 0
     end
     
-    -- One-indexed positioning
     joker.position = {x = joker.x_index, y = joker.y_index}
     
     -- Soul Sprite

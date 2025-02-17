@@ -4,6 +4,9 @@ SMODS.optional_features.cardareas.unscored = true
 -- Where the mod is on disk
 mod_path = SMODS.current_mod.path
 
+-- Initialize table to store loaded files
+loaded = {}
+
 -- Loads all files in a particular folder
 function load_folder(path, include_subfolders)
     local full_path = mod_path..path
@@ -12,11 +15,21 @@ function load_folder(path, include_subfolders)
         local info = files[i]
         local file = path.."/"..info.name
         if info.type == "file" then
-            assert(SMODS.load_file(file))()
+            if not loaded[file] then
+                loaded[file] = true
+                sendInfoMessage("MISTIGRIS: Successfully loaded "..file.."!")
+                assert(SMODS.load_file(file))()
+            else
+                sendInfoMessage("MISTIGRIS: Tried to load "..file.." but file was already loaded!")
+            end
         elseif info.type == "directory" and include_subfolders then
             load_folder(file, true)
         end
     end
 end
 
+-- Dependencies need to be loaded first as they contain essential functions
+load_folder("src/lib/deps", false)
+
+-- Then we can load the rest of the code all at once
 load_folder("src", true)
