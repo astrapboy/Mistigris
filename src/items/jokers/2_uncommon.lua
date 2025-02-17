@@ -128,8 +128,12 @@ SMODS.Joker({
     key = "bananafactory",
     mstg_credits = {
         idea = "astrapboy",
-        code = "astrapboy"
+        code = "astrapboy & Autumn"
     },
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue+1] = G.P_CENTERS['j_gros_michel']
+        info_queue[#info_queue+1] = G.P_CENTERS['j_cavendish']
+    end,
     blueprint_compat = false,
     rarity = 2,
     cost = 7,
