@@ -93,6 +93,7 @@ create_joker({
     end
 })
 
+-- Weighted Dice
 create_joker({
     key = "weighteddice",
     credits = {

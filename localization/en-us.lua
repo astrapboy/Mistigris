@@ -115,6 +115,14 @@ return {
                     "{C:inactive}(If not owned){}"
                 }
             },
+            j_mstg_medusa = {
+                name = "Medusa",
+                text = {
+                    "All played {C:attention}face{} cards",
+                    "become {C:attention}Stone{} cards",
+                    "when scored",
+                }
+            },
             --- Rare
             j_mstg_outcast = {
                 name = "Outcast",
@@ -176,6 +184,7 @@ return {
         collabs={},
         dictionary={
             k_mstg_rigged_ex="Rigged!",
+            k_mstg_stone_ex="Stone!",
         },
         high_scores={},
         labels={},

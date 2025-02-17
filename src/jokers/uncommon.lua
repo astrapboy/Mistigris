@@ -150,3 +150,36 @@ create_joker {
         end
     end
 }
+
+-- Medusa
+create_joker {
+    key = "medusa",
+    credits = {
+        idea = "astrapboy",
+        code = "astrapboy"
+    },
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue+1] = G.P_CENTERS.m_stone
+    end,
+    blueprint = false,
+    rarity = "U",
+    cost = 7,
+    calculate = function(self, card, context)
+        if context.before and not context.blueprint then
+            local face_count = 0
+            for i = 1, #context.scoring_hand do
+                local c = context.scoring_hand[i]
+                if c:is_face() then
+                    face_count = face_count + 1
+                    c:set_ability(G.P_CENTERS.m_stone, nil, true)
+                    add_event(function() c:juice_up() return true end)
+                end
+            end
+            if face_count ~= 0 then
+                return {
+                    message = localize('k_mstg_stone_ex'),
+                }
+            end
+        end
+    end
+}
