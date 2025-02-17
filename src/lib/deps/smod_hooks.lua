@@ -1,4 +1,4 @@
-﻿-- This is a slightly updated Center register that allows for custom crediting
+﻿-- This is a slightly updated Center creator that allows for custom crediting
 local register_center = SMODS.Center.register
 SMODS.Center.register = function(self)
     self.set_badges = function(_, card, badges)
@@ -18,8 +18,8 @@ SMODS.Center.register = function(self)
 end
 
 -- This is a slightly updated Joker creator that allows for mod dependencies and for a custom placeholder atlas
-local create_joker = SMODS.Joker
-SMODS.Joker = function(joker)
+local register_joker = SMODS.Joker.register
+SMODS.Joker.register = function(joker)
     -- Dependencies for mod-specific Jokers, i.e. Cryptid
     if joker.dependencies ~= nil then
         for _, v in ipairs(joker.dependencies) do
@@ -36,5 +36,5 @@ SMODS.Joker = function(joker)
         joker.pos = {x = joker.rarity-1, y = 0}
     end
 
-    return create_joker(joker)
+    return register_joker(joker)
 end
