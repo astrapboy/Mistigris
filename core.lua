@@ -1,47 +1,22 @@
 -- Required for unscoring cards
 SMODS.optional_features.cardareas.unscored = true
 
--- Dependencies are files that contain functions re-used across multiple files, so we want to grab them...
-local dependencies = {
-    'general_deps',
-    'joker_deps'
-}
+-- Where the mod is on disk
+mod_path = SMODS.current_mod.path
 
--- ...and then load them before we do anything else.
-for _, dep_file in ipairs(dependencies) do
-    assert(SMODS.load_file('src/utils/dependencies/'..dep_file..'.lua'))()
-end
-
--- Now that we have our dependencies, we can load whatever we want! Yay!
-local preload = {
-    --- Files in the base src directory
-    [""] = {
-        "decks",
-        "atlas",
-        "blinds"
-    },
-    
-    --- Utilities (do not put dependencies here!)
-    ["utils"] = {
-        "hooks"
-    },
-
-    --- Joker Files
-    ["jokers"] = {
-        "common",
-        "uncommon",
-        "rare"
-    },
-}
-
--- Load all the prepared files
-for type, collection in pairs(preload) do
-    for _, file in ipairs(collection) do
-        if type == "" then
-            assert(SMODS.load_file('src/'..file..'.lua'))()
-        else
-            assert(SMODS.load_file('src/'..type..'/'..file..'.lua'))()
+-- Loads all files in a particular folder
+function load_folder(path, include_subfolders)
+    local full_path = mod_path..path
+    local files = NFS.getDirectoryItemsInfo(full_path)
+    for i = 1, #files do
+        local info = files[i]
+        local file = path.."/"..info.name
+        if info.type == "file" then
+            assert(SMODS.load_file(file))()
+        elseif info.type == "directory" and include_subfolders then
+            load_folder(file, true)
         end
     end
 end
 
+load_folder("src", true)
