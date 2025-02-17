@@ -1,8 +1,10 @@
 -- Required for unscoring cards
 SMODS.optional_features.cardareas.unscored = true
 
--- Where the mod is on disk
+-- Info about the mod (where it is on disk, what the prefix is, what the name is)
 mod_path = SMODS.current_mod.path
+mod_prefix = SMODS.current_mod.prefix
+mod_name = SMODS.current_mod.name
 
 -- Initialize table to store loaded files
 loaded = {}
@@ -17,10 +19,10 @@ function load_folder(path, include_subfolders)
         if info.type == "file" then
             if not loaded[file] then
                 loaded[file] = true
-                sendInfoMessage("MISTIGRIS: Successfully loaded "..file.."!")
+                sendInfoMessage(mod_name..": Successfully loaded "..file.."!")
                 assert(SMODS.load_file(file))()
             else
-                sendInfoMessage("MISTIGRIS: Tried to load "..file.." but file was already loaded!")
+                sendInfoMessage(mod_name..": Tried to load "..file.." but file was already loaded!")
             end
         elseif info.type == "directory" and include_subfolders then
             load_folder(file, true)

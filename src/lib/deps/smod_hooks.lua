@@ -31,8 +31,8 @@ SMODS.Joker.register = function(joker)
     end
 
     -- Placeholder Joker Atlas
-    if joker.atlas == nil then
-        joker.atlas = 'placeholder'
+    if joker.atlas == nil or joker.atlas == 'Joker' then
+        joker.atlas = mod_prefix..'_placeholder'
         joker.pos = {x = joker.rarity-1, y = 0}
     end
 
