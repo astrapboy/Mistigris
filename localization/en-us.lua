@@ -123,6 +123,16 @@ return {
                     "when scored",
                 }
             },
+            j_mstg_tortoise = {
+                name = "Tortoise",
+                text = {
+                    "Gains {X:mult,C:white} X#1# {} Mult every time",
+                    "a {C:attention}Blind{} is defeated with",
+                    "{C:attention}0 hands{} and {C:attention}0 discards{}",
+                    "remaining",
+                    "{C:inactive}(Currently {X:mult,C:white} X#2# {C:inactive} Mult)",
+                }
+            },
             --- Rare
             j_mstg_outcast = {
                 name = "Outcast",
@@ -154,7 +164,7 @@ return {
             j_mstg_weighteddice= {
                 name = "Weighted Dice",
                 text = {
-                    "After Blind is selected,",
+                    "After {C:attention}Blind{} is selected,",
                     "sell this Joker to {C:attention}guarantee",
                     "{C:green}all probabilities{} until the",
                     "end of the round",

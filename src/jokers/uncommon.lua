@@ -169,7 +169,7 @@ create_joker {
             local face_count = 0
             for i = 1, #context.scoring_hand do
                 local c = context.scoring_hand[i]
-                if c:is_face() then
+                if c:is_face() and not SMODS.has_enhancement(c, 'm_stone') then
                     face_count = face_count + 1
                     c:set_ability(G.P_CENTERS.m_stone, nil, true)
                     add_event(function() c:juice_up() return true end)
@@ -180,6 +180,36 @@ create_joker {
                     message = localize('k_mstg_stone_ex'),
                 }
             end
+        end
+    end
+}
+
+-- Tortoise
+create_joker {
+    key = "tortoise",
+    credits = {
+        idea = "astrapboy",
+        code = "astrapboy"
+    },
+    blueprint = true,
+    config = { extra = {round_bonus = 0.5, total_bonus = 1}},
+    loc_vars = function(self, info_queue, card)
+        return {vars = {card.ability.extra.round_bonus, card.ability.extra.total_bonus}}
+    end,
+    rarity = "U",
+    cost = 7,
+    calculate = function(self, card, context)
+        if context.end_of_round and context.cardarea == G.jokers and not context.blueprint and G.GAME.current_round.hands_left == 0 and G.GAME.current_round.discards_left == 0 then
+            card.ability.extra.total_bonus = card.ability.extra.total_bonus + card.ability.extra.round_bonus
+            return {
+                message = localize('k_upgrade_ex')
+            }
+        end
+
+        if context.joker_main then
+            return {
+                Xmult = card.ability.extra.total_bonus
+            }
         end
     end
 }
