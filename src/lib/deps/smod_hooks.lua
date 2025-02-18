@@ -21,8 +21,8 @@ end
 local register_joker = SMODS.Joker.register
 SMODS.Joker.register = function(joker)
     -- Dependencies for mod-specific Jokers, i.e. Cryptid
-    if joker.dependencies ~= nil then
-        for _, v in ipairs(joker.dependencies) do
+    if joker.mstg_dependencies ~= nil then
+        for _, v in ipairs(joker.mstg_dependencies) do
             -- If we can't find a dependency, don't make the Joker
             if next(SMODS.find_mod(v)) == nil then
                 do return end

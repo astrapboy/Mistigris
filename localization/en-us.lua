@@ -177,6 +177,17 @@ return {
                     "{C:attention}destroy{} all {C:attention}unscoring cards{}",
                 }
             },
+            j_mstg_scythe = {
+                name = "Scythe",
+                text = {
+                    "Creates {C:attention}Death{} if final",
+                    "hand of the round",
+                    "is a {C:attention}#1#{},",
+                    "poker hand changes at",
+                    "end of round",
+                    "{C:inactive}(Must have room){}"
+                }
+            },
         },
         Other={},
         Planet={},

@@ -142,3 +142,32 @@ SMODS.Joker({
         end
     end
 })
+
+-- Scythe
+SMODS.Joker({
+    key = "scythe",
+    mstg_credits = {
+        idea = "astrapboy & 3XPL",
+        code = "astrapboy"
+    },
+    config = { extra = {final_hand = ""}},
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue+1] = G.P_CENTERS["c_death"]
+        return {vars = {card.ability.extra.final_hand}}
+    end,
+    blueprint_compat = false,
+    rarity = 3,
+    cost = 9,
+    set_ability = function(self, card, initial, delay_sprites)
+        card.ability.extra.final_hand = random_hand()
+    end,
+    calculate = function(self, card, context)
+        if context.end_of_round and context.cardarea == G.jokers and not context.game_over and not context.blueprint and G.GAME.last_hand_played == card.ability.extra.final_hand then
+            if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+                G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+                add_event(function() SMODS.add_card({set = "Tarot", key = "c_death"}) G.GAME.consumeable_buffer = 0 return true end)
+                card.ability.extra.final_hand = random_hand(card.ability.extra.final_hand)
+            end
+        end
+    end
+})
