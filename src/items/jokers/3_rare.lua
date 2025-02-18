@@ -167,6 +167,9 @@ SMODS.Joker({
                 G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
                 add_event(function() SMODS.add_card({set = "Tarot", key = "c_death"}) G.GAME.consumeable_buffer = 0 return true end)
                 card.ability.extra.final_hand = random_hand(card.ability.extra.final_hand)
+                return {
+                    message = localize('k_reset')
+                }
             end
         end
     end
