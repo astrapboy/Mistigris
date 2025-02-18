@@ -7,9 +7,11 @@ SMODS.Joker({
     end,
     rarity = 1,
     cost = 6,
-    mstg_credits = {
-        idea = "astrapboy",
-        code = "astrapboy"
+    mstg_vars = {
+        credits = {
+            idea = "astrapboy",
+            code = "astrapboy"
+        }
     },
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -24,9 +26,11 @@ SMODS.Joker({
 -- Peeking Joker
 SMODS.Joker({
     key = "peekingjoker",
-    mstg_credits = {
-        idea = "astrapboy",
-        code = "astrapboy"
+    mstg_vars = {
+        credits = {
+            idea = "astrapboy",
+            code = "astrapboy"
+        }
     },
     blueprint_compat = true,
     config = { extra = { threshold = 0.6, mult_bonus = 12 } },
@@ -47,9 +51,11 @@ SMODS.Joker({
 -- Ninja Joker
 SMODS.Joker({
     key = "ninjajoker",
-    mstg_credits = {
-        idea = "astrapboy",
-        code = "astrapboy"
+    mstg_vars = {
+        credits = {
+            idea = "astrapboy",
+            code = "astrapboy"
+        }
     },
     blueprint_compat = true,
     config = { extra = { threshold = 0.6, chip_bonus = 150 } },
@@ -70,9 +76,11 @@ SMODS.Joker({
 -- Timesheet
 SMODS.Joker({
     key = "timesheet",
-    mstg_credits = {
-        idea = "astrapboy",
-        code = "astrapboy"
+    mstg_vars = {
+        credits = {
+            idea = "astrapboy",
+            code = "astrapboy"
+        }
     },
     config = { extra = { money = 1 } },
     loc_vars = function(self, info_queue, card)
@@ -97,9 +105,11 @@ SMODS.Joker({
 -- Up To Eleven
 SMODS.Joker({
     key = "uptoeleven",
-    mstg_credits = {
-        idea = "astrapboy",
-        code = "astrapboy"
+    mstg_vars = {
+        credits = {
+            idea = "astrapboy",
+            code = "astrapboy"
+        }
     },
     blueprint_compat = false,
     rarity = 1,

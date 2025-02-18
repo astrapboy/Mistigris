@@ -1,9 +1,11 @@
 -- Boulder
 SMODS.Joker({
     key = "boulder",
-    mstg_credits = {
-        idea = "astrapboy",
-        code = "astrapboy & Aiksi Lotl"
+    mstg_vars = {
+        credits = {
+            idea = "astrapboy",
+            code = "astrapboy & Aiksi Lotl"
+        }
     },
     config = { extra = {reroll_bonus = 1, reroll_total = 0, reroll_max = 10, win_reroll = true}},
     loc_vars = function(self, info_queue, card)
@@ -47,9 +49,11 @@ SMODS.Joker({
 -- Comedian
 SMODS.Joker({
     key = "comedian",
-    mstg_credits = {
-        idea = "astrapboy",
-        code = "astrapboy"
+    mstg_vars = {
+        credits = {
+            idea = "astrapboy",
+            code = "astrapboy"
+        }
     },
     blueprint_compat = true,
     config = { extra = {retrigger_ranks = {6, 7, 8, 9}, retriggers = 1}},
@@ -71,9 +75,11 @@ SMODS.Joker({
 -- Handyman
 SMODS.Joker({
     key = "handyman",
-    mstg_credits = {
-        idea = "astrapboy",
-        code = "astrapboy"
+    mstg_vars = {
+        credits = {
+            idea = "astrapboy",
+            code = "astrapboy"
+        }
     },
     blueprint_compat = true,
     config = { extra = {bonus = 6}},
@@ -126,9 +132,11 @@ SMODS.Joker({
 -- Banana Factory
 SMODS.Joker({
     key = "bananafactory",
-    mstg_credits = {
-        idea = "astrapboy",
-        code = "astrapboy & Autumn"
+    mstg_vars = {
+        credits = {
+            idea = "astrapboy",
+            code = "astrapboy & Autumn"
+        }
     },
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = G.P_CENTERS["j_gros_michel"]
@@ -158,9 +166,11 @@ SMODS.Joker({
 -- Medusa
 SMODS.Joker({
     key = "medusa",
-    mstg_credits = {
-        idea = "astrapboy",
-        code = "astrapboy"
+    mstg_vars = {
+        credits = {
+            idea = "astrapboy",
+            code = "astrapboy"
+        }
     },
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = G.P_CENTERS["m_stone"]
@@ -191,9 +201,11 @@ SMODS.Joker({
 -- Tortoise
 SMODS.Joker({
     key = "tortoise",
-    mstg_credits = {
-        idea = "astrapboy",
-        code = "astrapboy"
+    mstg_vars = {
+        credits = {
+            idea = "astrapboy",
+            code = "astrapboy"
+        }
     },
     blueprint_compat = true,
     config = { extra = {round_bonus = 0.5, total_bonus = 1}},

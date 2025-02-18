@@ -5,9 +5,11 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return {vars = {card.ability.extra.bonus, card.ability.extra.Xmult}}
     end,
-    mstg_credits = {
-        idea = "astrapboy",
-        code = "astrapboy"
+    mstg_vars = {
+        credits = {
+            idea = "astrapboy",
+            code = "astrapboy"
+        }
     },
     blueprint_compat = true,
     rarity = 3,
@@ -38,9 +40,11 @@ SMODS.Joker({
 -- Power of Three
 SMODS.Joker({
     key = "powerofthree",
-    mstg_credits = {
-        idea = "astrapboy",
-        code = "astrapboy"
+    mstg_vars = {
+        credits = {
+            idea = "astrapboy",
+            code = "astrapboy"
+        }
     },
     config = { extra = {bonus_xmult = 0.33, current_xmult = 1, target = 3}},
     loc_vars = function(self, info_queue, card)
@@ -70,9 +74,11 @@ SMODS.Joker({
 -- Plasma Joker
 SMODS.Joker({
     key = "plasmajoker",
-    mstg_credits = {
-        idea = "astrapboy",
-        code = "astrapboy"
+    mstg_vars = {
+        credits = {
+            idea = "astrapboy",
+            code = "astrapboy"
+        }
     },
     config = { extra = {base_xmult = 1, extra_xmult = 5}},
     loc_vars = function(self, info_queue, card)
@@ -96,9 +102,11 @@ SMODS.Joker({
 -- Weighted Dice
 SMODS.Joker({
     key = "weighteddice",
-    mstg_credits = {
-        idea = "astrapboy",
-        code = "astrapboy"
+    mstg_vars = {
+        credits = {
+            idea = "astrapboy",
+            code = "astrapboy"
+        }
     },
     config = { extra = {can_rig = false}},
     rarity = 3,
@@ -124,9 +132,11 @@ SMODS.Joker({
 -- Conscription
 SMODS.Joker({
     key = "conscription",
-    mstg_credits = {
-        idea = "astrapboy",
-        code = "astrapboy, Khaki & Eremel"
+    mstg_vars = {
+        credits = {
+            idea = "astrapboy",
+            code = "astrapboy, Khaki & Eremel"
+        }
     },
     blueprint_compat = false,
     rarity = 3,
@@ -146,9 +156,11 @@ SMODS.Joker({
 -- Scythe
 SMODS.Joker({
     key = "scythe",
-    mstg_credits = {
-        idea = "astrapboy & 3XPL",
-        code = "astrapboy"
+    mstg_vars = {
+        credits = {
+            idea = "astrapboy & 3XPL",
+            code = "astrapboy"
+        }
     },
     config = { extra = {final_hand = ""}},
     loc_vars = function(self, info_queue, card)

@@ -5,6 +5,7 @@ SMODS.optional_features.cardareas.unscored = true
 mod_path = SMODS.current_mod.path
 mod_prefix = SMODS.current_mod.prefix
 mod_name = SMODS.current_mod.name
+mod_id = SMODS.current_mod.id
 
 -- Initialize table to store loaded files
 loaded = {}
