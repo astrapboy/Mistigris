@@ -3,7 +3,7 @@ to_big = to_big or function(x) return x end
 to_number = to_number or function(x) return x end
 
 -- Debug messages
-AddixAPI.print_line = function(message)
+MistiUtils.print_line = function(message)
     if verbose then
         sendDebugMessage("The type of the message variable is ["..type(message).."]")
     end
@@ -21,7 +21,7 @@ end
 -- Grabs a random element from a table that's not numerically indexed (e.g. it has elements with strings for keys)
 -- It's recommended to do <table>[math.random(#<table>)] instead for numerically-indexed tables as it's more efficient
 --- Taken from JenLib
-AddixAPI.random_element = function(table)
+MistiUtils.random_element = function(table)
     local index = {}
     for k, v in pairs(table) do
         index[#index + 1] = k
@@ -30,7 +30,7 @@ AddixAPI.random_element = function(table)
 end
 
 -- Checks how many times a specific rank occurs in played hand
-AddixAPI.rank_count = function(hand, rank)
+MistiUtils.rank_count = function(hand, rank)
     local rank_counter = 0
     for i = 1, #hand do
         if hand[i]:get_id() == rank then rank_counter = rank_counter + 1 end
@@ -39,7 +39,7 @@ AddixAPI.rank_count = function(hand, rank)
 end
 
 -- Checks how many times a played hand contains a rank that's part of a specified table
-AddixAPI.ranks_count = function(hand, ranks)
+MistiUtils.ranks_count = function(hand, ranks)
     local rank_counter = 0
     for hand_index = 1, #hand do
         for rank_index = 1, #ranks do
@@ -50,7 +50,7 @@ AddixAPI.ranks_count = function(hand, ranks)
 end
 
 -- Checks if a card matches a specified table of ranks
-AddixAPI.matches_rank = function(card, ranks)
+MistiUtils.matches_rank = function(card, ranks)
     for i = 1, #ranks do
         if card:get_id() == ranks[i] then return true end
     end
@@ -59,7 +59,7 @@ end
 
 -- Gets tiring to type all the G.E_MANAGER mumbojumbo every time for things that are simple
 --- Taken from JenLib
-AddixAPI.add_event = function(func, delay, timer, trigger, blockable, blocking)
+MistiUtils.add_event = function(func, delay, timer, trigger, blockable, blocking)
     G.E_MANAGER:add_event(Event({
         timer = timer,
         trigger = trigger or "immediate",
@@ -72,14 +72,14 @@ end
 
 -- Easier way of doing chance rolls
 --- Taken from JenLib
-AddixAPI.chance = function(name, probability, absolute)
+MistiUtils.chance = function(name, probability, absolute)
     if absolute == nil then absolute = true end
     return pseudorandom(name) < (absolute and 1 or G.GAME.probabilities.normal)/probability
 end
 
 -- Gets most played hand
 --- Taken from JenLib
-AddixAPI.fav_hand = function()
+MistiUtils.fav_hand = function()
     if not G.GAME or not G.GAME.current_round then return 'High Card' end
     local chosen_hand = 'High Card'
     local _handname, _played, _order = 'High Card', -1, 100
@@ -96,7 +96,7 @@ end
 
 -- Gets the second most-played hand
 --- Taken from JenLib
-AddixAPI.second_fav_hand = function()
+MistiUtils.second_fav_hand = function()
     if not G.GAME or not G.GAME.current_round then return 'High Card' end
     local chosen_hand = 'High Card'
     local firstmost = fav_hand()
@@ -113,7 +113,7 @@ end
 
 -- Gets rank of a hand
 --- Taken from JenLib
-AddixAPI.hand_pos = function(hand)
+MistiUtils.hand_pos = function(hand)
     local pos = -1
     for i = 1, #G.handlist do
         if G.handlist[i] == hand then
@@ -126,7 +126,7 @@ end
 
 -- Gets the "adjacent" hands of a hand (a.k.a. the hands above and below the hand you specify according to the poker hand list)
 --- Taken from JenLib
-AddixAPI.adjacent_hands = function(hand)
+MistiUtils.adjacent_hands = function(hand)
     local hands = {}
     if not G.GAME or not G.GAME.hands then return hands end
     local pos = -1
@@ -145,7 +145,7 @@ end
 
 -- Gets the hand with the lowest level, prioritises lower-ranking hands
 --- Taken from JenLib
-AddixAPI.lowest_lvl_hand = function()
+MistiUtils.lowest_lvl_hand = function()
     local chosen_hand = 'High Card'
     local lowest_level = math.huge
     for _, v in ipairs(G.handlist) do
@@ -159,7 +159,7 @@ end
 
 -- Gets the hand with the highest level, prioritises higher-ranking hands
 --- Taken from JenLib
-AddixAPI.highest_lvl_hand = function()
+MistiUtils.highest_lvl_hand = function()
     local chosen_hand = 'High Card'
     local highest_level = -math.huge
     for _, v in ipairs(G.handlist) do
@@ -173,7 +173,7 @@ end
 
 -- Gets a random hand
 --- Taken from JenLib
-AddixAPI.random_hand = function(ignore, seed, allowhidden)
+MistiUtils.random_hand = function(ignore, seed, allowhidden)
     local chosen_hand
     ignore = ignore or {}
     seed = seed or 'randomhand'
@@ -192,7 +192,7 @@ AddixAPI.random_hand = function(ignore, seed, allowhidden)
 end
 
 -- What Jokers can be destroyed?
-AddixAPI.killable_jokers = function(self)
+MistiUtils.killable_jokers = function(self)
     local t = {}
     for i = 1, #G.jokers.cards do
         local j = G.jokers.cards[i]

@@ -94,7 +94,7 @@ SMODS.Joker({
             if not context.other_card.timesheeted then
                 local othercard = context.other_card
                 context.other_card.timesheeted = true
-                AddixAPI.add_event(function() if othercard then othercard.timesheeted = nil end return true end)
+                MistiUtils.add_event(function() if othercard then othercard.timesheeted = nil end return true end)
             else
                 ease_dollars(card.ability.extra.money)
             end
