@@ -9,7 +9,7 @@ mod_id = SMODS.current_mod.id
 
 -- Initialize table to store loaded files
 loaded = {}
-AddixAPI = {}
+MistiUtils = {}
 
 -- Loads all files in a particular folder
 function load_folder(path, include_subfolders)
