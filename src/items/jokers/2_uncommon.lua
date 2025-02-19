@@ -254,9 +254,11 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if context.selling_self and not context.blueprint then
             local victims = AddixAPI.killable_jokers(card)
-            local to_destroy = pseudorandom_element(victims, pseudoseed("sacrifice"))
-            to_destroy.getting_sliced = true
-            AddixAPI.add_event(function() to_destroy:start_dissolve({G.C.RED}, nil, 1.6) return true end)
+            local to_destroy = pseudorandom_element(victims, pseudoseed("sacrifice")) or nil
+            if to_destroy then
+                to_destroy.getting_sliced = true
+                AddixAPI.add_event(function() to_destroy:start_dissolve({G.C.RED}, nil, 1.6) return true end)
+            end
         end
         
         if context.joker_main then
