@@ -63,7 +63,7 @@ SMODS.Joker({
     rarity = 2,
     cost = 7,
     calculate = function(self, card, context)
-        if context.repetition and matches_rank(context.other_card, card.ability.extra.retrigger_ranks) then
+        if context.repetition and AddixAPI.matches_rank(context.other_card, card.ability.extra.retrigger_ranks) then
             return {
                 message = localize('k_again_ex'),
                 repetitions = card.ability.extra.retriggers
@@ -186,7 +186,7 @@ SMODS.Joker({
                 if c:is_face() and not SMODS.has_enhancement(c, 'm_stone') then
                     face_count = face_count + 1
                     c:set_ability(G.P_CENTERS.m_stone, nil, true)
-                    add_event(function() c:juice_up() return true end)
+                    AddixAPI.add_event(function() c:juice_up() return true end)
                 end
             end
             if face_count ~= 0 then
@@ -253,10 +253,10 @@ SMODS.Joker({
     cost = 7,
     calculate = function(self, card, context)
         if context.selling_self and not context.blueprint then
-            local victims = killable_jokers(card)
+            local victims = AddixAPI.killable_jokers(card)
             local to_destroy = pseudorandom_element(victims, pseudoseed("sacrifice"))
             to_destroy.getting_sliced = true
-            add_event(function() to_destroy:start_dissolve({G.C.RED}, nil, 1.6) return true end)
+            AddixAPI.add_event(function() to_destroy:start_dissolve({G.C.RED}, nil, 1.6) return true end)
         end
         
         if context.joker_main then

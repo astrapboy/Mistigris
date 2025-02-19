@@ -137,8 +137,8 @@ return {
                 name = "Sacrifice",
                 text = {
                     "{X:mult,C:white} X#1# {} Mult",
-                    "{C:attention}Destroys{} another Joker",
-                    "if sold",
+                    "{C:attention}Destroys{} another",
+                    "Joker if sold",
                 }
             },
             --- Rare

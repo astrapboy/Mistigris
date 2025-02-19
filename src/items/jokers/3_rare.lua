@@ -55,7 +55,7 @@ SMODS.Joker({
     cost = 9,
     calculate = function(self, card, context)
         if context.before and not context.blueprint then
-            if rank_count(context.scoring_hand, card.ability.extra.target) > 0 then
+            if AddixAPI.rank_count(context.scoring_hand, card.ability.extra.target) > 0 then
                 card.ability.extra.current_xmult = card.ability.extra.current_xmult + card.ability.extra.bonus_xmult
                 return {
                     message = localize('k_upgrade_ex')
@@ -171,18 +171,18 @@ SMODS.Joker({
     rarity = 3,
     cost = 9,
     set_ability = function(self, card, initial, delay_sprites)
-        card.ability.extra.final_hand = random_hand()
+        card.ability.extra.final_hand = AddixAPI.random_hand()
     end,
     calculate = function(self, card, context)
         if context.end_of_round and context.cardarea == G.jokers and not context.game_over and not context.blueprint then
             if G.GAME.last_hand_played == card.ability.extra.final_hand then
                 if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
                     G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
-                    add_event(function() SMODS.add_card({set = "Tarot", key = "c_death"}) G.GAME.consumeable_buffer = 0 return true end)
+                    AddixAPI.add_event(function() SMODS.add_card({set = "Tarot", key = "c_death"}) G.GAME.consumeable_buffer = 0 return true end)
                 end
             end
 
-            card.ability.extra.final_hand = random_hand(card.ability.extra.final_hand)
+            card.ability.extra.final_hand = AddixAPI.random_hand(card.ability.extra.final_hand)
             return {
                 message = localize('k_reset')
             }
