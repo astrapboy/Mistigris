@@ -174,15 +174,18 @@ SMODS.Joker({
         card.ability.extra.final_hand = random_hand()
     end,
     calculate = function(self, card, context)
-        if context.end_of_round and context.cardarea == G.jokers and not context.game_over and not context.blueprint and G.GAME.last_hand_played == card.ability.extra.final_hand then
-            if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
-                G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
-                add_event(function() SMODS.add_card({set = "Tarot", key = "c_death"}) G.GAME.consumeable_buffer = 0 return true end)
-                card.ability.extra.final_hand = random_hand(card.ability.extra.final_hand)
-                return {
-                    message = localize('k_reset')
-                }
+        if context.end_of_round and context.cardarea == G.jokers and not context.game_over and not context.blueprint then
+            if G.GAME.last_hand_played == card.ability.extra.final_hand then
+                if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+                    G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+                    add_event(function() SMODS.add_card({set = "Tarot", key = "c_death"}) G.GAME.consumeable_buffer = 0 return true end)
+                end
             end
+
+            card.ability.extra.final_hand = random_hand(card.ability.extra.final_hand)
+            return {
+                message = localize('k_reset')
+            }
         end
     end
 })

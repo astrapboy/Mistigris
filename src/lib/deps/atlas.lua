@@ -5,6 +5,12 @@ atlas_collection = {
         path = "placeholders.png",
         px = 71,
         py = 95
+    },
+    -- Main Joker atlas
+    ["jokers"] = {
+        path = "jokers.png",
+        px = 71,
+        py = 95
     }
 }
 

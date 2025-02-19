@@ -133,6 +133,14 @@ return {
                     "{C:inactive}(Currently {X:mult,C:white} X#2# {C:inactive} Mult)",
                 }
             },
+            j_mstg_sacrifice = {
+                name = "Sacrifice",
+                text = {
+                    "{X:mult,C:white} X#1# {} Mult",
+                    "{C:attention}Destroys{} another Joker",
+                    "if sold",
+                }
+            },
             --- Rare
             j_mstg_outcast = {
                 name = "Outcast",

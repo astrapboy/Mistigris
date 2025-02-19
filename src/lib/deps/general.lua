@@ -190,3 +190,13 @@ random_hand = function(ignore, seed, allowhidden)
     end
     return chosen_hand
 end
+
+-- What Jokers can be destroyed?
+killable_jokers = function(self)
+    local t = {}
+    for i = 1, #G.jokers.cards do
+        local j = G.jokers.cards[i]
+        if j ~= self and not j.ability["eternal"] and not j.getting_sliced then table.insert(t, j) end
+    end
+    return t
+end
