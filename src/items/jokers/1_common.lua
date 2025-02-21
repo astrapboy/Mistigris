@@ -130,23 +130,23 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.xmult_gain, localize({type = 'name_text', set = 'Joker', key = 'j_mstg_awake'}), card.ability.extra.xmult_to_pass } }
     end,
-    blueprint_compat = true,
+    blueprint_compat = false,
     rarity = 1,
     cost = 6,
     calculate = function(self, card, context)
-        if context.end_of_round and context.cardarea == G.jokers and not context.game_over then
+        if context.end_of_round and context.cardarea == G.jokers and not context.game_over and not context.blueprint then
             card.ability.extra.xmult_to_pass = card.ability.extra.xmult_to_pass + card.ability.extra.xmult_gain
             return {
                 message = localize('k_upgrade_ex')
             }
         end
 
-        if context.selling_self then
+        if context.selling_self and not context.blueprint then
             MistiUtils.add_event(function() if G.jokers then
                 local c = SMODS.add_card({set = 'Joker', key = 'j_mstg_awake'})
                 c.ability.extra.Xmult = card.ability.extra.xmult_to_pass
                 return true
-            end
+             end
             end)
         end
     end
