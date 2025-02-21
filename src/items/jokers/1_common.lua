@@ -145,9 +145,11 @@ SMODS.Joker({
             MistiUtils.add_event(function() if G.jokers then
                 local c = SMODS.add_card({set = 'Joker', key = 'j_mstg_awake'})
                 c.ability.extra.Xmult = card.ability.extra.xmult_to_pass
-                return true
-             end
+                return true end 
             end)
+            return {
+                message = localize('k_mstg_wakeup_ex')
+            }
         end
     end
 })
