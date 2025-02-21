@@ -1,18 +1,15 @@
 -- Required for unscoring cards
 SMODS.optional_features.cardareas.unscored = true
 
--- Info about the mod (where it is on disk, what the prefix is, what the name is)
-mod_path = SMODS.current_mod.path
-mod_prefix = SMODS.current_mod.prefix
-mod_name = SMODS.current_mod.name
-mod_id = SMODS.current_mod.id
+local mod_name = SMODS.current_mod.name
+local mod_path = SMODS.current_mod.path
 
 -- Initialize table to store loaded files
-loaded = {}
+local loaded = {}
 MistiUtils = {}
 
 -- Loads all files in a particular folder
-function load_folder(path, include_subfolders)
+local function load_folder(path, include_subfolders)
     local full_path = mod_path..path
     local files = NFS.getDirectoryItemsInfo(full_path)
     for i = 1, #files do

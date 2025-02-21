@@ -79,6 +79,23 @@ return {
                     "{C:attention}face{} cards"
                 }
             },
+            j_mstg_sleepy = {
+                name = "Sleepy Joker",
+                text = {
+                    "Gains {X:mult,C:white} X#1# {} Mult",
+                    "at the end of",
+                    "the round. Creates",
+                    "{C:attention}Awake Joker{} if sold",
+                    "{C:inactive}(Currently {X:mult,C:white} X#2# {C:inactive} Mult)",
+                    "{C:inactive}(Xmult is unusable until sold)",
+                }
+            },
+            j_mstg_awake = {
+                name = "Awake Joker",
+                text = {
+                    "{X:mult,C:white} X#1# {} Mult"
+                }
+            },
             --- Uncommon
             j_mstg_boulder= {
                 name = "Boulder",

@@ -115,3 +115,65 @@ SMODS.Joker({
     rarity = 1,
     cost = 6
 })
+
+
+-- Sleepy Joker
+SMODS.Joker({
+    key = "sleepy",
+    mstg_vars = {
+        credits = {
+            idea = "astrapboy",
+            code = "astrapboy"
+        }
+    },
+    config = { extra = { xmult_gain = 0.2, xmult_to_pass = 1 } },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.xmult_gain, card.ability.extra.xmult_to_pass } }
+    end,
+    blueprint_compat = true,
+    rarity = 1,
+    cost = 6,
+    calculate = function(self, card, context)
+        if context.end_of_round and context.cardarea == G.jokers and not context.game_over then
+            card.ability.extra.xmult_to_pass = card.ability.extra.xmult_to_pass + card.ability.extra.xmult_gain
+            return {
+                message = localize('k_upgrade_ex')
+            }
+        end
+
+        if context.selling_self then
+            MistiUtils.add_event(function() if G.jokers then
+                local c = SMODS.add_card({set = 'Joker', key = 'j_mstg_awake'})
+                c.ability.extra.Xmult = card.ability.extra.xmult_to_pass
+                return true
+            end
+            end)
+        end
+    end
+})
+
+-- Awake Joker
+SMODS.Joker({
+    key = "awake",
+    mstg_vars = {
+        credits = {
+            idea = "astrapboy",
+            code = "astrapboy"
+        }
+    },
+    config = { extra = { Xmult = 1 } },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.Xmult } }
+    end,
+    blueprint_compat = true,
+    rarity = 1,
+    in_pool = function() return false  end,
+    cost = 6,
+    calculate = function(self, card, context)
+        if context.joker_main then
+            return {
+                Xmult = card.ability.extra.Xmult
+            }
+        end
+    end
+})

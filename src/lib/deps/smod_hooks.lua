@@ -1,4 +1,8 @@
-﻿-- This is a slightly updated Center creator that allows for custom crediting
+﻿-- Info about the mod (what the prefix is, what the id is)
+local mod_prefix = SMODS.current_mod.prefix
+local mod_id = SMODS.current_mod.id
+
+-- This is a slightly updated Center creator that allows for custom crediting
 local register_center = SMODS.Center.register
 SMODS.Center.register = function(self)
     self.set_badges = function(_, card, badges)
