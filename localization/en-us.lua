@@ -82,18 +82,18 @@ return {
             j_mstg_sleepy = {
                 name = "Sleepy Joker",
                 text = {
-                    "Gains {X:mult,C:white} X#1# {} Mult",
+                    "Stores {X:mult,C:white} X#1# {} Mult",
                     "at the end of",
-                    "the round. Creates",
-                    "{C:attention}Awake Joker{} if sold",
-                    "{C:inactive}(Currently {X:mult,C:white} X#2# {C:inactive} Mult)",
-                    "{C:inactive}(Xmult is unusable until sold)",
+                    "the round, sell",
+                    "to create",
+                    "{C:attention}#2#{}",
+                    "{C:inactive}(Will have {X:mult,C:white} X#3# {C:inactive} Mult)",
                 }
             },
             j_mstg_awake = {
                 name = "Awake Joker",
                 text = {
-                    "{X:mult,C:white} X#1# {} Mult"
+                    "{X:mult,C:white} X#1# {} Mult",
                 }
             },
             --- Uncommon
@@ -126,8 +126,8 @@ return {
             j_mstg_bananafactory = {
                 name = "Banana Factory",
                 text = {
-                    "Guarantees a {C:attention}Gros Michel{}",
-                    "or {C:attention}Cavendish{} in the",
+                    "Guarantees a {C:attention}#1#{}",
+                    "or {C:attention}#2#{} in the",
                     "next shop",
                     "{C:inactive}(If not owned){}"
                 }
@@ -136,7 +136,7 @@ return {
                 name = "Medusa",
                 text = {
                     "All played {C:attention}face{} cards",
-                    "become {C:attention}Stone{} cards",
+                    "become {C:attention}Stone Cards{}",
                     "when scored",
                 }
             },

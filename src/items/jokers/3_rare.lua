@@ -46,16 +46,16 @@ SMODS.Joker({
             code = "astrapboy"
         }
     },
-    config = { extra = {bonus_xmult = 0.33, current_xmult = 1, target = 3}},
+    config = { extra = {bonus_xmult = 0.33, current_xmult = 1}},
     loc_vars = function(self, info_queue, card)
-        return {vars = {card.ability.extra.bonus_xmult, card.ability.extra.target, card.ability.extra.current_xmult}}
+        return {vars = {card.ability.extra.bonus_xmult, 3, card.ability.extra.current_xmult}}
     end,
     rarity = 3,
     blueprint_compat = true,
     cost = 9,
     calculate = function(self, card, context)
         if context.before and not context.blueprint then
-            if MistiUtils.rank_count(context.scoring_hand, card.ability.extra.target) > 0 then
+            if MistiUtils.rank_count(context.scoring_hand, 3) > 0 then
                 card.ability.extra.current_xmult = card.ability.extra.current_xmult + card.ability.extra.bonus_xmult
                 return {
                     message = localize('k_upgrade_ex')
@@ -165,7 +165,7 @@ SMODS.Joker({
     config = { extra = {final_hand = ""}},
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = G.P_CENTERS["c_death"]
-        return {vars = {card.ability.extra.final_hand}}
+        return {vars = {localize(card.ability.extra.final_hand, 'poker_hands')}}
     end,
     blueprint_compat = false,
     rarity = 3,

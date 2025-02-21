@@ -128,7 +128,7 @@ SMODS.Joker({
     },
     config = { extra = { xmult_gain = 0.2, xmult_to_pass = 1 } },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.xmult_gain, card.ability.extra.xmult_to_pass } }
+        return { vars = { card.ability.extra.xmult_gain, localize({type = 'name_text', set = 'Joker', key = 'j_mstg_awake'}), card.ability.extra.xmult_to_pass } }
     end,
     blueprint_compat = true,
     rarity = 1,

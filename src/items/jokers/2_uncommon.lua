@@ -56,14 +56,15 @@ SMODS.Joker({
         }
     },
     blueprint_compat = true,
-    config = { extra = {retrigger_ranks = {6, 7, 8, 9}, retriggers = 1}},
+    config = { extra = {retriggers = 1}},
     loc_vars = function(self, info_queue, card)
         return {vars = {6, 7, 8, 9}}
     end,
     rarity = 2,
     cost = 7,
     calculate = function(self, card, context)
-        if context.repetition and MistiUtils.matches_rank(context.other_card, card.ability.extra.retrigger_ranks) then
+        local retrigger_ranks = {6, 7, 8, 9}
+        if context.repetition and MistiUtils.matches_rank(context.other_card, retrigger_ranks) then
             return {
                 message = localize('k_again_ex'),
                 repetitions = card.ability.extra.retriggers
@@ -141,6 +142,9 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = G.P_CENTERS["j_gros_michel"]
         info_queue[#info_queue+1] = G.P_CENTERS["j_cavendish"]
+        return {
+            vars = {localize({type = 'name_text', set = 'Joker', key = 'j_gros_michel'}), localize({type = 'name_text', set = 'Joker', key = 'j_cavendish'})}
+        }
     end,
     blueprint_compat = false,
     rarity = 2,
