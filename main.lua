@@ -18,7 +18,7 @@ local function load_folder(path, include_subfolders)
 			if not loaded[file] then
 				loaded[file] = true
 				sendInfoMessage("Successfully loaded " .. file .. "!", mod_name)
-				assert(SMODS.load_file(file))()
+				assert(SMODS.load_file(file), "Failed to load " .. file .. "!")()
 			else
 				sendInfoMessage("Tried to load " .. file .. " but file was already loaded!", mod_name)
 			end

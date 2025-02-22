@@ -226,3 +226,26 @@ SMODS.Joker({
 		end
 	end,
 })
+
+-- Paper Shredder
+SMODS.Joker({
+	key = "papershredder",
+	mstg_vars = {
+		credits = {
+			idea = "astrapboy",
+			code = "astrapboy",
+		},
+	},
+	blueprint_compat = false,
+	rarity = 1,
+	cost = 6,
+	calculate = function(self, card, context)
+		if context.destroying_card and not context.blueprint then
+			if context.destroy_card.debuff then
+				return {
+					remove = true
+				}
+			end
+		end
+	end,
+})

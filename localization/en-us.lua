@@ -96,6 +96,13 @@ return {
 					"{X:mult,C:white} X#1# {} Mult",
 				},
 			},
+			j_mstg_papershredder = {
+				name = "Paper Shredder",
+				text = {
+					"If a card is {C:attention}debuffed{},",
+					"destroy it after scoring"
+				},
+			},
 			--- Uncommon
 			j_mstg_boulder = {
 				name = "Boulder",
