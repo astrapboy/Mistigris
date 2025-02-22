@@ -16,8 +16,8 @@ SMODS.Blind({
 	end,
 	debuff_hand = function(self, cards, hand, handname, check)
 		if
-			to_big(G.GAME.hands[handname].chips) * to_big(G.GAME.hands[handname].mult)
-			>= to_big(G.GAME.blind.discards_sub)
+			 to_big(G.GAME.hands[handname].chips) * to_big(G.GAME.hands[handname].mult)
+			 >= to_big(G.GAME.blind.discards_sub)
 		then
 			return false
 		else

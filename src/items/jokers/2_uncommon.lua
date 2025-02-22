@@ -41,10 +41,10 @@ SMODS.Joker({
 		end
 
 		if
-			context.ending_shop
-			and card.ability.extra.reroll_total < card.ability.extra.reroll_max
-			and card.ability.extra.win_reroll
-			and not context.blueprint
+			 context.ending_shop
+			 and card.ability.extra.reroll_total < card.ability.extra.reroll_max
+			 and card.ability.extra.win_reroll
+			 and not context.blueprint
 		then
 			card.ability.extra.reroll_total = card.ability.extra.reroll_total + 1
 			G.GAME.current_round.free_rerolls = G.GAME.current_round.free_rerolls + 1
@@ -138,9 +138,9 @@ SMODS.Joker({
 			for card_index = 1, #cards_to_match do
 				for hand_index = 1, #context.full_hand do
 					if
-						context.full_hand[hand_index]:is_suit(cards_to_match[card_index].suit)
-						and context.full_hand[hand_index]:get_id() == cards_to_match[card_index].id
-						and cards_to_match[card_index].matched == false
+						 context.full_hand[hand_index]:is_suit(cards_to_match[card_index].suit)
+						 and context.full_hand[hand_index]:get_id() == cards_to_match[card_index].id
+						 and cards_to_match[card_index].matched == false
 					then
 						cards_to_match[card_index].matched = true
 						matches_card_count = matches_card_count + 1
@@ -182,9 +182,9 @@ SMODS.Joker({
 	calculate = function(self, card, context)
 		if context.entering_shop and not context.blueprint then
 			if
-				not next(SMODS.find_card("j_gros_michel"))
-				and not next(SMODS.find_card("j_cavendish"))
-				and not next(SMODS.find_card("j_ring_master"))
+				 not next(SMODS.find_card("j_gros_michel"))
+				 and not next(SMODS.find_card("j_cavendish"))
+				 and not next(SMODS.find_card("j_ring_master"))
 			then
 				local key = G.GAME.pool_flags.gros_michel_extinct and "j_cavendish" or "j_gros_michel"
 				MistiUtils.replace_joker_in_shop(key, 2)
@@ -251,11 +251,11 @@ SMODS.Joker({
 	cost = 5,
 	calculate = function(self, card, context)
 		if
-			context.end_of_round
-			and context.cardarea == G.jokers
-			and not context.blueprint
-			and G.GAME.current_round.hands_left == 0
-			and G.GAME.current_round.discards_left == 0
+			 context.end_of_round
+			 and context.cardarea == G.jokers
+			 and not context.blueprint
+			 and G.GAME.current_round.hands_left == 0
+			 and G.GAME.current_round.discards_left == 0
 		then
 			card.ability.extra.total_bonus = card.ability.extra.total_bonus + card.ability.extra.round_bonus
 			return {
@@ -358,7 +358,7 @@ SMODS.Joker({
 
 		if context.end_of_round and context.cardarea == G.jokers and not context.blueprint then
 			card.ability.extra.mult = card.ability.extra.mult
-				+ card.ability.extra.mult_gain * G.GAME.current_round.hands_left
+				 + card.ability.extra.mult_gain * G.GAME.current_round.hands_left
 			return {
 				message = localize({
 					type = "variable",

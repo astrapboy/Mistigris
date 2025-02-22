@@ -44,8 +44,8 @@ SMODS.Joker({
 	cost = 5,
 	calculate = function(self, card, context)
 		if
-			context.joker_main
-			and to_big(G.GAME.chips) / to_big(G.GAME.blind.chips) < to_big(card.ability.extra.threshold)
+			 context.joker_main
+			 and to_big(G.GAME.chips) / to_big(G.GAME.blind.chips) < to_big(card.ability.extra.threshold)
 		then
 			return {
 				mult = card.ability.extra.mult_bonus,
@@ -72,8 +72,8 @@ SMODS.Joker({
 	cost = 5,
 	calculate = function(self, card, context)
 		if
-			context.joker_main
-			and to_big(G.GAME.chips) / to_big(G.GAME.blind.chips) < to_big(card.ability.extra.threshold)
+			 context.joker_main
+			 and to_big(G.GAME.chips) / to_big(G.GAME.blind.chips) < to_big(card.ability.extra.threshold)
 		then
 			return {
 				chips = card.ability.extra.chip_bonus,
@@ -171,10 +171,10 @@ SMODS.Joker({
 		end
 
 		if
-			context.end_of_round
-			and context.cardarea == G.jokers
-			and not context.game_over
-			and not context.blueprint
+			 context.end_of_round
+			 and context.cardarea == G.jokers
+			 and not context.game_over
+			 and not context.blueprint
 		then
 			card.ability.extra.xmult_to_pass = card.ability.extra.xmult_to_pass + card.ability.extra.xmult_gain
 			return {
