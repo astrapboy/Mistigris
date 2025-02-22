@@ -213,12 +213,10 @@ function MistiUtils.destroy_joker(card, after)
         card.states.drag.is = true
         card.children.center.pinch.x = true
         MistiUtils.add_event(function()
-            card:start_dissolve()
-            card = nil
+            G.jokers:remove_card(card) card:remove()
+            if after and type(after) == "function" then after() end
             return true
         end, 0.3, nil, "after", false)
-        
-        if after and type(after) == "function" then after() end
         return true
     end)
 end
