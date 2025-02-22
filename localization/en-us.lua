@@ -52,7 +52,7 @@ return {
                 name = "Peeking Joker",
                 text = {
                     "{C:mult}+#1#{} Mult if chips",
-                    "scored are at least",
+                    "scored are less than",
                     "{C:attention}#2#%{} of required chips",
                 }
             },

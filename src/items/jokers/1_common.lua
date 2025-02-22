@@ -6,7 +6,7 @@ SMODS.Joker({
         return {vars = {card.ability.extra.base_xmult, card.ability.extra.penalty}}
     end,
     rarity = 1,
-    cost = 6,
+    cost = 5,
     mstg_vars = {
         credits = {
             idea = "astrapboy",
@@ -33,14 +33,14 @@ SMODS.Joker({
         }
     },
     blueprint_compat = true,
-    config = { extra = { threshold = 0.6, mult_bonus = 12 } },
+    config = { extra = { threshold = 0.6, mult_bonus = 8 } },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult_bonus, card.ability.extra.threshold * 100 } }
     end,
     rarity = 1,
-    cost = 6,
+    cost = 5,
     calculate = function(self, card, context)
-        if context.joker_main and to_big(G.GAME.chips) / to_big(G.GAME.blind.chips) >= to_big(card.ability.extra.threshold) then
+        if context.joker_main and to_big(G.GAME.chips) / to_big(G.GAME.blind.chips) < to_big(card.ability.extra.threshold) then
             return {
                 mult = card.ability.extra.mult_bonus
             }
@@ -63,7 +63,7 @@ SMODS.Joker({
         return { vars = { card.ability.extra.chip_bonus, card.ability.extra.threshold * 100 } }
     end,
     rarity = 1,
-    cost = 6,
+    cost = 5,
     calculate = function(self, card, context)
         if context.joker_main and to_big(G.GAME.chips) / to_big(G.GAME.blind.chips) < to_big(card.ability.extra.threshold) then
             return {
@@ -113,7 +113,7 @@ SMODS.Joker({
     },
     blueprint_compat = false,
     rarity = 1,
-    cost = 6
+    cost = 4
 })
 
 
@@ -132,7 +132,7 @@ SMODS.Joker({
     end,
     blueprint_compat = false,
     rarity = 1,
-    cost = 6,
+    cost = 4,
     calculate = function(self, card, context)
         if context.end_of_round and context.cardarea == G.jokers and not context.game_over and not context.blueprint then
             card.ability.extra.xmult_to_pass = card.ability.extra.xmult_to_pass + card.ability.extra.xmult_gain

@@ -13,7 +13,7 @@ SMODS.Joker({
     },
     blueprint_compat = true,
     rarity = 3,
-    cost = 9,
+    cost = 10,
     calculate = function(self, card, context)
         if context.before and not context.blueprint then
             if #context.full_hand == #context.scoring_hand then

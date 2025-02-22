@@ -61,7 +61,7 @@ SMODS.Joker({
         return {vars = {6, 7, 8, 9}}
     end,
     rarity = 2,
-    cost = 7,
+    cost = 6,
     calculate = function(self, card, context)
         local retrigger_ranks = {6, 7, 8, 9}
         if context.repetition and MistiUtils.matches_rank(context.other_card, retrigger_ranks) then
@@ -88,7 +88,7 @@ SMODS.Joker({
         return {vars = {card.ability.extra.bonus}}
     end,
     rarity = 2,
-    cost = 7,
+    cost = 5,
     calculate = function(self, card, context)
         if context.joker_main then
             local text = G.FUNCS.get_poker_hand_info(context.full_hand)
@@ -148,7 +148,7 @@ SMODS.Joker({
     end,
     blueprint_compat = false,
     rarity = 2,
-    cost = 7,
+    cost = 6,
     calculate = function(self, card, context)
         if context.entering_shop and not context.blueprint then
             if not next(SMODS.find_card("j_gros_michel")) and not next(SMODS.find_card("j_cavendish")) and not next(SMODS.find_card("j_ring_master")) then
@@ -217,7 +217,7 @@ SMODS.Joker({
         return {vars = {card.ability.extra.round_bonus, card.ability.extra.total_bonus}}
     end,
     rarity = 2,
-    cost = 7,
+    cost = 5,
     calculate = function(self, card, context)
         if context.end_of_round and context.cardarea == G.jokers and not context.blueprint and G.GAME.current_round.hands_left == 0 and G.GAME.current_round.discards_left == 0 then
             card.ability.extra.total_bonus = card.ability.extra.total_bonus + card.ability.extra.round_bonus
@@ -254,7 +254,7 @@ SMODS.Joker({
         return {vars = {card.ability.extra.bonus_xmult}}
     end,
     rarity = 2,
-    cost = 7,
+    cost = 8,
     calculate = function(self, card, context)
         if context.selling_self and not context.blueprint then
             local victims = MistiUtils.killable_jokers(card)
