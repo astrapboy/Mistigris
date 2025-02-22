@@ -3,6 +3,7 @@ version = "1.0.0"
 dump_lua = true
 priority = 65535
 
+# Import MistiUtils
 [[patches]]
 [patches.module]
 source = "mistiutils.lua"

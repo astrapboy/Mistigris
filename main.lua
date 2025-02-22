@@ -9,23 +9,23 @@ local loaded = {}
 
 -- Loads all files in a particular folder
 local function load_folder(path, include_subfolders)
-    local full_path = mod_path..path
-    local files = NFS.getDirectoryItemsInfo(full_path)
-    for i = 1, #files do
-        local info = files[i]
-        local file = path.."/"..info.name
-        if info.type == "file" then
-            if not loaded[file] then
-                loaded[file] = true
-                sendInfoMessage(mod_name..": Successfully loaded "..file.."!")
-                assert(SMODS.load_file(file))()
-            else
-                sendInfoMessage(mod_name..": Tried to load "..file.." but file was already loaded!")
-            end
-        elseif info.type == "directory" and include_subfolders then
-            load_folder(file, true)
-        end
-    end
+	local full_path = mod_path .. path
+	local files = NFS.getDirectoryItemsInfo(full_path)
+	for i = 1, #files do
+		local info = files[i]
+		local file = path .. "/" .. info.name
+		if info.type == "file" then
+			if not loaded[file] then
+				loaded[file] = true
+				sendInfoMessage("Successfully loaded " .. file .. "!", mod_name)
+				assert(SMODS.load_file(file))()
+			else
+				sendInfoMessage("Tried to load " .. file .. " but file was already loaded!", mod_name)
+			end
+		elseif info.type == "directory" and include_subfolders then
+			load_folder(file, true)
+		end
+	end
 end
 
 -- Dependencies need to be loaded first as they contain essential functions

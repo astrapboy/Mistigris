@@ -1,18 +1,18 @@
 {
-	"id": "mistigris",
-	"name": "Mistigris",
-	"display_name": "Mistigris",
-	"author": ["astrapboy"],
-	"description": "A mod that's designed to spice up the gameplay of Balatro, while still feeling balanced enough to not cause too much mayhem!",
-	"prefix": "mstg",
-	"main_file": "main.lua",
-	"priority": 0,
-	"badge_colour": "FFFFFF",
-	"badge_text_colour": "770000",
-	"version": "0.1.0-dev_25w08c",
-	"dependencies": [
-        "Steamodded (>=1.0.0~ALPHA-1416a)",
-		"Lovely (>=0.7)",
-		"joker_refactor (>=0.5)"
-    ]
+  "id": "mistigris",
+  "name": "Mistigris",
+  "display_name": "Mistigris",
+  "author": ["astrapboy"],
+  "description": "A mod that's designed to spice up the gameplay of Balatro, while still feeling balanced enough to not cause too much mayhem!",
+  "prefix": "mstg",
+  "main_file": "main.lua",
+  "priority": 0,
+  "badge_colour": "FFFFFF",
+  "badge_text_colour": "770000",
+  "version": "0.1.0-dev_25w08d",
+  "dependencies": [
+    "Steamodded (>=1.0.0~ALPHA-1416a)",
+    "Lovely (>=0.7)",
+    "joker_refactor (>=0.5)"
+  ]
 }

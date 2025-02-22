@@ -81,3 +81,9 @@ api
 
 # personal assets
 DONOTSHIP
+
+# luarc
+.luarc.json
+
+# vs code
+.vscode
