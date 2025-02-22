@@ -134,6 +134,18 @@ SMODS.Joker({
     rarity = 1,
     cost = 4,
     calculate = function(self, card, context)
+        -- Nightmare!
+        if next(SMODS.find_card("j_scary_face")) and not context.blueprint then
+            MistiUtils.destroy_joker(card, function() if G.jokers then
+                local c = SMODS.add_card({set = 'Joker', key = 'j_mstg_awake'})
+                c.ability.extra.Xmult = card.ability.extra.xmult_to_pass
+                return true end
+            end)
+            return {
+                message = localize('k_mstg_nightmare_ex')
+            }
+        end
+        
         if context.end_of_round and context.cardarea == G.jokers and not context.game_over and not context.blueprint then
             card.ability.extra.xmult_to_pass = card.ability.extra.xmult_to_pass + card.ability.extra.xmult_gain
             return {

@@ -231,7 +231,8 @@ return {
         dictionary={
             k_mstg_rigged_ex="Rigged!",
             k_mstg_stone_ex="Stone!",
-            k_mstg_wakeup_ex="Wake Up!"
+            k_mstg_wakeup_ex="Wake Up!",
+            k_mstg_nightmare_ex="Nightmare!"
         },
         high_scores={},
         labels={},

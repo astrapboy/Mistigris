@@ -200,3 +200,22 @@ MistiUtils.killable_jokers = function(self)
     end
     return t
 end
+
+-- Destroys a Joker (like Gros Michel or Turtle Bean or any of the other food jokers)
+MistiUtils.destroy_joker = function(card, after)
+    MistiUtils.add_event(function()
+        play_sound('tarot1')
+        card.T.r = -0.2
+        card:juice_up(0.3, 0.4)
+        card.states.drag.is = true
+        card.children.center.pinch.x = true
+        MistiUtils.add_event(function()
+            card:start_dissolve()
+            card = nil
+            return true
+        end, 0.3, nil, "after", false)
+        
+        if after and type(after) == "function" then after() end
+        return true
+    end)
+end
