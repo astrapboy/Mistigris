@@ -131,6 +131,8 @@ SMODS.Joker({
         return { vars = { card.ability.extra.xmult_gain, localize({type = 'name_text', set = 'Joker', key = 'j_mstg_awake'}), card.ability.extra.xmult_to_pass } }
     end,
     blueprint_compat = false,
+    eternal_compat = false,
+    perishable_compat = false,
     rarity = 1,
     cost = 4,
     calculate = function(self, card, context)
@@ -181,6 +183,8 @@ SMODS.Joker({
         return { vars = { card.ability.extra.Xmult } }
     end,
     blueprint_compat = true,
+    eternal_compat = false,
+    perishable_compat = false,
     rarity = 1,
     in_pool = function() return false  end,
     cost = 6,
