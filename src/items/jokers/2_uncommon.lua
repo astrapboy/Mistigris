@@ -152,14 +152,8 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if context.entering_shop and not context.blueprint then
             if not next(SMODS.find_card("j_gros_michel")) and not next(SMODS.find_card("j_cavendish")) and not next(SMODS.find_card("j_ring_master")) then
-                local delete = G.shop_jokers:remove_card(G.shop_jokers.cards[2])
-                delete:remove()
                 local key = G.GAME.pool_flags.gros_michel_extinct and "j_cavendish" or "j_gros_michel"
-                local sold_card = SMODS.create_card({set = 'Joker', area = G.shop_jokers, key = key})
-                create_shop_card_ui(sold_card, "Joker", G.shop_jokers)
-                G.shop_jokers:emplace(sold_card)
-                sold_card:start_materialize()
-                sold_card:set_cost()
+                MistiUtils.replace_joker_in_shop(key, 2)
             end
             
             return {}

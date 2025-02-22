@@ -220,3 +220,14 @@ function MistiUtils.destroy_joker(card, after)
         return true
     end)
 end
+
+-- Replaces a Joker in the shop at the specified index
+function MistiUtils.replace_joker_in_shop(key, index)
+    local delete = G.shop_jokers:remove_card(G.shop_jokers.cards[index])
+    delete:remove()
+    local sold_card = SMODS.create_card({set = 'Joker', area = G.shop_jokers, key = key})
+    create_shop_card_ui(sold_card, "Joker", G.shop_jokers)
+    G.shop_jokers:emplace(sold_card)
+    sold_card:start_materialize()
+    sold_card:set_cost()
+end 
