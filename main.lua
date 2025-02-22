@@ -6,7 +6,6 @@ local mod_path = SMODS.current_mod.path
 
 -- Initialize table to store loaded files
 local loaded = {}
-MistiUtils = {}
 
 -- Loads all files in a particular folder
 local function load_folder(path, include_subfolders)
