@@ -1,4 +1,7 @@
-﻿-- Outcast
+﻿-- Initialize MistiUtils
+local MistiUtils = require("MistiUtils")
+
+-- Outcast
 SMODS.Joker({
     key = "outcast",
     config = {extra = {Xmult = 1, bonus = 0.1}},

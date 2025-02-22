@@ -3,7 +3,7 @@ to_big = to_big or function(x) return x end
 to_number = to_number or function(x) return x end
 
 -- Initialize MistiUtils
-MistiUtils = {}
+local MistiUtils = {}
 
 -- Debug messages
 function MistiUtils.print_line(message)
@@ -230,4 +230,6 @@ function MistiUtils.replace_joker_in_shop(key, index)
     G.shop_jokers:emplace(sold_card)
     sold_card:start_materialize()
     sold_card:set_cost()
-end 
+end
+
+return MistiUtils

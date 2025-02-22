@@ -1,0 +1,10 @@
+﻿[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 65535
+
+[[patches]]
+[patches.module]
+source = "mistiutils.lua"
+before = "main.lua"
+name = "MistiUtils"

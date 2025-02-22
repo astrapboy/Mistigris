@@ -1,3 +1,6 @@
+-- Initialize MistiUtils
+local MistiUtils = require("MistiUtils")
+
 -- Boulder
 SMODS.Joker({
     key = "boulder",

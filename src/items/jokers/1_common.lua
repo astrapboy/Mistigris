@@ -1,3 +1,6 @@
+-- Initialize MistiUtils
+local MistiUtils = require("MistiUtils")
+
 -- Diminishing Returns
 SMODS.Joker({
     key = "diminishingreturns",
@@ -92,9 +95,9 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if context.cardarea == G.play and context.individual then
             if not context.other_card.timesheeted then
-                local othercard = context.other_card
+                local c = context.other_card
                 context.other_card.timesheeted = true
-                MistiUtils.add_event(function() if othercard then othercard.timesheeted = nil end return true end)
+                MistiUtils.add_event(function() if c then c.timesheeted = nil end return true end)
             else
                 ease_dollars(card.ability.extra.money)
             end
