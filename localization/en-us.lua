@@ -158,6 +158,17 @@ return {
                     "Joker if sold",
                 }
             },
+            j_mstg_leakysoda = {
+                name = "Leaky Soda",
+                text = {
+                    "{C:mult}+#1#{} Mult",
+                    "{C:mult}-#2#{} Mult every hand",
+                    "played",
+                    "{C:mult}+#3#{} Mult every hand",
+                    "remaining by the end",
+                    "of the round"
+                }
+            },
             --- Rare
             j_mstg_outcast = {
                 name = "Outcast",

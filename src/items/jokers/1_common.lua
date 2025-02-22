@@ -126,7 +126,7 @@ SMODS.Joker({
             code = "astrapboy"
         }
     },
-    config = { extra = { xmult_gain = 0.2, xmult_to_pass = 1 } },
+    config = { extra = { xmult_gain = 0.2, xmult_to_pass = 1, nightmared = false } },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.xmult_gain, localize({type = 'name_text', set = 'Joker', key = 'j_mstg_awake'}), card.ability.extra.xmult_to_pass } }
     end,
@@ -135,7 +135,8 @@ SMODS.Joker({
     cost = 4,
     calculate = function(self, card, context)
         -- Nightmare!
-        if next(SMODS.find_card("j_scary_face")) and not context.blueprint then
+        if next(SMODS.find_card("j_scary_face")) and not card.ability.extra.nightmared and not context.blueprint then
+            card.ability.extra.nightmared = true
             MistiUtils.destroy_joker(card, function() if G.jokers then
                 local c = SMODS.add_card({set = 'Joker', key = 'j_mstg_awake'})
                 c.ability.extra.Xmult = card.ability.extra.xmult_to_pass
