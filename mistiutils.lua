@@ -75,7 +75,7 @@ function mistiutils.ranks_count(hand, ranks)
 end
 
 --- Checks if a card's rank is included in a specified table of ranks.
---- @param card table The card that is being tested against this table of ranks.
+--- @param card Card The card that is being tested against this table of ranks.
 --- @param ranks table The ranks to search for.
 --- @return boolean: Does this card fit in the table of ranks?
 function mistiutils.matches_rank(card, ranks)
