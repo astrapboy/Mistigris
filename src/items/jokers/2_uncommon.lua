@@ -282,7 +282,7 @@ SMODS.Joker({
 	},
 	atlas = "jokers",
 	pos = { x = 0, y = 0 },
-	blueprint_compat = true,
+	blueprint_compat = false,
 	eternal_compat = false,
 	perishable_compat = false,
 	config = { extra = { bonus_xmult = 3 } },

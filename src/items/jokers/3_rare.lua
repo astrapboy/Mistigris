@@ -179,7 +179,7 @@ SMODS.Joker({
 		info_queue[#info_queue + 1] = G.P_CENTERS["c_death"]
 		return { vars = { localize(card.ability.extra.final_hand, "poker_hands") } }
 	end,
-	blueprint_compat = false,
+	blueprint_compat = true,
 	rarity = 3,
 	cost = 9,
 	set_ability = function(self, card, initial, delay_sprites)
@@ -190,7 +190,6 @@ SMODS.Joker({
 			 context.end_of_round
 			 and context.cardarea == G.jokers
 			 and not context.game_over
-			 and not context.blueprint
 		then
 			if G.GAME.last_hand_played == card.ability.extra.final_hand then
 				if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
