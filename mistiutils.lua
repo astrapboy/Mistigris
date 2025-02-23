@@ -4,8 +4,8 @@ local mistiutils = {}
 
 --- Detailed Debug messages callable from anywhere that uses mistiutils. (Based on Pokermon)
 --- @param message string|table: Text of the message you would like to print.
---- @param logger string|nil: Name of the logger this message will be attributed to.
---- @param printType string|nil: What type of function should be used? (trace/debug/info/warn/error/fatal). Defaults to Info.
+--- @param logger string?: Name of the logger this message will be attributed to.
+--- @param printType "trace"|"debug"|"info"|"warn"|"error"|"fatal"|nil: What type of function should be used? Defaults to Info.
 function mistiutils.print_line(message, logger, printType)
 	local functions = {
 		["trace"] = sendTraceMessage,
@@ -89,11 +89,11 @@ end
 
 --- Basically just a simpler way of adding events lol (Based on JenLib)
 --- @param func function: The function associated with this event.
---- @param delay integer|nil: The length of time (in seconds) that this event should be delayed for.
---- @param timer string|nil: The kind of timer this event will use. Default is REAL if event occurs while game is paused, otherwise falls back to TOTAL.
---- @param trigger string|nil: When this event should trigger in relation to the delay. Default is "immediate" but other options are "after" and "before".
---- @param blockable boolean|nil: Whether or not this event can be blocked by other events.
---- @param blocking boolean|nil: Whether or not this event blocks other events.
+--- @param delay integer?: The length of time (in seconds) that this event should be delayed for.
+--- @param timer "TOTAL"|"REAL"|"REAL_SHADER"|"UPTIME"|"BACKGROUND"|nil: The kind of timer this event will use. Default is REAL if event occurs while game is paused, otherwise falls back to TOTAL.
+--- @param trigger "immediate"|"after"|"condition"|"ease"|"before"|nil: When this event should trigger in relation to the delay. Default is "immediate"
+--- @param blockable boolean?: Whether or not this event can be blocked by other events.
+--- @param blocking boolean?: Whether or not this event blocks other events.
 function mistiutils.add_event(func, delay, timer, trigger, blockable, blocking)
 	G.E_MANAGER:add_event(Event({
 		timer = timer,
@@ -108,7 +108,7 @@ end
 --- Chance rolls, used for things like Wheel of Fortune and Gros Michel. (Based on JenLib)
 --- @param name string: The named seed to use for this roll.
 --- @param probability integer: The odds of this event occurring, in odds.
---- @param absolute boolean|nil: If set to true, the chance of this event occurring cannot be affected by G.GAME.probabilities.normal.
+--- @param absolute boolean?: If set to true, the chance of this event occurring cannot be affected by G.GAME.probabilities.normal.
 --- @return boolean: Make this event happen?
 function mistiutils.chance(name, probability, absolute)
 	if absolute == nil then
@@ -220,8 +220,8 @@ end
 
 --- Selects a random hand. (Based on JenLib)
 --- @param ignore string|table: The hands that are to be ignored in the selection process.
---- @param seed string|nil: The seed to use when selecting hands.
---- @param allowhidden boolean|nil: Whether or not this search should include hands not yet discovered by the player.
+--- @param seed string?: The seed to use when selecting hands.
+--- @param allowhidden boolean?: Whether or not this search should include hands not yet discovered by the player.
 --- @return table: A randomly selected hand, considering the above criteria.
 function mistiutils.random_hand(ignore, seed, allowhidden)
 	local chosen_hand
@@ -262,7 +262,7 @@ end
 
 --- Makes a Joker self-destruct. Mostly used for Food-based Jokers, like Gros Michel and Turtle Bean.
 --- @param card table: The card that is being destroyed.
---- @param after function|nil: The function that should be run after this Joker is destroyed.
+--- @param after function?: The function that should be run after this Joker is destroyed.
 function mistiutils.destroy_joker(card, after)
 	mistiutils.add_event(function()
 		play_sound("tarot1")
