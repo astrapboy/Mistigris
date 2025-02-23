@@ -4,6 +4,14 @@ SMODS.optional_features.cardareas.unscored = true
 local mod_name = SMODS.current_mod.name
 local mod_path = SMODS.current_mod.path
 
+-- Talisman functions
+to_big = to_big or function(x)
+	return x
+end
+to_number = to_number or function(x)
+	return x
+end
+
 -- Initialize table to store loaded files
 local loaded = {}
 

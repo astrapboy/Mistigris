@@ -1,16 +1,8 @@
-﻿-- Talisman functions
-to_big = to_big or function(x)
-	return x
-end
-to_number = to_number or function(x)
-	return x
-end
-
--- Initialize MistiUtils
+﻿-- Initialize MistiUtils
 local MistiUtils = {}
 
 -- Debug messages
-function MistiUtils.print_line(message, logger, type)
+function MistiUtils.print_line(message, logger, printType)
 	local functions = {
 		["trace"] = sendTraceMessage,
 		["debug"] = sendDebugMessage,
@@ -19,20 +11,20 @@ function MistiUtils.print_line(message, logger, type)
 		["error"] = sendErrorMessage,
 		["fatal"] = sendFatalMessage,
 	}
-	local prnt = functions[type] or sendInfoMessage
+	local printFunc = functions[printType] or sendInfoMessage
 	local log = logger or "MistigrisLogger"
 
 	if verbose then
-		prnt("The type of the message variable is [" .. type(message) .. "]", log)
+		printFunc("The type of the message variable is [" .. type(message) .. "]", log)
 	end
 	if type(message) == "table" then
 		if depth then
-			prnt(inspectDepth(message), log)
+			printFunc(inspectDepth(message), log)
 		else
-			prnt(sendDebugMessage(inspect(message), log))
+			printFunc(inspect(message), log)
 		end
 	else
-		prnt(message, log)
+		printFunc(message, log)
 	end
 end
 
