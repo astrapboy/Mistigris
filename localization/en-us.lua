@@ -135,8 +135,7 @@ return {
 				name = "Banana Factory",
 				text = {
 					"Guarantees a {C:attention}#1#{}",
-					"or {C:attention}#2#{} in the",
-					"next shop",
+					"in the next shop",
 					"{C:inactive}(If not owned){}",
 				},
 			},

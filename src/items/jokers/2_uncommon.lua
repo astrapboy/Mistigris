@@ -167,12 +167,11 @@ SMODS.Joker({
 		},
 	},
 	loc_vars = function(self, info_queue, card)
-		info_queue[#info_queue + 1] = G.P_CENTERS["j_gros_michel"]
-		info_queue[#info_queue + 1] = G.P_CENTERS["j_cavendish"]
+		local key = G.GAME.pool_flags.gros_michel_extinct and "j_cavendish" or "j_gros_michel"
+		info_queue[#info_queue + 1] = G.P_CENTERS[key]
 		return {
 			vars = {
-				localize({ type = "name_text", set = "Joker", key = "j_gros_michel" }),
-				localize({ type = "name_text", set = "Joker", key = "j_cavendish" }),
+				localize({ type = "name_text", set = "Joker", key = key }),
 			},
 		}
 	end,
