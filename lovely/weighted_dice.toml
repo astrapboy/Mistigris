@@ -10,7 +10,7 @@ target = "functions/state_events.lua"
 pattern = "SMODS.calculate_context({end_of_round = true, game_over = game_over })"
 position = "after"
 payload = '''
-if G.GAME.probabilities.mstg_base_normal ~= nil then G.GAME.probabilities.normal = G.GAME.probabilities.mstg_base_normal end
+if G.GAME.probabilities.mstg_base_normal then G.GAME.probabilities.normal = G.GAME.probabilities.mstg_base_normal end
 '''
 match_indent = true
 times = 1
