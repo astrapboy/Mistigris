@@ -222,7 +222,7 @@ end
 --- @param ignore string|table The hands that are to be ignored in the selection process.
 --- @param seed string? The seed to use when selecting hands.
 --- @param allowhidden boolean? Whether or not this search should include hands not yet discovered by the player.
---- @return table: A randomly selected hand, considering the above criteria.
+--- @return table|nil: A randomly selected hand, considering the above criteria.
 function mistiutils.random_hand(ignore, seed, allowhidden)
 	local chosen_hand
 	ignore = ignore or {}
