@@ -3,26 +3,14 @@ version = "1.0.0"
 dump_lua = true
 priority = 5
 
-# Introduce a new Base Normal variable
-[[patches]]
-[patches.pattern]
-target = "game.lua"
-pattern = "normal = 1,"
-position = "after"
-payload = '''
-base_normal = 1,
-'''
-match_indent = true
-times = 1
-
-# Run the calculations
+# Reset the base normal
 [[patches]]
 [patches.pattern]
 target = "functions/state_events.lua"
 pattern = "SMODS.calculate_context({end_of_round = true, game_over = game_over })"
 position = "after"
 payload = '''
-G.GAME.probabilities.normal = G.GAME.probabilities.base_normal
+if G.GAME.probabilities.mstg_base_normal ~= nil then G.GAME.probabilities.normal = G.GAME.probabilities.mstg_base_normal end
 '''
 match_indent = true
 times = 1

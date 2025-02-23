@@ -11,7 +11,7 @@
 	"priority": 0,
 	"badge_colour": "FFFFFF",
 	"badge_text_colour": "770000",
-	"version": "0.1.0-dev_25w08e",
+	"version": "0.1.0-dev_25w08f",
 	"dependencies": [
 		"Steamodded (>=1.0.0~ALPHA-1416a)",
 		"Lovely (>=0.7)",
