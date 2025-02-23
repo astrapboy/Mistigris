@@ -1,0 +1,20 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 8
+
+# Add the table
+[[patches]]
+[patches.pattern]
+target = "cardarea.lua"
+pattern = "if joker_tally > G.GAME.max_jokers then G.GAME.max_jokers = joker_tally end"
+position = "after"
+payload = '''
+local k = card.config.center.key
+if G.GAME.mstg.unique_jokers[k] == nil then
+	table.insert(G.GAME.mstg.unique_jokers, k)
+	G.GAME.mstg.unique_jokers[k] = true
+end
+'''
+match_indent = true
+times = 1
