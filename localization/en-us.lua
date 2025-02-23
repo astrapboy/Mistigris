@@ -232,16 +232,6 @@ return {
 					"{C:inactive}(Must have room){}",
 				},
 			},
-			j_mstg_travelmiles = {
-				name = "Travel Miles",
-				text = {
-					"{X:mult,C:white} X#1# {} Mult if you have",
-					"obtained at least",
-					"{C:attention}#2#{} unique Jokers",
-					"this run",
-					"{C:inactive}(Currently {C:attention}#3#{}){}",
-				},
-			},
 		},
 		Other = {},
 		Planet = {},
