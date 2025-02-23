@@ -1,8 +1,7 @@
-﻿-- Initialize MistiUtils
-local MistiUtils = {}
+﻿local mistiutils = {}
 
 -- Debug messages
-function MistiUtils.print_line(message, logger, printType)
+function mistiutils.print_line(message, logger, printType)
 	local functions = {
 		["trace"] = sendTraceMessage,
 		["debug"] = sendDebugMessage,
@@ -31,7 +30,7 @@ end
 -- Grabs a random element from a table that's not numerically indexed (e.g. it has elements with strings for keys)
 -- It's recommended to do <table>[math.random(#<table>)] instead for numerically-indexed tables as it's more efficient
 --- Taken from JenLib
-function MistiUtils.random_element(table)
+function mistiutils.random_element(table)
 	local index = {}
 	for k, v in pairs(table) do
 		index[#index + 1] = k
@@ -40,7 +39,7 @@ function MistiUtils.random_element(table)
 end
 
 -- Checks how many times a specific rank occurs in played hand
-function MistiUtils.rank_count(hand, rank)
+function mistiutils.rank_count(hand, rank)
 	local rank_counter = 0
 	for i = 1, #hand do
 		if hand[i]:get_id() == rank then
@@ -51,7 +50,7 @@ function MistiUtils.rank_count(hand, rank)
 end
 
 -- Checks how many times a played hand contains a rank that's part of a specified table
-function MistiUtils.ranks_count(hand, ranks)
+function mistiutils.ranks_count(hand, ranks)
 	local rank_counter = 0
 	for hand_index = 1, #hand do
 		for rank_index = 1, #ranks do
@@ -64,7 +63,7 @@ function MistiUtils.ranks_count(hand, ranks)
 end
 
 -- Checks if a card matches a specified table of ranks
-function MistiUtils.matches_rank(card, ranks)
+function mistiutils.matches_rank(card, ranks)
 	for i = 1, #ranks do
 		if card:get_id() == ranks[i] then
 			return true
@@ -75,7 +74,7 @@ end
 
 -- Gets tiring to type all the G.E_MANAGER mumbojumbo every time for things that are simple
 --- Taken from JenLib
-function MistiUtils.add_event(func, delay, timer, trigger, blockable, blocking)
+function mistiutils.add_event(func, delay, timer, trigger, blockable, blocking)
 	G.E_MANAGER:add_event(Event({
 		timer = timer,
 		trigger = trigger or "immediate",
@@ -88,7 +87,7 @@ end
 
 -- Easier way of doing chance rolls
 --- Taken from JenLib
-function MistiUtils.chance(name, probability, absolute)
+function mistiutils.chance(name, probability, absolute)
 	if absolute == nil then
 		absolute = true
 	end
@@ -97,7 +96,7 @@ end
 
 -- Gets most played hand
 --- Taken from JenLib
-function MistiUtils.fav_hand()
+function mistiutils.fav_hand()
 	if not G.GAME or not G.GAME.current_round then
 		return "High Card"
 	end
@@ -115,7 +114,7 @@ end
 
 -- Gets the second most-played hand
 --- Taken from JenLib
-function MistiUtils.second_fav_hand()
+function mistiutils.second_fav_hand()
 	if not G.GAME or not G.GAME.current_round then
 		return "High Card"
 	end
@@ -134,7 +133,7 @@ end
 
 -- Gets rank of a hand
 --- Taken from JenLib
-function MistiUtils.hand_pos(hand)
+function mistiutils.hand_pos(hand)
 	local pos = -1
 	for i = 1, #G.handlist do
 		if G.handlist[i] == hand then
@@ -147,7 +146,7 @@ end
 
 -- Gets the "adjacent" hands of a hand (a.k.a. the hands above and below the hand you specify according to the poker hand list)
 --- Taken from JenLib
-function MistiUtils.adjacent_hands(hand)
+function mistiutils.adjacent_hands(hand)
 	local hands = {}
 	if not G.GAME or not G.GAME.hands then
 		return hands
@@ -168,7 +167,7 @@ end
 
 -- Gets the hand with the lowest level, prioritises lower-ranking hands
 --- Taken from JenLib
-function MistiUtils.lowest_lvl_hand()
+function mistiutils.lowest_lvl_hand()
 	local chosen_hand = "High Card"
 	local lowest_level = math.huge
 	for _, v in ipairs(G.handlist) do
@@ -182,7 +181,7 @@ end
 
 -- Gets the hand with the highest level, prioritises higher-ranking hands
 --- Taken from JenLib
-function MistiUtils.highest_lvl_hand()
+function mistiutils.highest_lvl_hand()
 	local chosen_hand = "High Card"
 	local highest_level = -math.huge
 	for _, v in ipairs(G.handlist) do
@@ -196,7 +195,7 @@ end
 
 -- Gets a random hand
 --- Taken from JenLib
-function MistiUtils.random_hand(ignore, seed, allowhidden)
+function mistiutils.random_hand(ignore, seed, allowhidden)
 	local chosen_hand
 	ignore = ignore or {}
 	seed = seed or "randomhand"
@@ -221,7 +220,7 @@ function MistiUtils.random_hand(ignore, seed, allowhidden)
 end
 
 -- What Jokers can be destroyed?
-function MistiUtils.killable_jokers(self)
+function mistiutils.killable_jokers(self)
 	local t = {}
 	for i = 1, #G.jokers.cards do
 		local j = G.jokers.cards[i]
@@ -233,14 +232,14 @@ function MistiUtils.killable_jokers(self)
 end
 
 -- Destroys a Joker (like Gros Michel or Turtle Bean or any of the other food jokers)
-function MistiUtils.destroy_joker(card, after)
-	MistiUtils.add_event(function()
+function mistiutils.destroy_joker(card, after)
+	mistiutils.add_event(function()
 		play_sound("tarot1")
 		card.T.r = -0.2
 		card:juice_up(0.3, 0.4)
 		card.states.drag.is = true
 		card.children.center.pinch.x = true
-		MistiUtils.add_event(function()
+		mistiutils.add_event(function()
 			G.jokers:remove_card(card)
 			card:remove()
 			if after and type(after) == "function" then
@@ -253,7 +252,7 @@ function MistiUtils.destroy_joker(card, after)
 end
 
 -- Replaces a Joker in the shop at the specified index
-function MistiUtils.replace_joker_in_shop(key, index)
+function mistiutils.replace_joker_in_shop(key, index)
 	local delete = G.shop_jokers:remove_card(G.shop_jokers.cards[index])
 	delete:remove()
 	local sold_card = SMODS.create_card({ set = "Joker", area = G.shop_jokers, key = key })
@@ -263,4 +262,4 @@ function MistiUtils.replace_joker_in_shop(key, index)
 	sold_card:set_cost()
 end
 
-return MistiUtils
+return mistiutils

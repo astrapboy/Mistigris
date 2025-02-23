@@ -8,4 +8,4 @@ priority = 65535
 [patches.module]
 source = "mistiutils.lua"
 before = "main.lua"
-name = "MistiUtils"
+name = "mistigris.mistiutils"

@@ -37,7 +37,7 @@ local function load_folder(path, include_subfolders)
 end
 
 -- Dependencies need to be loaded first as they contain essential functions
-load_folder("src/lib/deps", false)
+load_folder("src/startup", true)
 
 -- Then we can load the rest of the code all at once
 load_folder("src", true)

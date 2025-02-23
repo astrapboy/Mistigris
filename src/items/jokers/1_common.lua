@@ -1,5 +1,5 @@
--- Initialize MistiUtils
-local MistiUtils = require("MistiUtils")
+-- Initialize mistiutils
+local mistiutils = require("mistigris.mistiutils")
 
 -- Diminishing Returns
 SMODS.Joker({
@@ -103,7 +103,7 @@ SMODS.Joker({
 			if not context.other_card.timesheeted then
 				local c = context.other_card
 				context.other_card.timesheeted = true
-				MistiUtils.add_event(function()
+				mistiutils.add_event(function()
 					if c then
 						c.timesheeted = nil
 					end
@@ -158,7 +158,7 @@ SMODS.Joker({
 		-- Nightmare!
 		if next(SMODS.find_card("j_scary_face")) and not card.ability.extra.nightmared and not context.blueprint then
 			card.ability.extra.nightmared = true
-			MistiUtils.destroy_joker(card, function()
+			mistiutils.destroy_joker(card, function()
 				if G.jokers then
 					local c = SMODS.add_card({ set = "Joker", key = "j_mstg_awake" })
 					c.ability.extra.Xmult = card.ability.extra.xmult_to_pass
@@ -183,7 +183,7 @@ SMODS.Joker({
 		end
 
 		if context.selling_self and not context.blueprint then
-			MistiUtils.add_event(function()
+			mistiutils.add_event(function()
 				if G.jokers then
 					local c = SMODS.add_card({ set = "Joker", key = "j_mstg_awake" })
 					c.ability.extra.Xmult = card.ability.extra.xmult_to_pass
