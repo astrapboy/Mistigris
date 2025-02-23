@@ -3,9 +3,9 @@
 local mistiutils = {}
 
 --- Detailed Debug messages callable from anywhere that uses mistiutils. (Based on Pokermon)
---- @param message string|table: Text of the message you would like to print.
---- @param logger string?: Name of the logger this message will be attributed to.
---- @param printType "trace"|"debug"|"info"|"warn"|"error"|"fatal"|nil: What type of function should be used? Defaults to Info.
+--- @param message string|table Text of the message you would like to print.
+--- @param logger string? Name of the logger this message will be attributed to.
+--- @param printType "trace"|"debug"|"info"|"warn"|"error"|"fatal"|nil What type of function should be used? Defaults to Info.
 function mistiutils.print_line(message, logger, printType)
 	local functions = {
 		["trace"] = sendTraceMessage,
@@ -33,7 +33,7 @@ function mistiutils.print_line(message, logger, printType)
 end
 
 --- Grabs a random Table element that is not numerically indexed. (Based on JenLib)
---- @param table table: The table of elements to select from.
+--- @param table table The table of elements to select from.
 --- @return any: The retrieved element.
 --- Note: It's recommended to do table[math.random(#table)] instead for numerically-indexed tables, as it's more efficient
 function mistiutils.random_element(table)
@@ -45,8 +45,8 @@ function mistiutils.random_element(table)
 end
 
 --- Checks how many times a specific rank occurs in played hand.
---- @param hand table: The hand to select from.
---- @param rank integer: The rank to search for.
+--- @param hand table The hand to select from.
+--- @param rank integer The rank to search for.
 --- @return integer: How many times does this rank occur during the played hand?
 function mistiutils.rank_count(hand, rank)
 	local rank_counter = 0
@@ -59,8 +59,8 @@ function mistiutils.rank_count(hand, rank)
 end
 
 --- Checks how many times a specific set of ranks occurs in played hand.
---- @param hand table: The hand to select from.
---- @param ranks table: The ranks to search for.
+--- @param hand table The hand to select from.
+--- @param ranks table The ranks to search for.
 --- @return integer: How many times does this collection of ranks occur during the played hand?
 function mistiutils.ranks_count(hand, ranks)
 	local rank_counter = 0
@@ -75,8 +75,8 @@ function mistiutils.ranks_count(hand, ranks)
 end
 
 --- Checks if a card's rank is included in a specified table of ranks.
---- @param card table: The card that is being tested against this table of ranks.
---- @param ranks table: The ranks to search for.
+--- @param card table The card that is being tested against this table of ranks.
+--- @param ranks table The ranks to search for.
 --- @return boolean: Does this card fit in the table of ranks?
 function mistiutils.matches_rank(card, ranks)
 	for i = 1, #ranks do
@@ -88,12 +88,12 @@ function mistiutils.matches_rank(card, ranks)
 end
 
 --- Basically just a simpler way of adding events lol (Based on JenLib)
---- @param func function: The function associated with this event.
---- @param delay integer?: The length of time (in seconds) that this event should be delayed for.
---- @param timer "TOTAL"|"REAL"|"REAL_SHADER"|"UPTIME"|"BACKGROUND"|nil: The kind of timer this event will use. Default is REAL if event occurs while game is paused, otherwise falls back to TOTAL.
---- @param trigger "immediate"|"after"|"condition"|"ease"|"before"|nil: When this event should trigger in relation to the delay. Default is "immediate"
---- @param blockable boolean?: Whether or not this event can be blocked by other events.
---- @param blocking boolean?: Whether or not this event blocks other events.
+--- @param func function The function associated with this event.
+--- @param delay integer? The length of time (in seconds) that this event should be delayed for.
+--- @param timer "TOTAL"|"REAL"|"REAL_SHADER"|"UPTIME"|"BACKGROUND"|nil The kind of timer this event will use. Default is REAL if event occurs while game is paused, otherwise falls back to TOTAL.
+--- @param trigger "immediate"|"after"|"condition"|"ease"|"before"|nil When this event should trigger in relation to the delay. Default is "immediate"
+--- @param blockable boolean? Whether or not this event can be blocked by other events.
+--- @param blocking boolean? Whether or not this event blocks other events.
 function mistiutils.add_event(func, delay, timer, trigger, blockable, blocking)
 	G.E_MANAGER:add_event(Event({
 		timer = timer,
@@ -106,9 +106,9 @@ function mistiutils.add_event(func, delay, timer, trigger, blockable, blocking)
 end
 
 --- Chance rolls, used for things like Wheel of Fortune and Gros Michel. (Based on JenLib)
---- @param name string: The named seed to use for this roll.
---- @param probability integer: The odds of this event occurring, in odds.
---- @param absolute boolean?: If set to true, the chance of this event occurring cannot be affected by G.GAME.probabilities.normal.
+--- @param name string The named seed to use for this roll.
+--- @param probability integer The odds of this event occurring, in odds.
+--- @param absolute boolean? If set to true, the chance of this event occurring cannot be affected by G.GAME.probabilities.normal.
 --- @return boolean: Make this event happen?
 function mistiutils.chance(name, probability, absolute)
 	if absolute == nil then
@@ -155,7 +155,7 @@ function mistiutils.second_fav_hand()
 end
 
 --- Gets the ranking of a hand based on how often it has been used during the current run. (Based on JenLib)
---- @param hand string: The selected hand.
+--- @param hand string The selected hand.
 --- @return integer: The hand's ranking.
 function mistiutils.hand_pos(hand)
 	local pos = -1
@@ -169,7 +169,7 @@ function mistiutils.hand_pos(hand)
 end
 
 --- Gets the "adjacent" hands of a hand (a.k.a. the hands above and below the hand you specify according to the poker hand list) (Based on JenLib)
---- @param hand string: The selected hand.
+--- @param hand string The selected hand.
 --- @return table: The hands directly above and below the selected one in terms of usage.
 function mistiutils.adjacent_hands(hand)
 	local hands = {}
@@ -219,9 +219,9 @@ function mistiutils.highest_lvl_hand()
 end
 
 --- Selects a random hand. (Based on JenLib)
---- @param ignore string|table: The hands that are to be ignored in the selection process.
---- @param seed string?: The seed to use when selecting hands.
---- @param allowhidden boolean?: Whether or not this search should include hands not yet discovered by the player.
+--- @param ignore string|table The hands that are to be ignored in the selection process.
+--- @param seed string? The seed to use when selecting hands.
+--- @param allowhidden boolean? Whether or not this search should include hands not yet discovered by the player.
 --- @return table: A randomly selected hand, considering the above criteria.
 function mistiutils.random_hand(ignore, seed, allowhidden)
 	local chosen_hand
@@ -248,7 +248,8 @@ function mistiutils.random_hand(ignore, seed, allowhidden)
 end
 
 --- Selects what Jokers can be killed by items like Madness and Ceremonial Dagger.
---- @param self table: The Joker that is calling this function.
+--- @param self Card The Joker that is calling this function.
+--- @return table: The Jokers that can be killed.
 function mistiutils.killable_jokers(self)
 	local t = {}
 	for i = 1, #G.jokers.cards do
@@ -261,8 +262,8 @@ function mistiutils.killable_jokers(self)
 end
 
 --- Makes a Joker self-destruct. Mostly used for Food-based Jokers, like Gros Michel and Turtle Bean.
---- @param card table: The card that is being destroyed.
---- @param after function?: The function that should be run after this Joker is destroyed.
+--- @param card Card The card that is being destroyed.
+--- @param after function? The function that should be run after this Joker is destroyed.
 function mistiutils.destroy_joker(card, after)
 	mistiutils.add_event(function()
 		play_sound("tarot1")
@@ -283,8 +284,8 @@ function mistiutils.destroy_joker(card, after)
 end
 
 --- Replaces a Joker in the shop at the specified index.
---- @param key string: The Joker's key.
---- @param index integer: The one-based index of the shop item that should be replaced.
+--- @param key string The Joker's key.
+--- @param index integer The one-based index of the shop item that should be replaced.
 function mistiutils.replace_joker_in_shop(key, index)
 	local delete = G.shop_jokers:remove_card(G.shop_jokers.cards[index])
 	delete:remove()
