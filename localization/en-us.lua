@@ -40,7 +40,7 @@ return {
 				},
 			},
 			--- Common
-			j_mstg_diminishingreturns = {
+			j_mstg_diminishing_returns = {
 				name = "Diminishing Returns",
 				text = {
 					"{X:mult,C:white} X#1# {} Mult minus",
@@ -48,7 +48,7 @@ return {
 					"card in played hand",
 				},
 			},
-			j_mstg_peekingjoker = {
+			j_mstg_peeking = {
 				name = "Peeking Joker",
 				text = {
 					"{C:mult}+#1#{} Mult if chips",
@@ -56,7 +56,7 @@ return {
 					"{C:attention}#2#%{} of required chips",
 				},
 			},
-			j_mstg_ninjajoker = {
+			j_mstg_ninja = {
 				name = "Ninja Joker",
 				text = {
 					"{C:chips}+#1#{} Chips if chips",
@@ -71,7 +71,7 @@ return {
 					"a playing card is {C:attention}retriggered{}",
 				},
 			},
-			j_mstg_uptoeleven = {
+			j_mstg_up_to_eleven = {
 				name = "Up To 11",
 				text = {
 					"{C:attention}10{}s and {C:attention}Aces{}",
@@ -96,7 +96,7 @@ return {
 					"{X:mult,C:white} X#1# {} Mult",
 				},
 			},
-			j_mstg_papershredder = {
+			j_mstg_paper_shredder = {
 				name = "Paper Shredder",
 				text = {
 					"If a card is {C:attention}debuffed{},",
@@ -131,7 +131,7 @@ return {
 					"{C:inactive}(Includes non-scoring cards){}",
 				},
 			},
-			j_mstg_bananafactory = {
+			j_mstg_banana_factory = {
 				name = "Banana Factory",
 				text = {
 					"Guarantees a {C:attention}#1#{}",
@@ -165,7 +165,7 @@ return {
 					"Joker if sold",
 				},
 			},
-			j_mstg_leakysoda = {
+			j_mstg_leaky_soda = {
 				name = "Leaky Soda",
 				text = {
 					"{C:mult}+#1#{} Mult",
@@ -187,7 +187,7 @@ return {
 					"{C:inactive}(Currently {X:mult,C:white} X#2# {C:inactive} Mult)",
 				},
 			},
-			j_mstg_powerofthree = {
+			j_mstg_power_of_three = {
 				name = "Power of Three",
 				text = {
 					"{X:mult,C:white} X#1# {} Mult for each",
@@ -196,7 +196,7 @@ return {
 					"{C:inactive}(Currently {X:mult,C:white} X#3# {C:inactive} Mult)",
 				},
 			},
-			j_mstg_plasmajoker = {
+			j_mstg_plasma = {
 				name = "Plasma Joker",
 				text = {
 					"Up to {X:mult,C:white} X#1# {} Mult",
@@ -204,7 +204,7 @@ return {
 					"{C:chips}Chips{} and {C:mult}Mult{} are",
 				},
 			},
-			j_mstg_weighteddice = {
+			j_mstg_weighted_dice = {
 				name = "Weighted Dice",
 				text = {
 					"After {C:attention}Blind{} is selected,",
@@ -231,7 +231,7 @@ return {
 					"{C:inactive}(Must have room){}",
 				},
 			},
-			j_mstg_travelmiles = {
+			j_mstg_travel_miles = {
 				name = "Travel Miles",
 				text = {
 					"{X:mult,C:white} X#1# {} Mult if you have",

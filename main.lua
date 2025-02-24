@@ -12,10 +12,9 @@ to_number = to_number or function(x)
 	return x
 end
 
--- Initialize table to store loaded files
+-- #region Non-Joker loading
 local loaded = {}
 
--- Loads all files in a particular folder
 local function load_folder(path, include_subfolders)
 	local full_path = mod_path .. path
 	local files = NFS.getDirectoryItemsInfo(full_path)
@@ -40,4 +39,71 @@ end
 load_folder("src/startup", true)
 
 -- Then we can load the rest of the code all at once
-load_folder("src", true)
+load_folder("src", false)
+load_folder("src/items", false)
+
+-- #endregion
+
+-- #region Joker loading
+local joker_load_order = {
+	-- #region Common
+	[1] = {
+		rarity = "common",
+		jokers = {
+			"diminishing_returns",
+			"peeking",
+			"ninja",
+			"timesheet",
+			"up_to_eleven",
+			"sleepy",
+			"awake",
+			"paper_shredder"
+		}
+	},
+	-- #endregion
+	-- #region Uncommon
+	[2] = {
+		rarity = "uncommon",
+		jokers = {
+			"boulder",
+			"comedian",
+			"handyman",
+			"banana_factory",
+			"medusa",
+			"tortoise",
+			"sacrifice",
+			"leaky_soda"
+		}
+	},
+	-- #endregion
+	-- #region Rare
+	[3] = {
+		rarity = "rare",
+		jokers = {
+			"outcast",
+			"power_of_three",
+			"plasma",
+			"weighted_dice",
+			"conscription",
+			"scythe",
+			"travel_miles"
+		}
+	}
+	-- #endregion
+}
+
+-- Loads all the jokers
+local function load_jokers()
+	for _, jokers in pairs(joker_load_order) do
+		local jokers_path = "src/items/jokers/" .. jokers.rarity
+		for i = 1, #jokers.jokers do
+			local jonk = jokers.jokers[i]
+			local j = assert(SMODS.load_file(jokers_path .. "/" .. jonk .. ".lua"), "Failed to load Joker " .. jonk .. "!")()
+			if j then assert(SMODS.Joker(j), "Failed to create SMODS Joker " .. jonk .. "!") end
+		end
+	end
+end
+
+-- Now we load the Jonklers
+load_jokers()
+-- #endregion
