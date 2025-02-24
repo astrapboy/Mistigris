@@ -16,21 +16,13 @@ local Game_updateRef = Game.update
 Game.update = function(self, dt)
 	Game_updateRef(self, dt)
 
+	-- Shoutout to Breezebuilder for this next bit
+	local cycle_speed = 1.3
+	local sin_time = math.sin(self.TIMERS.REAL * cycle_speed)
 
-	local lerp_by = math.sin(self.TIMERS.REAL * 1.3)
-
-	local first_red = 200 / 255
-	local second_red = 200 / 255
-
-	local first_blue = 0
-	local second_blue = 200 / 255
-
-	local first_green = 100 / 255
-	local second_green = 100 / 255
-
-	self.C.MISTIGRIS[1] = mistiutils.lerp(first_red, second_red, lerp_by)
-	self.C.MISTIGRIS[2] = mistiutils.lerp(first_green, second_green, lerp_by)
-	self.C.MISTIGRIS[3] = mistiutils.lerp(first_blue, second_blue, lerp_by)
+	self.C.MISTIGRIS[1] = (sin_time * 0.5 + 0.5) * (1.00 - 0.50) + 0.50 -- r = 0.50 -> 1.00
+	self.C.MISTIGRIS[2] = (sin_time * 0.5 + 0.5) * (0.65 - 0.00) + 0.00 -- g = 0.00 -> 0.65
+	self.C.MISTIGRIS[3] = (sin_time * -0.5 + 0.5) * (0.50 - 0.00) + 0.00 -- b = 0.50 -> 0.00
 end
 
 -- Card Functions
