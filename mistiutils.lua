@@ -296,4 +296,12 @@ function mistiutils.replace_joker_in_shop(key, index)
 	sold_card:set_cost()
 end
 
+--- Linearly interpolates between two variables
+--- @param a integer The starting variable.
+--- @param b integer The ending variable.
+--- @param t integer From 0 to 1, how far along the variable should be interpolated.
+function mistiutils.lerp(a, b, t)
+	return t >= 1 and b or a + (b - a) * t
+end
+
 return mistiutils

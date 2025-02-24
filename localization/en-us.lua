@@ -26,7 +26,7 @@ return {
 					"must not be less",
 					"than previous",
 				},
-			},
+			}
 		},
 		Edition = {},
 		Enhanced = {},

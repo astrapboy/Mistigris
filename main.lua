@@ -4,6 +4,8 @@ SMODS.optional_features.cardareas.unscored = true
 local mod_name = SMODS.current_mod.name
 local mod_path = SMODS.current_mod.path
 
+SMODS.current_mod.badge_colour = G.C.MISTIGRIS
+
 -- Talisman functions
 to_big = to_big or function(x)
 	return x

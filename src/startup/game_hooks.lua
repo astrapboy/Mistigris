@@ -1,3 +1,5 @@
+local mistiutils = require("mistigris.mistiutils")
+
 -- Game Functions
 local Game_igoRef = Game.init_game_object
 Game.init_game_object = function(self)
@@ -8,6 +10,27 @@ Game.init_game_object = function(self)
 		first_joker = nil
 	}
 	return ref
+end
+
+local Game_updateRef = Game.update
+Game.update = function(self, dt)
+	Game_updateRef(self, dt)
+
+
+	local lerp_by = math.sin(self.TIMERS.REAL * 1.3)
+
+	local first_red = 200 / 255
+	local second_red = 200 / 255
+
+	local first_blue = 0
+	local second_blue = 200 / 255
+
+	local first_green = 100 / 255
+	local second_green = 100 / 255
+
+	self.C.MISTIGRIS[1] = mistiutils.lerp(first_red, second_red, lerp_by)
+	self.C.MISTIGRIS[2] = mistiutils.lerp(first_green, second_green, lerp_by)
+	self.C.MISTIGRIS[3] = mistiutils.lerp(first_blue, second_blue, lerp_by)
 end
 
 -- Card Functions
