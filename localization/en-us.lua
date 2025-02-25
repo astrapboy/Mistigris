@@ -103,6 +103,16 @@ return {
 					"destroy it after scoring"
 				},
 			},
+			j_mstg_jenga = {
+				name = "Jenga",
+				text = {
+					"{C:mult}+#1#{} Mult",
+					"{C:green}#2# in #3#{} chance to {C:attention}reset{}",
+					"Add {C:mult}+#4#{} Mult and",
+					"increase odds by {C:green}#5#{}",
+					"every trigger"
+				},
+			},
 			--- Uncommon
 			j_mstg_boulder = {
 				name = "Boulder",
