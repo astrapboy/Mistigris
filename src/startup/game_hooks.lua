@@ -29,7 +29,7 @@ end
 local Card_isfaceRef = Card.is_face
 Card.is_face = function(self, from_boss)
 	Card_isfaceRef(self, from_boss)
-	if next(SMODS.find_card("j_mstg_uptoeleven")) and self:get_id() >= 10 then
+	if next(SMODS.find_card("j_mstg_up_to_eleven")) and self:get_id() >= 10 then
 		return true
 	end
 end
