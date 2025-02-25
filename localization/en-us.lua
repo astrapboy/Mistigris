@@ -109,8 +109,8 @@ return {
 					"{C:mult}+#1#{} Mult",
 					"{C:green}#2# in #3#{} chance to {C:attention}reset{}",
 					"Add {C:mult}+#4#{} Mult and",
-					"increase odds by {C:green}#5#{}",
-					"every trigger"
+					"increase chance by {C:green}#5#{}",
+					"before scoring"
 				},
 			},
 			--- Uncommon
