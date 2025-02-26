@@ -7,12 +7,6 @@ local enable = true
 --- @type SMODS.Joker
 local j = {
 	key = "peeking",
-	mstg_vars = {
-		credits = {
-			idea = "astrapboy",
-			code = "astrapboy",
-		},
-	},
 	blueprint_compat = true,
 	config = { extra = { threshold = 0.6, mult_bonus = 8 } },
 	loc_vars = function(self, info_queue, card)

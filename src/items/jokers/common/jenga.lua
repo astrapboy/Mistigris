@@ -7,12 +7,6 @@ local enable = true
 --- @type SMODS.Joker
 local j = {
 	key = "jenga",
-	mstg_vars = {
-		credits = {
-			idea = "astrapboy",
-			code = "astrapboy",
-		},
-	},
 	blueprint_compat = true,
 	config = { extra = { base_normal = 1, mult_add = 4, mult = 4, normal = 1, odds = 50 } },
 	loc_vars = function(self, table, card)

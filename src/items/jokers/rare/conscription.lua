@@ -7,12 +7,6 @@ local enable = true
 --- @type SMODS.Joker
 local j = {
 	key = "conscription",
-	mstg_vars = {
-		credits = {
-			idea = "astrapboy",
-			code = "astrapboy, Khaki & Eremel",
-		},
-	},
 	blueprint_compat = false,
 	rarity = 3,
 	cost = 9,

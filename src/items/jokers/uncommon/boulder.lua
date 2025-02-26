@@ -7,12 +7,6 @@ local enable = true
 --- @type SMODS.Joker
 local j = {
 	key = "boulder",
-	mstg_vars = {
-		credits = {
-			idea = "astrapboy",
-			code = "astrapboy & Aiksi Lotl",
-		},
-	},
 	config = { extra = { reroll_bonus = 1, reroll_total = 0, reroll_max = 10, win_reroll = true } },
 	loc_vars = function(self, info_queue, card)
 		return {

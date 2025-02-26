@@ -7,12 +7,6 @@ local enable = true
 --- @type SMODS.Joker
 local j = {
 	key = "power_of_three",
-	mstg_vars = {
-		credits = {
-			idea = "astrapboy",
-			code = "astrapboy",
-		},
-	},
 	config = { extra = { bonus_xmult = 0.33, current_xmult = 1 } },
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.bonus_xmult, 3, card.ability.extra.current_xmult } }

@@ -7,12 +7,6 @@ local enable = true
 --- @type SMODS.Joker
 local j = {
 	key = "scythe",
-	mstg_vars = {
-		credits = {
-			idea = "astrapboy & 3XPL",
-			code = "astrapboy",
-		},
-	},
 	config = { extra = { final_hand = "" } },
 	loc_vars = function(self, info_queue, card)
 		info_queue[#info_queue + 1] = G.P_CENTERS["c_death"]
@@ -41,10 +35,12 @@ local j = {
 				end
 			end
 
-			card.ability.extra.final_hand = mistiutils.random_hand(card.ability.extra.final_hand)
-			return {
-				message = localize("k_reset"),
-			}
+			if not context.blueprint then
+				card.ability.extra.final_hand = mistiutils.random_hand(card.ability.extra.final_hand)
+				return {
+					message = localize("k_reset"),
+				}
+			end
 		end
 	end,
 }

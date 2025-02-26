@@ -1,5 +1,4 @@
-﻿--- @module mistigris.mistiutils
---- A collection of re-usable functions used across Mistigris.
+﻿--- A collection of re-usable functions used across Mistigris.
 local mistiutils = {}
 
 --- Detailed Debug messages callable from anywhere that uses mistiutils. (Based on Pokermon)

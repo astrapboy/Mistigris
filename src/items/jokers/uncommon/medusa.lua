@@ -7,12 +7,6 @@ local enable = true
 --- @type SMODS.Joker
 local j = {
 	key = "medusa",
-	mstg_vars = {
-		credits = {
-			idea = "astrapboy",
-			code = "astrapboy",
-		},
-	},
 	loc_vars = function(self, info_queue, card)
 		info_queue[#info_queue + 1] = G.P_CENTERS["m_stone"]
 	end,

@@ -7,12 +7,6 @@ local enable = true
 --- @type SMODS.Joker
 local j = {
 	key = "tortoise",
-	mstg_vars = {
-		credits = {
-			idea = "astrapboy",
-			code = "astrapboy",
-		},
-	},
 	blueprint_compat = true,
 	config = { extra = { round_bonus = 0.5, total_bonus = 1 } },
 	loc_vars = function(self, info_queue, card)

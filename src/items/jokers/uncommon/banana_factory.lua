@@ -7,12 +7,6 @@ local enable = true
 --- @type SMODS.Joker
 local j = {
 	key = "banana_factory",
-	mstg_vars = {
-		credits = {
-			idea = "astrapboy",
-			code = "astrapboy & Autumn",
-		},
-	},
 	loc_vars = function(self, info_queue, card)
 		local key = G.GAME.pool_flags.gros_michel_extinct and "j_cavendish" or "j_gros_michel"
 		info_queue[#info_queue + 1] = G.P_CENTERS[key]

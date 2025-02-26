@@ -11,12 +11,6 @@ local j = {
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.bonus, card.ability.extra.Xmult } }
 	end,
-	mstg_vars = {
-		credits = {
-			idea = "astrapboy",
-			code = "astrapboy",
-		},
-	},
 	blueprint_compat = true,
 	rarity = 3,
 	cost = 10,

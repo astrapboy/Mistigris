@@ -13,12 +13,6 @@ local j = {
 	end,
 	rarity = 1,
 	cost = 5,
-	mstg_vars = {
-		credits = {
-			idea = "astrapboy",
-			code = "astrapboy",
-		},
-	},
 	blueprint_compat = true,
 	calculate = function(self, card, context)
 		if context.joker_main then

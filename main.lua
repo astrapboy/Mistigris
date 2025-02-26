@@ -37,10 +37,10 @@ local function load_folder(path, include_subfolders)
 	end
 end
 
--- Dependencies need to be loaded first as they contain essential functions
+-- Load up the startup functions
 load_folder("src/startup", true)
 
--- Then we can load the rest of the code all at once
+-- Then literally everything else
 load_folder("src", false)
 load_folder("src/items", false)
 

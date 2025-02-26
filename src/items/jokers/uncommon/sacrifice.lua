@@ -7,18 +7,11 @@ local enable = true
 --- @type SMODS.Joker
 local j = {
 	key = "sacrifice",
-	mstg_vars = {
-		credits = {
-			idea = "astrapboy",
-			art = "Gappie",
-			code = "astrapboy",
-		},
-	},
 	atlas = "jokers",
 	pos = { x = 0, y = 0 },
-	blueprint_compat = false,
+	blueprint_compat = true,
 	eternal_compat = false,
-	perishable_compat = false,
+	perishable_compat = true,
 	config = { extra = { bonus_xmult = 3 } },
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.bonus_xmult } }
@@ -26,7 +19,7 @@ local j = {
 	rarity = 2,
 	cost = 8,
 	calculate = function(self, card, context)
-		if context.selling_self and not context.blueprint then
+		if context.selling_self then
 			local victims = mistiutils.killable_jokers(card)
 			local to_destroy = pseudorandom_element(victims, pseudoseed("sacrifice")) or nil
 			if to_destroy then

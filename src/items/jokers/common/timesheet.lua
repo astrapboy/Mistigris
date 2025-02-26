@@ -7,12 +7,6 @@ local enable = true
 --- @type SMODS.Joker
 local j = {
 	key = "timesheet",
-	mstg_vars = {
-		credits = {
-			idea = "astrapboy",
-			code = "astrapboy",
-		},
-	},
 	config = { extra = { money = 1 } },
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.money } }
