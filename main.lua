@@ -91,7 +91,8 @@ local joker_load_order = {
 			"scythe",
 			"travel_miles",
 			"great_red_spot",
-			"unstable_atom"
+			"unstable_atom",
+			"ufo"
 		}
 	}
 	-- #endregion

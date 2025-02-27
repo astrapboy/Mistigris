@@ -25,7 +25,7 @@ local j = {
 			if mistiutils.chance("unstable_atom_destroy", card.ability.extra.sd_odds) and not context.blueprint then
 				mistiutils.destroy_joker(card)
 				return {
-					message = localize("k_mstg_combust_ex")
+					message = localize("k_mstg_decay_ex")
 				}
 			else
 				if not context.blueprint then

@@ -269,6 +269,16 @@ return {
 					"{C:attention}self-destruct{}"
 				},
 			},
+			j_mstg_ufo = {
+				name = "UFO",
+				text = {
+					"{X:mult,C:white} X#1# {} Mult for every",
+					"{C:attention}hand type{} that has",
+					"{C:attention}never been played{}",
+					"this run",
+					"{C:inactive}(Currently {X:mult,C:white} X#2# {C:inactive} Mult)",
+				},
+			},
 		},
 		Other = {},
 		Planet = {},
@@ -289,7 +299,7 @@ return {
 			k_mstg_stone_ex = "Stone!",
 			k_mstg_wakeup_ex = "Wake Up!",
 			k_mstg_nightmare_ex = "Nightmare!",
-			k_mstg_combust_ex = "Combusted!"
+			k_mstg_decay_ex = "Decayed!"
 		},
 		high_scores = {},
 		labels = {},
@@ -299,11 +309,7 @@ return {
 		suits_plural = {},
 		suits_singular = {},
 		tutorial = {},
-		v_dictionary = {
-			k_mstg_credit_idea = { "Idea: #1#{}" },
-			k_mstg_credit_art = { "Art: #1#{}" },
-			k_mstg_credit_code = { "Code: #1#{}" },
-		},
+		v_dictionary = {},
 		v_text = {},
 	},
 }

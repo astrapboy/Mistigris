@@ -300,4 +300,16 @@ function mistiutils.lerp(a, b, t)
 	return t >= 1 and b or a + (b - a) * t
 end
 
+--- Counts how many hands have never been played in the current run.
+--- @return integer: The number of hands yet to be played.
+function mistiutils.get_unplayed_hand_count_this_run()
+	local hand_count = 0
+	for name, handinfo in pairs(G.GAME.hands) do
+		if handinfo.visible and handinfo.played <= 0 then
+			hand_count = hand_count + 1
+		end
+	end
+	return hand_count
+end
+
 return mistiutils
