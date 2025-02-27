@@ -16,23 +16,23 @@ local j = {
 	cost = 9,
 	calculate = function(self, card, context)
 		if context.joker_main then
-			if mistiutils.chance("unstable_atom_xmult", card.ability.extra.xmult_odds) then
-				return {
-					Xmult = card.ability.extra.Xmult
-				}
-			end
-
-			if mistiutils.chance("unstable_atom_destroy", card.ability.extra.sd_odds) and not context.blueprint then
-				mistiutils.destroy_joker(card)
-				return {
-					message = localize("k_mstg_decay_ex")
-				}
-			else
-				if not context.blueprint then
+			if not context.blueprint then
+				if mistiutils.chance("unstable_atom_destroy", card.ability.extra.sd_odds) then
+					mistiutils.destroy_joker(card)
+					return {
+						message = localize("k_mstg_decay_ex")
+					}
+				else
 					return {
 						message = localize("k_safe_ex")
 					}
 				end
+			end
+
+			if mistiutils.chance("unstable_atom_xmult", card.ability.extra.xmult_odds) then
+				return {
+					Xmult = card.ability.extra.Xmult
+				}
 			end
 		end
 	end
