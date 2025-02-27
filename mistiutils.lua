@@ -110,9 +110,6 @@ end
 --- @param absolute boolean? If set to true, the chance of this event occurring cannot be affected by G.GAME.probabilities.normal.
 --- @return boolean: Make this event happen?
 function mistiutils.chance(name, probability, absolute)
-	if absolute == nil then
-		absolute = true
-	end
 	return pseudorandom(name) < (absolute and 1 or G.GAME.probabilities.normal) / probability
 end
 

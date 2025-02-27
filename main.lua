@@ -89,7 +89,9 @@ local joker_load_order = {
 			"weighted_dice",
 			"conscription",
 			"scythe",
-			"travel_miles"
+			"travel_miles",
+			"great_red_spot",
+			"unstable_atom"
 		}
 	}
 	-- #endregion

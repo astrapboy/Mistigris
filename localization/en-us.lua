@@ -251,6 +251,24 @@ return {
 					"{C:inactive}(Currently {C:attention}#3#{}){}",
 				},
 			},
+			j_mstg_great_red_spot = {
+				name = "Great Red Spot",
+				text = {
+					"When a {C:attention}#1#{} is played,",
+					"remove {C:attention}#2#{} level from it",
+					"and add {X:mult,C:white} X#3# {} Mult",
+					"to this Joker",
+					"{C:inactive}(Currently {X:mult,C:white} X#4# {C:inactive} Mult)",
+				}
+			},
+			j_mstg_unstable_atom = {
+				name = "Unstable Atom",
+				text = {
+					"{C:green}#1# in #2#{} chance for {X:mult,C:white} X#3# {} Mult",
+					"{C:green}#1# in #4#{} chance to",
+					"{C:attention}self-destruct{}"
+				},
+			},
 		},
 		Other = {},
 		Planet = {},
@@ -271,12 +289,12 @@ return {
 			k_mstg_stone_ex = "Stone!",
 			k_mstg_wakeup_ex = "Wake Up!",
 			k_mstg_nightmare_ex = "Nightmare!",
+			k_mstg_combust_ex = "Combusted!"
 		},
 		high_scores = {},
 		labels = {},
 		poker_hand_descriptions = {},
 		poker_hands = {},
-		quips = {},
 		ranks = {},
 		suits_plural = {},
 		suits_singular = {},
