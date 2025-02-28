@@ -5,7 +5,7 @@
 Welcome to Mistigris! Inspired by the likes of Paperback, Ortalab and Maximus, this is a vanilla-style mod intended to bring new, spicy gimmicks and playstyles to Balatro, while ensuring there is still a sense of order and balance!
 
 This mod currently has:
-* **26** new Jokers
+* **27** new Jokers
 * **1** new Boss Blind
 
 with more to come in the future!
@@ -13,12 +13,6 @@ with more to come in the future!
 ### [Discord Server](<https://discord.gg/fjcBm5YmdN>): Keep up with development and chat with others who might like the mod!
 
 ### [Install Guide](<https://github.com/Steamodded/smods/wiki>): Follow this guide and unzip Mistigris into your newly created "Mods" folder
-
-## DEPENDENCIES
-
-### Before you attempt to play Mistigris, make sure you have the following mods installed first!
-
-* [JokeRefactor](<https://github.com/AiksiLotl/JokeRefactor>): needed for Boulder and Banana Factory.
 
 ## COMPATIBILITIES
 

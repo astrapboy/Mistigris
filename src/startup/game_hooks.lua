@@ -1,5 +1,12 @@
 local mistiutils = require("mistigris.mistiutils")
 
+-- G Functions
+local G_FUNCS_rerollshopRef = G.FUNCS.reroll_shop
+G.FUNCS.reroll_shop = function(self, e)
+	G.GAME.current_round.caught_reroll = false
+	G_FUNCS_rerollshopRef(self, e)
+end
+
 -- Game Functions
 local Game_igoRef = Game.init_game_object
 Game.init_game_object = function(self)

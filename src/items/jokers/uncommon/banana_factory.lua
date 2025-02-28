@@ -20,7 +20,7 @@ local j = {
 	rarity = 2,
 	cost = 6,
 	calculate = function(self, card, context)
-		if context.entering_shop and not context.blueprint then
+		if context.starting_shop and not context.blueprint then
 			if
 				 not next(SMODS.find_card("j_gros_michel"))
 				 and not next(SMODS.find_card("j_cavendish"))
