@@ -1,22 +1,7 @@
 return {
 	descriptions = {
 		--- Decks
-		Back = {
-			b_mstg_phdeck = {
-				name = "Placeholder Deck",
-				text = {
-					"Not for production! This deck is just",
-					"to test new features early on",
-				},
-			},
-			b_mstg_root = {
-				name = "Root Deck",
-				text = {
-					"Before scoring, chips and mult",
-					"become their square roots",
-				},
-			},
-		},
+		Back = {},
 		--- Blinds
 		Blind = {
 			bl_mstg_journey = {
