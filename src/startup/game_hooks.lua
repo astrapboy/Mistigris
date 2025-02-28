@@ -13,8 +13,7 @@ Game.init_game_object = function(self)
 	local ref = Game_igoRef(self)
 	ref.probabilities.mstg_base_normal = 1
 	ref.mstg = {
-		unique_jokers = {},
-		first_joker = nil
+		unique_jokers = {}
 	}
 	return ref
 end
@@ -35,9 +34,10 @@ end
 -- Card Functions
 local Card_isfaceRef = Card.is_face
 Card.is_face = function(self, from_boss)
-	Card_isfaceRef(self, from_boss)
 	if next(SMODS.find_card("j_mstg_up_to_eleven")) and self:get_id() >= 10 then
 		return true
+	else
+		return Card_isfaceRef(self, from_boss)
 	end
 end
 

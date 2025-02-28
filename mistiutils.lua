@@ -312,4 +312,26 @@ function mistiutils.get_unplayed_hand_count_this_run()
 	return hand_count
 end
 
+--- Gets the suits included within a specific set of cards.
+--- @param cards table The set of cards to test against.
+--- @return table: The suits that are included in this card set.
+function mistiutils.get_suits(cards)
+	local suits = {}
+	for _, v in ipairs(cards) do
+		if not suits[v.base.suit] then suits[#suits + 1] = v.base.suit end
+	end
+	return suits
+end
+
+--- Checks a card against a table of suits
+--- @param card Card The card to be tested against.
+--- @param suits table The table of suits we're looking for.
+--- @return boolean: Does this card match any of the listed suits?
+function mistiutils.is_any_of_these_suits(card, suits)
+	for _, v in pairs(suits) do
+		if card:is_suit(v) then return true end
+	end
+	return false
+end
+
 return mistiutils

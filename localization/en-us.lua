@@ -103,6 +103,15 @@ return {
 					"destroy it after scoring"
 				},
 			},
+			j_mstg_missing_poster = {
+				name = "Missing Poster",
+				text = {
+					"Each {C:attention}face card{} held in hand",
+					"gives {C:mult}+#1#{} Mult if its suit",
+					"is not part of the",
+					"{C:attention}played hand{}"
+				},
+			},
 			j_mstg_jenga = {
 				name = "Jenga",
 				text = {

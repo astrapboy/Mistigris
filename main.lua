@@ -60,7 +60,8 @@ local joker_load_order = {
 			"sleepy",
 			"awake",
 			"paper_shredder",
-			"jenga"
+			"jenga",
+			"missing_poster"
 		}
 	},
 	-- #endregion
