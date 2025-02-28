@@ -76,8 +76,7 @@ local joker_load_order = {
 			"medusa",
 			"tortoise",
 			"sacrifice",
-			"leaky_soda",
-			"defaced"
+			"leaky_soda"
 		}
 	},
 	-- #endregion
@@ -85,6 +84,7 @@ local joker_load_order = {
 	[3] = {
 		rarity = "rare",
 		jokers = {
+			"defaced",
 			"outcast",
 			"power_of_three",
 			"plasma",
