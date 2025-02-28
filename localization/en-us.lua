@@ -202,10 +202,11 @@ return {
 			j_mstg_power_of_three = {
 				name = "Power of Three",
 				text = {
-					"{X:mult,C:white} X#1# {} Mult for each",
-					"scored hand this run",
-					"that contains a {C:attention}#2#{}",
-					"{C:inactive}(Currently {X:mult,C:white} X#3# {C:inactive} Mult)",
+					"Each {C:attention}scoring hand{} that",
+					"contains a {C:attention}#4#{} has a",
+					"{C:green}#1# in #2#{} chance to add",
+					"{X:mult,C:white} X#3# {} Mult to this Joker",
+					"{C:inactive}(Currently {X:mult,C:white} X#5# {C:inactive} Mult)",
 				},
 			},
 			j_mstg_plasma = {
