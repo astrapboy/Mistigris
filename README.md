@@ -9,8 +9,8 @@ This mod currently has:
 
 with more to come in the future!
 
-### [Join the Official Mistigris Discord!](<https://discord.gg/fjcBm5YmdN>)
-* Keep up with development and chat with others who might like the mod!
+* **[Join the Official Mistigris Discord!](<https://discord.gg/fjcBm5YmdN>)**
+Keep up with development and chat with others who might like the mod!
 
 ## Compatibilities
 
@@ -22,7 +22,7 @@ with more to come in the future!
 ## Install Guide
 > Requires Steamodded 1.0.0~ALPHA-1424a (or newer) and Lovely 0.7.1 (or newer)
 1. If you don't have Steamodded, be sure to install that first before proceeding any further! (Guide available [here](<https://github.com/Steamodded/smods/wiki>))
-2. Download the Mistigris source code through [this link](<https://github.com/Steamodded/smods/archive/refs/heads/main.zip>).
+2. Download the Mistigris source code through [this link](<https://github.com/astrapboy/Mistigris/archive/refs/heads/main.zip>).
 3. Navigate to your mod folder, based on what your operating system is.
 
 	* ```Windows: %AppData%/Balatro/Mods```
@@ -36,7 +36,7 @@ with more to come in the future!
 
 5. Enjoy!
 
-> It's highly recommended to play mods on a *separate* profile, to not disrupt or interfere with your Vanilla save progress.
+**It's highly recommended to play mods on a *separate* profile, to not disrupt or interfere with your Vanilla save progress.**
 
 ## Credits
 **Created by:**
