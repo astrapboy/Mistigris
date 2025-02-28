@@ -15,7 +15,7 @@ local j = {
 	end,
 	blueprint_compat = false,
 	rarity = 3,
-	cost = 4,
+	cost = 9,
 	calculate = function(self, card, context)
 		local mult = card.ability.extra.Xmult_add * mistiutils.get_unplayed_hand_count_this_run()
 		if context.joker_main and to_big(mult) >= to_big(1) then

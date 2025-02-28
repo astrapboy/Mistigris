@@ -195,6 +195,15 @@ return {
 					"of the round",
 				},
 			},
+			j_mstg_defaced = {
+				name = "Defaced Joker",
+				text = {
+					"If Blind is beaten in a",
+					"{C:attention}single hand{}, convert",
+					"all held cards into",
+					'{C:hearts}Hearts{}'
+				},
+			},
 			--- Rare
 			j_mstg_outcast = {
 				name = "Outcast",
