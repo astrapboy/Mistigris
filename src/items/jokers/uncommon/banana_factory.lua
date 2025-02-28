@@ -22,9 +22,10 @@ local j = {
 	calculate = function(self, card, context)
 		if context.starting_shop and not context.blueprint then
 			if
-				 not next(SMODS.find_card("j_gros_michel"))
-				 and not next(SMODS.find_card("j_cavendish"))
-				 and not next(SMODS.find_card("j_ring_master"))
+				 (
+					 not next(SMODS.find_card("j_gros_michel"))
+					 and not next(SMODS.find_card("j_cavendish")))
+				 or next(SMODS.find_card("j_ring_master"))
 			then
 				local key = G.GAME.pool_flags.gros_michel_extinct and "j_cavendish" or "j_gros_michel"
 				mistiutils.replace_joker_in_shop(key, 2)

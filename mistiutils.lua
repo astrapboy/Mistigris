@@ -283,13 +283,16 @@ end
 --- @param key string The Joker's key.
 --- @param index integer The one-based index of the shop item that should be replaced.
 function mistiutils.replace_joker_in_shop(key, index)
-	local delete = G.shop_jokers:remove_card(G.shop_jokers.cards[index])
-	delete:remove()
-	local sold_card = SMODS.create_card({ set = "Joker", area = G.shop_jokers, key = key })
-	create_shop_card_ui(sold_card, "Joker", G.shop_jokers)
-	G.shop_jokers:emplace(sold_card)
-	sold_card:start_materialize()
-	sold_card:set_cost()
+	if G.shop_jokers then
+		local kill = G.shop_jokers.cards[index]
+		G.shop_jokers:remove_card(kill)
+		kill:remove()
+		local sold_card = SMODS.create_card({ set = "Joker", area = G.shop_jokers, key = key })
+		create_shop_card_ui(sold_card, "Joker", G.shop_jokers)
+		G.shop_jokers:emplace(sold_card)
+		sold_card:start_materialize()
+		sold_card:set_cost()
+	end
 end
 
 --- Linearly interpolates between two variables
