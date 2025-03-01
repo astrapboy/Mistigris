@@ -9,7 +9,7 @@ local j = {
 	key = "vortex",
 	atlas = "jokers",
 	pos = { x = 6, y = 0 },
-	config = { extra = { Xmult = 1, Xmult_gain = 0.25 } },
+	config = { extra = { Xmult = 1, Xmult_gain = 0.5 } },
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.Xmult_gain, card.ability.extra.Xmult } }
 	end,
