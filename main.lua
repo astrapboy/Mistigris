@@ -1,3 +1,5 @@
+-- #region Pre-Loading
+
 -- Required for unscoring cards
 SMODS.optional_features.cardareas.unscored = true
 
@@ -20,7 +22,8 @@ to_number = to_number or function(x)
 	return x
 end
 
--- #region Non-Joker loading
+-- #endregion
+-- #region Non-Content loading
 local loaded = {}
 
 local function load_folder(path, include_subfolders)
@@ -51,7 +54,6 @@ load_folder("src", false)
 load_folder("src/items", false)
 
 -- #endregion
-
 -- #region Content loading
 local function load_smods_type(type, load_order, name_field, items_field)
 	for _, items in pairs(load_order) do
@@ -125,7 +127,6 @@ local joker_load_order = {
 
 load_smods_type("Joker", joker_load_order, "rarity", "jokers")
 --#endregion
-
 -- #region Blind Loading
 local blind_load_order = {
 	[0] = {
@@ -137,5 +138,4 @@ local blind_load_order = {
 
 load_smods_type("Blind", blind_load_order, _, "blinds")
 -- #endregion
-
 -- #endregion
