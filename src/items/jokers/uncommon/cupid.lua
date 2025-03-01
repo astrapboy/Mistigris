@@ -7,9 +7,13 @@ local enable = true
 --- @type SMODS.Joker
 local j = {
 	key = "cupid",
-	config = { extra = { Xmult = 3 } },
+	config = { extra = { suit1 = "Hearts", suit2 = "Spades", Xmult = 3 } },
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.Xmult } }
+		return {
+			vars = { card.ability.extra.Xmult, localize(card.ability.extra.suit1, "suits_plural"), localize(
+				card.ability.extra.suit2, "suits_plural"),
+			}
+		}
 	end,
 	blueprint_compat = true,
 	rarity = 2,
@@ -19,9 +23,9 @@ local j = {
 			local heartCount = 0
 			local spadesCount = 0
 			for k, v in pairs(G.playing_cards) do
-				if v.base.suit == "Hearts" then
+				if v:is_suit("Hearts") then
 					heartCount = heartCount + 1
-				elseif v.base.suit == "Spades" then
+				elseif v:is_suit("Spades") then
 					spadesCount =
 						 spadesCount + 1
 				end

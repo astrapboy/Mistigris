@@ -7,7 +7,10 @@ local enable = true
 --- @type SMODS.Joker
 local j = {
 	key = "defaced",
-	config = { extra = { converted = false } },
+	config = { extra = { suit = "Hearts", converted = false } },
+	loc_vars = function(self, info_queue, card)
+		return { vars = { localize(card.ability.extra.suit, "suits_plural") } }
+	end,
 	blueprint_compat = false,
 	rarity = 3,
 	cost = 9,

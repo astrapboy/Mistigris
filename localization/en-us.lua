@@ -180,13 +180,22 @@ return {
 					"of the round",
 				},
 			},
+			j_mstg_cupid = {
+				name = "Cupid",
+				text = {
+					"{X:mult,C:white} X#1# {} Mult if there",
+					"are an {C:attention}equal amount{} of",
+					"{C:hearts}#2#{} and {C:spades}#3#{}",
+					"in the deck",
+				},
+			},
 			--- Rare
 			j_mstg_defaced = {
 				name = "Defaced Joker",
 				text = {
 					"Converts {C:attention}first discarded{}",
 					"hand of the round",
-					"into {C:hearts}Hearts{}",
+					"into {C:hearts}#1#{}",
 				},
 			},
 			j_mstg_outcast = {
@@ -252,15 +261,6 @@ return {
 					"{C:attention}#2#{} unique Jokers",
 					"this run",
 					"{C:inactive}(Currently {C:attention}#3#{}){}",
-				},
-			},
-			j_mstg_cupid = {
-				name = "Cupid",
-				text = {
-					"{X:mult,C:white} X#1# {} Mult if there",
-					"are an {C:attention}equal amount{} of",
-					"{C:hearts}Hearts{} and {C:spades}Spades{}",
-					"in the deck",
 				},
 			},
 			j_mstg_great_red_spot = {
