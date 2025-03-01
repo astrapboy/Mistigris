@@ -18,7 +18,7 @@ local j = {
 	rarity = 3,
 	cost = 12,
 	calculate = function(self, card, context)
-		if context.individual and context.cardarea == G.hand and SMODS.has_enhancement(context.other_card, "m_gold") and not context.end_of_round then
+		if context.individual and context.cardarea == G.hand and SMODS.has_enhancement(context.other_card, "m_gold") and not context.other_card.debuff and not context.end_of_round then
 			return {
 				Xmult = card.ability.extra.Xmult
 			}

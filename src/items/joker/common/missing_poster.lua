@@ -16,7 +16,7 @@ local j = {
 	cost = 5,
 	calculate = function(self, card, context)
 		local suits = mistiutils.get_suits(G.play.cards)
-		if context.individual and context.cardarea == G.hand and context.other_card:is_face() and not mistiutils.is_any_of_these_suits(context.other_card, suits) and not context.end_of_round then
+		if context.individual and context.cardarea == G.hand and context.other_card:is_face() and not mistiutils.is_any_of_these_suits(context.other_card, suits) and not context.other_card.debuff and not context.end_of_round then
 			return {
 				mult = card.ability.extra.mult
 			}
