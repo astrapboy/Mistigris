@@ -29,9 +29,9 @@ local j = {
 				end
 			end
 
+			local copying_card, copying_card_new = mistiutils.get_random_card_in_deck_of_suit(max_suit)
+			local c = copy_card(copying_card, nil, nil, copying_card_new)
 			mistiutils.add_event(function()
-				local copying_card, copying_card_new = mistiutils.get_random_card_in_deck_of_suit(max_suit)
-				local c = copy_card(copying_card, nil, nil, copying_card_new)
 				G.hand:emplace(c)
 				c:start_materialize()
 				G.GAME.blind:debuff_card(c)
