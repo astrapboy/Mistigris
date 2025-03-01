@@ -20,7 +20,7 @@ local j = {
 				suit_count[v.base.suit] = suit_count[v.base.suit] + 1
 			end
 
-			local max_suit = ""
+			local max_suit = "Spades"
 			local max_count = 0
 			for k, v in pairs(suit_count) do
 				if v > max_count then
@@ -30,10 +30,8 @@ local j = {
 			end
 
 			mistiutils.add_event(function()
-				local c = create_playing_card(
-					{ front = mistiutils.get_random_card_in_deck_of_suit(max_suit), center = G.P_CENTERS.c_base }, G.hand, nil,
-					nil,
-					{ G.C.SECONDARY_SET.Enhanced })
+				local copying_card, copying_card_new = mistiutils.get_random_card_in_deck_of_suit(max_suit)
+				local c = copy_card(copying_card, nil, nil, copying_card_new)
 				G.hand:emplace(c)
 				c:start_materialize()
 				G.GAME.blind:debuff_card(c)

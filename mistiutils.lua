@@ -344,7 +344,7 @@ function mistiutils.get_random_card_in_deck_of_suit(suit)
 			local new_val = SMODS.Ranks[card.base.value].card_key
 			local new_card = G.P_CARDS[new_code .. '_' .. new_val]
 
-			return new_card
+			return card, new_card
 		end
 	end
 end
