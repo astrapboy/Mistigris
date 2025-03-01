@@ -92,7 +92,6 @@ local joker_load_order = {
 		jokers = {
 			"boulder",
 			"comedian",
-			"handyman",
 			"banana_factory",
 			"medusa",
 			"tortoise",
