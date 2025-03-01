@@ -193,10 +193,10 @@ return {
 			j_mstg_vortex = {
 				name = "Vortex",
 				text = {
-					"At the {C:attention}end of each shop{},",
-					"destroy a {C:attention}consumable card{}",
-					"and gain {X:mult,C:white} X#1# {} Mult",
-					"{C:inactive}(Self-destructs if there are none){}",
+					"At the {C:attention}end of the shop{},",
+					"this Joker {C:attention}destroys{} a random",
+					"{C:attention}consumable{} to gain {X:mult,C:white} X#1# {} Mult",
+					"Otherwise, {S:1.1,C:red,E:2}self-destructs{}",
 					"{C:inactive}(Currently {X:mult,C:white} X#2# {C:inactive} Mult)",
 				},
 			},
@@ -295,7 +295,7 @@ return {
 				text = {
 					"{C:green}#1# in #2#{} chance for {X:mult,C:white} X#3# {} Mult",
 					"{C:green}#1# in #4#{} chance to",
-					"{C:attention}self-destruct{}"
+					"{S:1.1,C:red,E:2}self-destruct{}"
 				},
 			},
 			j_mstg_invitation_letter = {
