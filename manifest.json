@@ -11,7 +11,7 @@
 	"priority": 0,
 	"version": "0.1.0-dev_25w09k",
 	"dependencies": [
-		"Steamodded (>=1.0.0~ALPHA-1424a)",
+		"Steamodded (>=1.0.0~BETA-0301a)",
 		"Lovely (>=0.7.1)"
 	]
 }
