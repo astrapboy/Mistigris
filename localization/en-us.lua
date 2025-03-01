@@ -298,6 +298,14 @@ return {
 					"{C:attention}self-destruct{}"
 				},
 			},
+			j_mstg_invitation_letter = {
+				name = "Invitation Letter",
+				text = {
+					"When round begins, {C:attention}duplicate{}",
+					"a random {C:attention}playing card{} from the suit",
+					"which you have {C:attention}the most of{}"
+				},
+			},
 			j_mstg_ufo = {
 				name = "UFO",
 				text = {

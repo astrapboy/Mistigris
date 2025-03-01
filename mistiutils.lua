@@ -336,4 +336,17 @@ function mistiutils.is_any_of_these_suits(card, suits)
 	return false
 end
 
+function mistiutils.get_random_card_in_deck_of_suit(suit)
+	while true do
+		local card = pseudorandom_element(G.playing_cards, pseudoseed("get_random_card_in_deck_of_suit"))
+		if card:is_suit(suit) then
+			local new_code = SMODS.Suits[suit].card_key
+			local new_val = SMODS.Ranks[card.base.value].card_key
+			local new_card = G.P_CARDS[new_code .. '_' .. new_val]
+
+			return new_card
+		end
+	end
+end
+
 return mistiutils

@@ -116,6 +116,7 @@ local joker_load_order = {
 			"augment",
 			"great_red_spot",
 			"unstable_atom",
+			"invitation_letter",
 			"ufo"
 		}
 	}
