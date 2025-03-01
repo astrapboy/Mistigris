@@ -287,9 +287,8 @@ function mistiutils.replace_joker_in_shop(key, index)
 		local kill = G.shop_jokers.cards[index]
 		G.shop_jokers:remove_card(kill)
 		kill:remove()
-		local sold_card = SMODS.create_card({ set = "Joker", area = G.shop_jokers, key = key })
+		local sold_card = SMODS.add_card({ set = "Joker", area = G.shop_jokers, key = key })
 		create_shop_card_ui(sold_card, "Joker", G.shop_jokers)
-		G.shop_jokers:emplace(sold_card)
 		sold_card:start_materialize()
 		sold_card:set_cost()
 	end
