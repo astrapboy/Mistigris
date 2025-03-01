@@ -243,13 +243,13 @@ function mistiutils.random_hand(ignore, seed, allowhidden)
 	return chosen_hand
 end
 
---- Selects what Jokers can be killed by items like Madness and Ceremonial Dagger.
---- @param self Card The Joker that is calling this function.
---- @return table: The Jokers that can be killed.
-function mistiutils.killable_jokers(self)
+--- Selects what cards can be killed by items like Madness and Ceremonial Dagger.
+--- @param self Card The card that is calling this function.
+--- @return table: The cards that can be killed.
+function mistiutils.killable(self, area)
 	local t = {}
-	for i = 1, #G.jokers.cards do
-		local j = G.jokers.cards[i]
+	for i = 1, #area.cards do
+		local j = area.cards[i]
 		if j ~= self and not j.ability["eternal"] and not j.getting_sliced then
 			table.insert(t, j)
 		end

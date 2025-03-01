@@ -7,6 +7,8 @@ local enable = true
 --- @type SMODS.Joker
 local j = {
 	key = "defaced",
+	atlas = "jokers",
+	pos = { x = 2, y = 0 },
 	config = { extra = { suit = "Hearts", converted = false } },
 	loc_vars = function(self, info_queue, card)
 		return { vars = { localize(card.ability.extra.suit, "suits_plural") } }

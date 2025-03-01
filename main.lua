@@ -52,7 +52,20 @@ load_folder("src/items", false)
 
 -- #endregion
 
--- #region Joker loading
+-- #region Content loading
+local function load_smods_type(type, load_order, name_field, items_field)
+	for _, items in pairs(load_order) do
+		local path = "src/items/" .. string.lower(type) .. "/" .. (items[name_field] or "")
+		for i = 1, #items[items_field] do
+			local item = items[items_field][i]
+			local loaded_item = assert(SMODS.load_file(path .. "/" .. item .. ".lua"),
+				"Failed to load " .. type .. " " .. item .. "!")()
+			if loaded_item then assert(SMODS[type](loaded_item), "Failed to create SMODS " .. type .. " " .. item .. "!") end
+		end
+	end
+end
+
+-- #region Joker Loading
 local joker_load_order = {
 	-- #region Common
 	[1] = {
@@ -83,7 +96,8 @@ local joker_load_order = {
 			"tortoise",
 			"sacrifice",
 			"leaky_soda",
-			"cupid"
+			"cupid",
+			"vortex",
 		}
 	},
 	-- #endregion
@@ -99,6 +113,7 @@ local joker_load_order = {
 			"conscription",
 			"scythe",
 			"travel_miles",
+			"augment",
 			"great_red_spot",
 			"unstable_atom",
 			"ufo"
@@ -107,19 +122,19 @@ local joker_load_order = {
 	-- #endregion
 }
 
--- Loads all the jokers
-local function load_jokers()
-	for _, jokers in pairs(joker_load_order) do
-		local jokers_path = "src/items/jokers/" .. jokers.rarity
-		for i = 1, #jokers.jokers do
-			local jonk = jokers.jokers[i]
-			local j = assert(SMODS.load_file(jokers_path .. "/" .. jonk .. ".lua"), "Failed to load Joker " .. jonk .. "!")()
-			if j then assert(SMODS.Joker(j), "Failed to create SMODS Joker " .. jonk .. "!") end
-		end
-	end
-end
+load_smods_type("Joker", joker_load_order, "rarity", "jokers")
+--#endregion
 
+-- #region Blind Loading
+local blind_load_order = {
+	[0] = {
+		blinds = {
+			"journey"
+		}
+	}
+}
 
--- Now we load the Jonklers
-load_jokers()
+load_smods_type("Blind", blind_load_order, _, "blinds")
+-- #endregion
+
 -- #endregion

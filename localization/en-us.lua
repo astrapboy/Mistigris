@@ -190,6 +190,16 @@ return {
 				},
 			},
 			--- Rare
+			j_mstg_vortex = {
+				name = "Vortex",
+				text = {
+					"At the {C:attention}end of each shop{},",
+					"destroy a {C:attention}consumable card{}",
+					"and gain {X:mult,C:white} X#1# {} Mult",
+					"{C:inactive}(Self-destructs if there are none){}",
+					"{C:inactive}(Currently {X:mult,C:white} X#2# {C:inactive} Mult)",
+				},
+			},
 			j_mstg_defaced = {
 				name = "Defaced Joker",
 				text = {
@@ -263,6 +273,13 @@ return {
 					"{C:inactive}(Currently {C:attention}#3#{}){}",
 				},
 			},
+			j_mstg_augment = {
+				name = "AUgment",
+				text = {
+					"Each {C:attention}Gold{} card held in hand",
+					"gives {X:mult,C:white} X#1# {} Mult"
+				},
+			},
 			j_mstg_great_red_spot = {
 				name = "Great Red Spot",
 				text = {
@@ -324,7 +341,8 @@ return {
 			k_mstg_stone_ex = "Stone!",
 			k_mstg_wakeup_ex = "Wake Up!",
 			k_mstg_nightmare_ex = "Nightmare!",
-			k_mstg_decay_ex = "Decayed!"
+			k_mstg_decay_ex = "Decayed!",
+			k_mstg_closed_ex = "Closed!"
 		},
 		high_scores = {},
 		labels = {},

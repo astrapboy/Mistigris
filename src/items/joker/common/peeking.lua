@@ -7,6 +7,8 @@ local enable = true
 --- @type SMODS.Joker
 local j = {
 	key = "peeking",
+	atlas = "jokers",
+	pos = { x = 1, y = 0 },
 	blueprint_compat = true,
 	config = { extra = { threshold = 0.6, mult_bonus = 8 } },
 	loc_vars = function(self, info_queue, card)

@@ -7,6 +7,8 @@ local enable = true
 --- @type SMODS.Joker
 local j = {
 	key = "ufo",
+	atlas = "jokers",
+	pos = { x = 4, y = 0 },
 	config = { extra = { Xmult_add = 0.5 } },
 	loc_vars = function(self, info_queue, card)
 		return {

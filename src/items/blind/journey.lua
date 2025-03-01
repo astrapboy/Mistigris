@@ -1,5 +1,11 @@
-﻿-- The Journey
-SMODS.Blind({
+-- #region UTILITY CODE. KEEP THE SAME ACROSS ALL JOKERS OR I WILL FUCKING KILL YOU
+local mistiutils = require("mistigris.mistiutils")
+-- #endregion
+
+local enable = true
+
+--- @type SMODS.Blind
+local b = {
 	key = "journey",
 	dollars = 5,
 	mult = 2,
@@ -24,4 +30,6 @@ SMODS.Blind({
 			return true
 		end
 	end,
-})
+}
+
+return enable and b or nil

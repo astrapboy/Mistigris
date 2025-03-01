@@ -7,6 +7,8 @@ local enable = true
 --- @type SMODS.Joker
 local j = {
 	key = "great_red_spot",
+	atlas = "jokers",
+	pos = { x = 5, y = 0 },
 	config = { extra = { hand = "Flush", levels = 1, Xmult = 1, Xmult_add = 0.25 } },
 	loc_vars = function(self, info_queue, card)
 		return {

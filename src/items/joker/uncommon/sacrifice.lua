@@ -20,7 +20,7 @@ local j = {
 	cost = 8,
 	calculate = function(self, card, context)
 		if context.selling_self then
-			local victims = mistiutils.killable_jokers(card)
+			local victims = mistiutils.killable(card, G.jokers)
 			local to_destroy = pseudorandom_element(victims, pseudoseed("sacrifice")) or nil
 			if to_destroy then
 				to_destroy.getting_sliced = true
