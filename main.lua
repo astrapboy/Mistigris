@@ -76,7 +76,8 @@ local joker_load_order = {
 			"medusa",
 			"tortoise",
 			"sacrifice",
-			"leaky_soda"
+			"leaky_soda",
+			"cupid"
 		}
 	},
 	-- #endregion

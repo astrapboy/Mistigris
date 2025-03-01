@@ -254,6 +254,15 @@ return {
 					"{C:inactive}(Currently {C:attention}#3#{}){}",
 				},
 			},
+			j_mstg_cupid = {
+				name = "Cupid",
+				text = {
+					"{X:mult,C:white} X#1# {} Mult if there",
+					"are an {C:attention}equal amount{} of",
+					"{C:hearts}Hearts{} and {C:spades}Spades{}",
+					"in the deck",
+				},
+			},
 			j_mstg_great_red_spot = {
 				name = "Great Red Spot",
 				text = {
