@@ -299,6 +299,19 @@ return {
 		Tag = {},
 		Tarot = {},
 		Voucher = {},
+		Mod = {
+			mistigris = {
+				name = "Mistigris",
+				text = {
+					"Mistigris is a mod for Balatro that",
+					"aims to {C:red}spice up{} the gameplay, while ensuring",
+					"that things are still relatively {C:purple}balanced{}!",
+					" ",
+					"Created by {C:attention}astrapboy{} with art by {C:attention}Gappie{}",
+					"{C:inactive}Full credits available in the mod's README{}"
+				}
+			}
+		}
 	},
 	misc = {
 		achievement_descriptions = {},

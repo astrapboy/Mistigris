@@ -4,7 +4,13 @@ SMODS.optional_features.cardareas.unscored = true
 local mod_name = SMODS.current_mod.name
 local mod_path = SMODS.current_mod.path
 
+-- Custom badge
 SMODS.current_mod.badge_colour = G.C.MISTIGRIS
+
+-- Make description not white
+SMODS.current_mod.description_loc_vars = function()
+	return { background_colour = G.C.CLEAR, text_colour = G.C.WHITE, scale = 1.2 }
+end
 
 -- Talisman functions
 to_big = to_big or function(x)
