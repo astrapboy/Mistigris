@@ -81,6 +81,7 @@ local joker_load_order = {
 			"sleepy",
 			"awake",
 			"paper_shredder",
+			"jackpot",
 			"feral",
 			"missing_poster",
 			"jenga",

@@ -14,7 +14,7 @@ local j = {
 	rarity = 1,
 	cost = 6,
 	calculate = function(self, card, context)
-		if context.setting_blind and not card.getting_sliced then
+		if context.setting_blind and not (context.blueprint_card or card).getting_sliced then
 			local front = pseudorandom_element(G.P_CARDS, pseudoseed("feral"))
 			G.playing_card = (G.playing_card and G.playing_card + 1) or 1
 			local c = Card(G.discard.T.x + G.discard.T.w / 2, G.discard.T.y, G.CARD_W, G.CARD_H, front,

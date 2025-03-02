@@ -88,6 +88,13 @@ return {
 					"destroy it after scoring"
 				},
 			},
+			j_mstg_jackpot = {
+				name = "Jackpot",
+				text = {
+					"When failing {C:attention}#1#{},",
+					"{C:green}#2# in #3#{} chance to earn {C:money}$#4#{}"
+				},
+			},
 			j_mstg_feral = {
 				name = "Feral Joker",
 				text = {
