@@ -88,6 +88,14 @@ return {
 					"destroy it after scoring"
 				},
 			},
+			j_mstg_feral = {
+				name = "Feral Joker",
+				text = {
+					"Adds one {C:attention}Wild{} card",
+					"to deck when",
+					"{C:attention}Blind{} is selected",
+				},
+			},
 			j_mstg_missing_poster = {
 				name = "Missing Poster",
 				text = {
@@ -340,7 +348,8 @@ return {
 			k_mstg_wakeup_ex = "Wake Up!",
 			k_mstg_nightmare_ex = "Nightmare!",
 			k_mstg_decay_ex = "Decayed!",
-			k_mstg_closed_ex = "Closed!"
+			k_mstg_closed_ex = "Closed!",
+			k_mstg_plus_wild = "+1 Wild"
 		},
 		high_scores = {},
 		labels = {},
