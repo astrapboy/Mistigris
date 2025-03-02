@@ -6,7 +6,7 @@ local enable = true
 
 --- @type SMODS.Joker
 local j = {
-	key = "jackpot",
+	key = "losing_ticket",
 	config = { extra = { odds = 2, money = 5 } },
 	loc_vars = function(self, info_queue, card)
 		info_queue[#info_queue + 1] = G.P_CENTERS["c_wheel_of_fortune"]

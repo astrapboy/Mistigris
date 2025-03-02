@@ -88,8 +88,8 @@ return {
 					"destroy it after scoring"
 				},
 			},
-			j_mstg_jackpot = {
-				name = "Jackpot",
+			j_mstg_losing_ticket = {
+				name = "Losing Ticket",
 				text = {
 					"When failing {C:attention}#1#{},",
 					"{C:green}#2# in #3#{} chance to earn {C:money}$#4#{}"
