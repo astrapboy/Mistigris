@@ -11,9 +11,9 @@ local j = {
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.extra_xmult } }
 	end,
-	rarity = 3,
+	rarity = 2,
 	blueprint_compat = true,
-	cost = 9,
+	cost = 6,
 	calculate = function(self, card, context)
 		if context.joker_main then
 			local smallerNum = math.min(to_number(hand_chips), to_number(mult))

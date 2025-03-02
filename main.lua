@@ -81,8 +81,9 @@ local joker_load_order = {
 			"sleepy",
 			"awake",
 			"paper_shredder",
+			"missing_poster",
 			"jenga",
-			"missing_poster"
+			"sacrifice",
 		}
 	},
 	-- #endregion
@@ -95,10 +96,15 @@ local joker_load_order = {
 			"banana_factory",
 			"medusa",
 			"tortoise",
-			"sacrifice",
 			"leaky_soda",
+			"scythe",
 			"cupid",
 			"vortex",
+			"ufo",
+			"great_red_spot",
+			"defaced",
+			"plasma",
+			"outcast",
 		}
 	},
 	-- #endregion
@@ -106,19 +112,13 @@ local joker_load_order = {
 	[3] = {
 		rarity = "rare",
 		jokers = {
-			"defaced",
-			"outcast",
 			"power_of_three",
-			"plasma",
 			"weighted_dice",
 			"conscription",
-			"scythe",
 			"travel_miles",
 			"augment",
-			"great_red_spot",
 			"unstable_atom",
-			"invitation_letter",
-			"ufo"
+			"invitation_letter"
 		}
 	}
 	-- #endregion

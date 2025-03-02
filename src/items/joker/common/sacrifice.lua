@@ -12,12 +12,12 @@ local j = {
 	blueprint_compat = true,
 	eternal_compat = false,
 	perishable_compat = true,
-	config = { extra = { bonus_xmult = 3 } },
+	config = { extra = { bonus_xmult = 2 } },
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.bonus_xmult } }
 	end,
-	rarity = 2,
-	cost = 8,
+	rarity = 1,
+	cost = 7,
 	calculate = function(self, card, context)
 		if context.selling_self then
 			local victims = mistiutils.killable(card, G.jokers)

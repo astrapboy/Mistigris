@@ -16,8 +16,8 @@ local j = {
 		}
 	end,
 	blueprint_compat = false,
-	rarity = 3,
-	cost = 9,
+	rarity = 2,
+	cost = 8,
 	calculate = function(self, card, context)
 		if context.before and not context.blueprint then
 			for name, handinfo in pairs(G.GAME.hands) do

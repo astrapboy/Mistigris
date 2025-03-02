@@ -21,7 +21,7 @@ local j = {
 		}
 	end,
 	blueprint_compat = true,
-	rarity = 3,
+	rarity = 2,
 	cost = 8,
 	calculate = function(self, card, context)
 		if context.before and context.scoring_name == card.ability.extra.hand and to_big(G.GAME.hands[context.scoring_name].level) > to_big(card.ability.extra.levels) then

@@ -107,6 +107,14 @@ return {
 					"before scoring"
 				},
 			},
+			j_mstg_sacrifice = {
+				name = "Sacrifice",
+				text = {
+					"{X:mult,C:white} X#1# {} Mult",
+					"{C:attention}Destroys{} another",
+					"Joker if sold",
+				},
+			},
 			--- Uncommon
 			j_mstg_boulder = {
 				name = "Boulder",
@@ -124,15 +132,6 @@ return {
 					"Retrigger",
 					"each played",
 					"{C:attention}#1#{}, {C:attention}#2#{}, {C:attention}#3#{}, or {C:attention}#4#{}",
-				},
-			},
-			j_mstg_handyman = {
-				name = "Handyman",
-				text = {
-					"{X:mult,C:white} X#1# {} Mult if",
-					"{C:attention}played hand{} matches",
-					"example in the menu",
-					"{C:inactive}(Includes non-scoring cards){}",
 				},
 			},
 			j_mstg_banana_factory = {
@@ -161,14 +160,6 @@ return {
 					"{C:inactive}(Currently {X:mult,C:white} X#2# {C:inactive} Mult)",
 				},
 			},
-			j_mstg_sacrifice = {
-				name = "Sacrifice",
-				text = {
-					"{X:mult,C:white} X#1# {} Mult",
-					"{C:attention}Destroys{} another",
-					"Joker if sold",
-				},
-			},
 			j_mstg_leaky_soda = {
 				name = "Leaky Soda",
 				text = {
@@ -180,6 +171,17 @@ return {
 					"of the round",
 				},
 			},
+			j_mstg_scythe = {
+				name = "Scythe",
+				text = {
+					"Creates {C:attention}Death{} if final",
+					"hand of the round",
+					"is a {C:attention}#1#{},",
+					"poker hand changes at",
+					"end of round",
+					"{C:inactive}(Must have room){}",
+				},
+			},
 			j_mstg_cupid = {
 				name = "Cupid",
 				text = {
@@ -189,7 +191,6 @@ return {
 					"in the deck",
 				},
 			},
-			--- Rare
 			j_mstg_vortex = {
 				name = "Vortex",
 				text = {
@@ -200,6 +201,26 @@ return {
 					"{C:inactive}(Currently {X:mult,C:white} X#2# {C:inactive} Mult)",
 				},
 			},
+			j_mstg_ufo = {
+				name = "UFO",
+				text = {
+					"{X:mult,C:white} X#1# {} Mult for every",
+					"{C:attention}hand type{} that has",
+					"{C:attention}never been played{}",
+					"this run",
+					"{C:inactive}(Currently {X:mult,C:white} X#2# {C:inactive} Mult)",
+				},
+			},
+			j_mstg_great_red_spot = {
+				name = "Great Red Spot",
+				text = {
+					"When a {C:attention}#1#{} is played,",
+					"remove {C:attention}#2#{} level from it",
+					"and add {X:mult,C:white} X#3# {} Mult",
+					"to this Joker",
+					"{C:inactive}(Currently {X:mult,C:white} X#4# {C:inactive} Mult)",
+				}
+			},
 			j_mstg_defaced = {
 				name = "Defaced Joker",
 				text = {
@@ -208,16 +229,24 @@ return {
 					"into {C:hearts}#1#{}",
 				},
 			},
+			j_mstg_plasma = {
+				name = "Plasma Joker",
+				text = {
+					"Up to {X:mult,C:white} X#1# {} Mult",
+					"depending on how balanced",
+					"{C:chips}Chips{} and {C:mult}Mult{} are",
+				},
+			},
 			j_mstg_outcast = {
 				name = "Outcast",
 				text = {
 					"{X:mult,C:white} X#1# {} Mult for every",
 					"hand played that includes a",
-					"{C:attention}non-scoring{} card, resets",
-					"if all cards score",
+					"{C:attention}non-scoring{} card",
 					"{C:inactive}(Currently {X:mult,C:white} X#2# {C:inactive} Mult)",
 				},
 			},
+			--- Rare
 			j_mstg_power_of_three = {
 				name = "Power of Three",
 				text = {
@@ -226,14 +255,6 @@ return {
 					"{C:green}#1# in #2#{} chance to add",
 					"{X:mult,C:white} X#3# {} Mult to this Joker",
 					"{C:inactive}(Currently {X:mult,C:white} X#5# {C:inactive} Mult)",
-				},
-			},
-			j_mstg_plasma = {
-				name = "Plasma Joker",
-				text = {
-					"Up to {X:mult,C:white} X#1# {} Mult",
-					"depending on how balanced",
-					"{C:chips}Chips{} and {C:mult}Mult{} are",
 				},
 			},
 			j_mstg_weighted_dice = {
@@ -250,17 +271,6 @@ return {
 				text = {
 					"When first hand is played,",
 					"{C:attention}destroy{} all {C:attention}unscoring cards{}",
-				},
-			},
-			j_mstg_scythe = {
-				name = "Scythe",
-				text = {
-					"Creates {C:attention}Death{} if final",
-					"hand of the round",
-					"is a {C:attention}#1#{},",
-					"poker hand changes at",
-					"end of round",
-					"{C:inactive}(Must have room){}",
 				},
 			},
 			j_mstg_travel_miles = {
@@ -280,16 +290,6 @@ return {
 					"gives {X:mult,C:white} X#1# {} Mult"
 				},
 			},
-			j_mstg_great_red_spot = {
-				name = "Great Red Spot",
-				text = {
-					"When a {C:attention}#1#{} is played,",
-					"remove {C:attention}#2#{} level from it",
-					"and add {X:mult,C:white} X#3# {} Mult",
-					"to this Joker",
-					"{C:inactive}(Currently {X:mult,C:white} X#4# {C:inactive} Mult)",
-				}
-			},
 			j_mstg_unstable_atom = {
 				name = "Unstable Atom",
 				text = {
@@ -305,17 +305,7 @@ return {
 					"a random {C:attention}playing card{} from the suit",
 					"which you have {C:attention}the most of{}"
 				},
-			},
-			j_mstg_ufo = {
-				name = "UFO",
-				text = {
-					"{X:mult,C:white} X#1# {} Mult for every",
-					"{C:attention}hand type{} that has",
-					"{C:attention}never been played{}",
-					"this run",
-					"{C:inactive}(Currently {X:mult,C:white} X#2# {C:inactive} Mult)",
-				},
-			},
+			}
 		},
 		Other = {},
 		Planet = {},

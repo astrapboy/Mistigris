@@ -13,8 +13,8 @@ local j = {
 		return { vars = { localize(card.ability.extra.final_hand, "poker_hands") } }
 	end,
 	blueprint_compat = true,
-	rarity = 3,
-	cost = 9,
+	rarity = 2,
+	cost = 7,
 	set_ability = function(self, card, initial, delay_sprites)
 		card.ability.extra.final_hand = mistiutils.random_hand()
 	end,

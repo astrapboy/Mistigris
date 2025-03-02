@@ -14,7 +14,7 @@ local j = {
 		return { vars = { localize(card.ability.extra.suit, "suits_plural") } }
 	end,
 	blueprint_compat = false,
-	rarity = 3,
+	rarity = 2,
 	cost = 9,
 	calculate = function(self, card, context)
 		if context.setting_blind then card.ability.extra.converted = false end
