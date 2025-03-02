@@ -11,7 +11,8 @@ local j = {
 	pos = { x = 2, y = 0 },
 	config = { extra = { suit = "Hearts", converted = false } },
 	loc_vars = function(self, info_queue, card)
-		return { vars = { localize(card.ability.extra.suit, "suits_plural") } }
+		local stg = card.ability.extra
+		return { vars = { localize(stg.suit, "suits_plural") } }
 	end,
 	blueprint_compat = false,
 	rarity = 2,

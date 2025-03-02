@@ -9,11 +9,12 @@ local j = {
 	key = "sleepy",
 	config = { extra = { xmult_gain = 0.2, xmult_to_pass = 1, nightmared = false } },
 	loc_vars = function(self, info_queue, card)
+		local stg = card.ability.extra
 		return {
 			vars = {
-				card.ability.extra.xmult_gain,
+				stg.xmult_gain,
 				localize({ type = "name_text", set = "Joker", key = "j_mstg_awake" }),
-				card.ability.extra.xmult_to_pass,
+				stg.xmult_to_pass,
 			},
 		}
 	end,

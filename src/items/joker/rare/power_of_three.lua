@@ -9,7 +9,8 @@ local j = {
 	key = "power_of_three",
 	config = { extra = { bonus_xmult = 0.33, current_xmult = 1, odds = 3 } },
 	loc_vars = function(self, info_queue, card)
-		return { vars = { G.GAME.probabilities.normal, card.ability.extra.odds, card.ability.extra.bonus_xmult, 3, card.ability.extra.current_xmult } }
+		local stg = card.ability.extra
+		return { vars = { G.GAME.probabilities.normal, stg.odds, stg.bonus_xmult, 3, stg.current_xmult } }
 	end,
 	rarity = 3,
 	blueprint_compat = true,

@@ -13,7 +13,8 @@ local j = {
 	config = { extra = { base_normal = 1, mult_add = 4, mult = 4, normal = 1, odds = 50 } },
 	loc_vars = function(self, table, card)
 		local norm = (G.GAME.probabilities.normal and G.GAME.probabilities.normal or 1)
-		return { vars = { card.ability.extra.mult, card.ability.extra.normal * norm, card.ability.extra.odds, card.ability.extra.mult_add, card.ability.extra.base_normal * norm }, }
+		local stg = card.ability.extra
+		return { vars = { stg.mult, stg.normal * norm, stg.odds, stg.mult_add, stg.base_normal * norm }, }
 	end,
 	rarity = 1,
 	cost = 4,

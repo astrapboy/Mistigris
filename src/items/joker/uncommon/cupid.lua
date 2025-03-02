@@ -9,9 +9,10 @@ local j = {
 	key = "cupid",
 	config = { extra = { suit1 = "Hearts", suit2 = "Spades", Xmult = 3 } },
 	loc_vars = function(self, info_queue, card)
+		local stg = card.ability.extra
 		return {
-			vars = { card.ability.extra.Xmult, localize(card.ability.extra.suit1, "suits_plural"), localize(
-				card.ability.extra.suit2, "suits_plural"),
+			vars = { stg.Xmult, localize(stg.suit1, "suits_plural"), localize(
+				stg.suit2, "suits_plural"),
 			}
 		}
 	end,

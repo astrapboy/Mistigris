@@ -9,7 +9,8 @@ local j = {
 	key = "diminishing_returns",
 	config = { extra = { base_xmult = 3.5, penalty = 0.5 } },
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.base_xmult, card.ability.extra.penalty } }
+		local stg = card.ability.extra
+		return { vars = { stg.base_xmult, stg.penalty } }
 	end,
 	rarity = 1,
 	cost = 5,

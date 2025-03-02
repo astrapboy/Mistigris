@@ -12,7 +12,8 @@ local j = {
 	perishable_compat = false,
 	config = { extra = { mult = 8, mult_penalty = 2, mult_gain = 1 } },
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.mult, card.ability.extra.mult_penalty, card.ability.extra.mult_gain } }
+		local stg = card.ability.extra
+		return { vars = { stg.mult, stg.mult_penalty, stg.mult_gain } }
 	end,
 	rarity = 2,
 	cost = 5,

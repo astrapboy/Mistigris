@@ -9,7 +9,8 @@ local j = {
 	key = "awake",
 	config = { extra = { Xmult = 1 } },
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.Xmult } }
+		local stg = card.ability.extra
+		return { vars = { stg.Xmult } }
 	end,
 	blueprint_compat = true,
 	eternal_compat = false,

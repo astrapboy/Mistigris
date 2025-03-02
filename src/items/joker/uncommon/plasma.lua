@@ -9,7 +9,8 @@ local j = {
 	key = "plasma",
 	config = { extra = { extra_xmult = 6 } },
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.extra_xmult } }
+		local stg = card.ability.extra
+		return { vars = { stg.extra_xmult } }
 	end,
 	rarity = 2,
 	blueprint_compat = true,

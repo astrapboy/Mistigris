@@ -9,7 +9,8 @@ local j = {
 	key = "travel_miles",
 	config = { extra = { Xmult = 3, joker_reqs = 12 } },
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.Xmult, card.ability.extra.joker_reqs, #G.GAME.mstg.unique_jokers } }
+		local stg = card.ability.extra
+		return { vars = { stg.Xmult, stg.joker_reqs, #G.GAME.mstg.unique_jokers } }
 	end,
 	blueprint_compat = true,
 	rarity = 3,

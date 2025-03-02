@@ -10,7 +10,8 @@ local j = {
 	config = { extra = { odds = 2, money = 5 } },
 	loc_vars = function(self, info_queue, card)
 		info_queue[#info_queue + 1] = G.P_CENTERS["c_wheel_of_fortune"]
-		return { vars = { localize({ type = "name_text", set = "Tarot", key = "c_wheel_of_fortune" }), G.GAME.probabilities.normal, card.ability.extra.odds, card.ability.extra.money } }
+		local stg = card.ability.extra
+		return { vars = { localize({ type = "name_text", set = "Tarot", key = "c_wheel_of_fortune" }), G.GAME.probabilities.normal, stg.odds, stg.money } }
 	end,
 	blueprint_compat = true,
 	rarity = 1,

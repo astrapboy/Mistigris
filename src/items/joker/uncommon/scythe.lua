@@ -10,7 +10,8 @@ local j = {
 	config = { extra = { final_hand = "" } },
 	loc_vars = function(self, info_queue, card)
 		info_queue[#info_queue + 1] = G.P_CENTERS["c_death"]
-		return { vars = { localize(card.ability.extra.final_hand, "poker_hands") } }
+		local stg = card.ability.extra
+		return { vars = { localize(stg.final_hand, "poker_hands") } }
 	end,
 	blueprint_compat = true,
 	rarity = 2,

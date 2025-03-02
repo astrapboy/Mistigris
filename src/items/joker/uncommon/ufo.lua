@@ -11,8 +11,9 @@ local j = {
 	pos = { x = 4, y = 0 },
 	config = { extra = { Xmult_add = 0.5 } },
 	loc_vars = function(self, info_queue, card)
+		local stg = card.ability.extra
 		return {
-			vars = { card.ability.extra.Xmult_add, card.ability.extra.Xmult_add * mistiutils.get_unplayed_hand_count_this_run() }
+			vars = { stg.Xmult_add, stg.Xmult_add * mistiutils.get_unplayed_hand_count_this_run() }
 		}
 	end,
 	blueprint_compat = false,

@@ -9,8 +9,9 @@ local j = {
 	key = "boulder",
 	config = { extra = { reroll_bonus = 1, reroll_total = 0, reroll_max = 10, win_reroll = true } },
 	loc_vars = function(self, info_queue, card)
+		local stg = card.ability.extra
 		return {
-			vars = { card.ability.extra.reroll_bonus, card.ability.extra.reroll_max, card.ability.extra.reroll_total },
+			vars = { stg.reroll_bonus, stg.reroll_max, stg.reroll_total },
 		}
 	end,
 	rarity = 2,

@@ -9,7 +9,8 @@ local j = {
 	key = "timesheet",
 	config = { extra = { money = 1 } },
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.money } }
+		local stg = card.ability.extra
+		return { vars = { stg.money } }
 	end,
 	blueprint_compat = true,
 	rarity = 1,

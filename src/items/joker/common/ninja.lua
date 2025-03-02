@@ -10,7 +10,8 @@ local j = {
 	blueprint_compat = true,
 	config = { extra = { threshold = 0.6, chip_bonus = 150 } },
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.chip_bonus, card.ability.extra.threshold * 100 } }
+		local stg = card.ability.extra
+		return { vars = { stg.chip_bonus, stg.threshold * 100 } }
 	end,
 	rarity = 1,
 	cost = 5,

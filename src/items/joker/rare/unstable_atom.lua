@@ -9,7 +9,8 @@ local j = {
 	key = "unstable_atom",
 	config = { extra = { Xmult = 5, sd_odds = 4, xmult_odds = 4 } },
 	loc_vars = function(self, info_queue, card)
-		return { vars = { G.GAME.probabilities.normal, card.ability.extra.xmult_odds, card.ability.extra.Xmult, card.ability.extra.sd_odds } }
+		local stg = card.ability.extra
+		return { vars = { G.GAME.probabilities.normal, stg.xmult_odds, stg.Xmult, stg.sd_odds } }
 	end,
 	blueprint_compat = true,
 	rarity = 3,

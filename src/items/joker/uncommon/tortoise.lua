@@ -10,7 +10,8 @@ local j = {
 	blueprint_compat = true,
 	config = { extra = { round_bonus = 0.5, total_bonus = 1 } },
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.round_bonus, card.ability.extra.total_bonus } }
+		local stg = card.ability.extra
+		return { vars = { stg.round_bonus, stg.total_bonus } }
 	end,
 	rarity = 2,
 	cost = 5,

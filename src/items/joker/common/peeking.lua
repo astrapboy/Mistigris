@@ -12,7 +12,8 @@ local j = {
 	blueprint_compat = true,
 	config = { extra = { threshold = 0.6, mult_bonus = 8 } },
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.mult_bonus, card.ability.extra.threshold * 100 } }
+		local stg = card.ability.extra
+		return { vars = { stg.mult_bonus, stg.threshold * 100 } }
 	end,
 	rarity = 1,
 	cost = 5,

@@ -9,7 +9,8 @@ local j = {
 	key = "outcast",
 	config = { extra = { Xmult = 1, bonus = 0.05 } },
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.bonus, card.ability.extra.Xmult } }
+		local stg = card.ability.extra
+		return { vars = { stg.bonus, stg.Xmult } }
 	end,
 	blueprint_compat = true,
 	rarity = 2,

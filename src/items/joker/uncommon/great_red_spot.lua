@@ -11,12 +11,12 @@ local j = {
 	pos = { x = 5, y = 0 },
 	config = { extra = { hand = "Flush", levels = 1, Xmult = 1, Xmult_add = 0.25 } },
 	loc_vars = function(self, info_queue, card)
+		local stg = card.ability.extra
 		return {
-			vars = { localize(card.ability.extra.hand, "poker_hands"),
-				card.ability.extra.levels,
-				card.ability
-					 .extra.Xmult_add,
-				card.ability.extra.Xmult
+			vars = { localize(stg.hand, "poker_hands"),
+				stg.levels,
+				stg.Xmult_add,
+				stg.Xmult
 			}
 		}
 	end,

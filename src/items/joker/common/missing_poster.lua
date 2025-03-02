@@ -9,7 +9,8 @@ local j = {
 	key = "missing_poster",
 	config = { extra = { mult = 8 } },
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.mult } }
+		local stg = card.ability.extra
+		return { vars = { stg.mult } }
 	end,
 	blueprint_compat = true,
 	rarity = 1,

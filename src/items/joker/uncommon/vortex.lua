@@ -11,7 +11,8 @@ local j = {
 	pos = { x = 6, y = 0 },
 	config = { extra = { Xmult = 1, Xmult_gain = 0.5 } },
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.Xmult_gain, card.ability.extra.Xmult } }
+		local stg = card.ability.extra
+		return { vars = { stg.Xmult_gain, stg.Xmult } }
 	end,
 	blueprint_compat = true,
 	rarity = 2,

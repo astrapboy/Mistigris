@@ -14,7 +14,8 @@ local j = {
 	perishable_compat = true,
 	config = { extra = { bonus_xmult = 2 } },
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.bonus_xmult } }
+		local stg = card.ability.extra
+		return { vars = { stg.bonus_xmult } }
 	end,
 	rarity = 1,
 	cost = 7,
