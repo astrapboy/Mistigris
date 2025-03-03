@@ -57,9 +57,10 @@ load_folder("src/items", false)
 -- #region Content loading
 local function load_smods_type(type, load_order, name_field, items_field)
 	for _, items in pairs(load_order) do
+		local search = items[items_field] or items
 		local path = "src/items/" .. string.lower(type) .. "/" .. (items[name_field] or "")
-		for i = 1, #items[items_field] do
-			local item = items[items_field][i]
+		for i = 1, #search do
+			local item = search[i]
 			local loaded_item = assert(SMODS.load_file(path .. "/" .. item .. ".lua"),
 				"Failed to load " .. type .. " " .. item .. "!")()
 			if loaded_item then assert(SMODS[type](loaded_item), "Failed to create SMODS " .. type .. " " .. item .. "!") end
@@ -102,6 +103,7 @@ local joker_load_order = {
 			"scythe",
 			"cupid",
 			"vortex",
+			"briefcase",
 			"ufo",
 			"great_red_spot",
 			"defaced",
@@ -130,13 +132,11 @@ load_smods_type("Joker", joker_load_order, "rarity", "jokers")
 --#endregion
 -- #region Blind Loading
 local blind_load_order = {
-	[0] = {
-		blinds = {
-			"journey"
-		}
+	{
+		"journey"
 	}
 }
 
-load_smods_type("Blind", blind_load_order, _, "blinds")
+load_smods_type("Blind", blind_load_order)
 -- #endregion
 -- #endregion

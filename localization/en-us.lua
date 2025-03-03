@@ -216,6 +216,13 @@ return {
 					"{C:inactive}(Currently {X:mult,C:white} X#2# {C:inactive} Mult)",
 				},
 			},
+			j_mstg_briefcase = {
+				name = "Briefcase",
+				text = {
+					"Sell this Joker to instantly",
+					"{C:attention}multiply{} your score by {C:attention}#1#{}"
+				}
+			},
 			j_mstg_ufo = {
 				name = "UFO",
 				text = {
@@ -366,7 +373,9 @@ return {
 		suits_plural = {},
 		suits_singular = {},
 		tutorial = {},
-		v_dictionary = {},
+		v_dictionary = {
+			a_mstg_xscore = "X#1# Score"
+		},
 		v_text = {},
 	},
 }
