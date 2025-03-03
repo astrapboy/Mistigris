@@ -1,5 +1,5 @@
 -- #region UTILITY CODE. KEEP THE SAME ACROSS ALL JOKERS OR I WILL FUCKING KILL YOU
-local mistiutils = require("mistigris.mistiutils")
+local mistiutils = require('mistigris.mistiutils')
 -- #endregion
 
 local enable = true
@@ -20,12 +20,14 @@ local j = {
 			if not context.other_card.timesheeted then
 				local c = context.other_card
 				context.other_card.timesheeted = true
-				mistiutils.add_event(function()
-					if c then
-						c.timesheeted = nil
+				G.E_MANAGER:add_event(Event({
+					func = function()
+						if c then
+							c.timesheeted = nil
+						end
+						return true
 					end
-					return true
-				end)
+				}))
 			else
 				ease_dollars(card.ability.extra.money)
 			end

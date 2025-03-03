@@ -1,5 +1,5 @@
 -- #region UTILITY CODE. KEEP THE SAME ACROSS ALL JOKERS OR I WILL FUCKING KILL YOU
-local mistiutils = require("mistigris.mistiutils")
+local mistiutils = require('mistigris.mistiutils')
 -- #endregion
 
 local enable = true
@@ -21,10 +21,12 @@ local j = {
 				if c:is_face() and not SMODS.has_enhancement(c, "m_stone") then
 					face_count = face_count + 1
 					c:set_ability(G.P_CENTERS.m_stone, nil, true)
-					mistiutils.add_event(function()
-						c:juice_up()
-						return true
-					end)
+					G.E_MANAGER:add_event(Event({
+						func = function()
+							c:juice_up()
+							return true
+						end
+					}))
 				end
 			end
 			if face_count ~= 0 then

@@ -1,5 +1,5 @@
 -- #region UTILITY CODE. KEEP THE SAME ACROSS ALL JOKERS OR I WILL FUCKING KILL YOU
-local mistiutils = require("mistigris.mistiutils")
+local mistiutils = require('mistigris.mistiutils')
 -- #endregion
 
 local enable = true
@@ -28,11 +28,13 @@ local j = {
 			if G.GAME.last_hand_played == card.ability.extra.final_hand then
 				if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
 					G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
-					mistiutils.add_event(function()
-						SMODS.add_card({ set = "Tarot", key = "c_death" })
-						G.GAME.consumeable_buffer = 0
-						return true
-					end)
+					G.E_MANAGER:add_event(Event({
+						func = function()
+							SMODS.add_card({ set = "Tarot", key = "c_death" })
+							G.GAME.consumeable_buffer = 0
+							return true
+						end
+					}))
 				end
 			end
 

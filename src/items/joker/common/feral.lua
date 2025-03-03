@@ -1,5 +1,5 @@
 -- #region UTILITY CODE. KEEP THE SAME ACROSS ALL JOKERS OR I WILL FUCKING KILL YOU
-local mistiutils = require("mistigris.mistiutils")
+local mistiutils = require('mistigris.mistiutils')
 -- #endregion
 
 local enable = true
@@ -19,19 +19,25 @@ local j = {
 			G.playing_card = (G.playing_card and G.playing_card + 1) or 1
 			local c = Card(G.discard.T.x + G.discard.T.w / 2, G.discard.T.y, G.CARD_W, G.CARD_H, front,
 				G.P_CENTERS.m_wild, { playing_card = G.playing_card })
-			mistiutils.add_event(function()
-				c:start_materialize({ G.C.SECONDARY_SET.Enhanced })
-				G.play:emplace(c)
-				table.insert(G.playing_cards, c)
-				return true
-			end)
+
+			G.E_MANAGER:add_event(Event({
+				func = function()
+					c:start_materialize({ G.C.SECONDARY_SET.Enhanced })
+					G.play:emplace(c)
+					table.insert(G.playing_cards, c)
+					return true
+				end
+			}))
+
 			card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil,
 				{ message = localize('k_mstg_plus_wild'), colour = G.C.SECONDARY_SET.Enhanced })
 
-			mistiutils.add_event(function()
-				G.deck.config.card_limit = G.deck.config.card_limit + 1
-				return true
-			end)
+			G.E_MANAGER:add_event(Event({
+				func = function()
+					G.deck.config.card_limit = G.deck.config.card_limit + 1
+					return true
+				end
+			}))
 
 			draw_card(G.play, G.deck, 90, 'up', nil)
 

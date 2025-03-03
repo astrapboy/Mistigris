@@ -1,5 +1,5 @@
 -- #region UTILITY CODE. KEEP THE SAME ACROSS ALL JOKERS OR I WILL FUCKING KILL YOU
-local mistiutils = require("mistigris.mistiutils")
+local mistiutils = require('mistigris.mistiutils')
 -- #endregion
 
 local enable = true
@@ -25,10 +25,12 @@ local j = {
 			local to_destroy = pseudorandom_element(victims, pseudoseed("sacrifice")) or nil
 			if to_destroy then
 				to_destroy.getting_sliced = true
-				mistiutils.add_event(function()
-					to_destroy:start_dissolve({ G.C.RED }, nil, 1.6)
-					return true
-				end)
+				G.E_MANAGER:add_event(Event({
+					func = function()
+						to_destroy:start_dissolve({ G.C.RED }, nil, 1.6)
+						return true
+					end
+				}))
 			end
 		end
 

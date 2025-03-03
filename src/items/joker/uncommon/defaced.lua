@@ -1,5 +1,5 @@
 -- #region UTILITY CODE. KEEP THE SAME ACROSS ALL JOKERS OR I WILL FUCKING KILL YOU
-local mistiutils = require("mistigris.mistiutils")
+local mistiutils = require('mistigris.mistiutils')
 -- #endregion
 
 local enable = true
@@ -28,29 +28,41 @@ local j = {
 				local percent = 1.15 - (index - 0.999) / (#context.full_hand - 0.998) * 0.3
 				local other_card = context.full_hand[index]
 
-				mistiutils.add_event(function()
-					other_card:flip()
-					play_sound('card1', percent)
-					other_card:juice_up(0.3, 0.3)
-					return true
-				end, 0.15, nil, "after")
+				G.E_MANAGER:add_event(Event({
+					func = function()
+						other_card:flip()
+						play_sound('card1', percent)
+						other_card:juice_up(0.3, 0.3)
+						return true
+					end,
+					delay = 0.15,
+					trigger = "after"
+				}))
 
-				mistiutils.add_event(function()
-					other_card:change_suit("Hearts")
-					return true
-				end, 0.1, nil, "after")
+				G.E_MANAGER:add_event(Event({
+					func = function()
+						other_card:change_suit("Hearts")
+						return true
+					end,
+					delay = 0.1,
+					trigger = "after"
+				}))
 			end
 
 			for index = 1, #context.full_hand do
 				local percent = 0.85 + (index - 0.999) / (#context.full_hand - 0.998) * 0.3
 				local other_card = context.full_hand[index]
 
-				mistiutils.add_event(function()
-					other_card:flip()
-					play_sound('tarot2', percent, 0.6)
-					other_card:juice_up(0.3, 0.3)
-					return true
-				end, 0.15, nil, "after")
+				G.E_MANAGER:add_event(Event({
+					func = function()
+						other_card:flip()
+						play_sound('tarot2', percent, 0.6)
+						other_card:juice_up(0.3, 0.3)
+						return true
+					end,
+					delay = 0.15,
+					trigger = "after"
+				}))
 			end
 		end
 	end

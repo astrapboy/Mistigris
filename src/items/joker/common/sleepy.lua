@@ -1,5 +1,5 @@
 -- #region UTILITY CODE. KEEP THE SAME ACROSS ALL JOKERS OR I WILL FUCKING KILL YOU
-local mistiutils = require("mistigris.mistiutils")
+local mistiutils = require('mistigris.mistiutils')
 -- #endregion
 
 local enable = true
@@ -52,13 +52,15 @@ local j = {
 		end
 
 		if context.selling_self and not context.blueprint then
-			mistiutils.add_event(function()
-				if G.jokers then
-					local c = SMODS.add_card({ set = "Joker", key = "j_mstg_awake" })
-					c.ability.extra.Xmult = card.ability.extra.xmult_to_pass
-					return true
+			G.E_MANAGER:add_event(Event({
+				func = function()
+					if G.jokers then
+						local c = SMODS.add_card({ set = "Joker", key = "j_mstg_awake" })
+						c.ability.extra.Xmult = card.ability.extra.xmult_to_pass
+						return true
+					end
 				end
-			end)
+			}))
 			return {
 				message = localize("k_mstg_wakeup_ex"),
 			}

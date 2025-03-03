@@ -86,24 +86,6 @@ function mistiutils.matches_rank(card, ranks)
 	return false
 end
 
---- Basically just a simpler way of adding events lol (Based on JenLib)
---- @param func function The function associated with this event.
---- @param delay integer? The length of time (in seconds) that this event should be delayed for.
---- @param timer "TOTAL"|"REAL"|"REAL_SHADER"|"UPTIME"|"BACKGROUND"|nil The kind of timer this event will use. Default is REAL if event occurs while game is paused, otherwise falls back to TOTAL.
---- @param trigger "immediate"|"after"|"condition"|"ease"|"before"|nil When this event should trigger in relation to the delay. Default is "immediate"
---- @param blockable boolean? Whether or not this event can be blocked by other events.
---- @param blocking boolean? Whether or not this event blocks other events.
-function mistiutils.add_event(func, delay, timer, trigger, blockable, blocking)
-	G.E_MANAGER:add_event(Event({
-		timer = timer,
-		trigger = trigger or "immediate",
-		blocking = blocking or true,
-		blockable = blockable,
-		func = func,
-		delay = delay or 0,
-	}))
-end
-
 --- Chance rolls, used for things like Wheel of Fortune and Gros Michel. (Based on JenLib)
 --- @param name string The named seed to use for this roll.
 --- @param probability integer The odds of this event occurring, in odds.
@@ -261,22 +243,29 @@ end
 --- @param card Card The card that is being destroyed.
 --- @param after function? The function that should be run after this Joker is destroyed.
 function mistiutils.destroy_joker(card, after)
-	mistiutils.add_event(function()
-		play_sound("tarot1")
-		card.T.r = -0.2
-		card:juice_up(0.3, 0.4)
-		card.states.drag.is = true
-		card.children.center.pinch.x = true
-		mistiutils.add_event(function()
-			G.jokers:remove_card(card)
-			card:remove()
-			if after and type(after) == "function" then
-				after()
-			end
+	G.E_MANAGER:add_event(Event({
+		func = function()
+			play_sound("tarot1")
+			card.T.r = -0.2
+			card:juice_up(0.3, 0.4)
+			card.states.drag.is = true
+			card.children.center.pinch.x = true
+			G.E_MANAGER:add_event(Event({
+				func = function()
+					G.jokers:remove_card(card)
+					card:remove()
+					if after and type(after) == "function" then
+						after()
+					end
+					return true
+				end,
+				delay = 0.3,
+				blockable = false,
+				trigger = "after"
+			}))
 			return true
-		end, 0.3, nil, "after", false)
-		return true
-	end)
+		end
+	}))
 end
 
 --- Replaces a Joker in the shop at the specified index.

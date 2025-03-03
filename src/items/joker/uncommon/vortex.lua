@@ -1,5 +1,5 @@
 -- #region UTILITY CODE. KEEP THE SAME ACROSS ALL JOKERS OR I WILL FUCKING KILL YOU
-local mistiutils = require("mistigris.mistiutils")
+local mistiutils = require('mistigris.mistiutils')
 -- #endregion
 
 local enable = true
@@ -24,21 +24,25 @@ local j = {
 				local to_destroy = pseudorandom_element(victims, pseudoseed("vortex")) or nil
 				if to_destroy then
 					card.ability.extra.Xmult = card.ability.extra.Xmult + card.ability.extra.Xmult_gain
-					mistiutils.add_event(function()
-						to_destroy:start_dissolve({ G.C.RED }, nil, 1.6)
-						return true
-					end)
+					G.E_MANAGER:add_event(Event({
+						func = function()
+							to_destroy:start_dissolve({ G.C.RED }, nil, 1.6)
+							return true
+						end
+					}))
 					return {
 						message = localize("k_upgrade_ex")
 					}
 				end
 			else
 				if not context.blueprint then
-					mistiutils.add_event(function()
-						play_sound('tarot1')
-						card:start_dissolve({ G.C.RED }, nil, 1.6)
-						return true
-					end)
+					G.E_MANAGER:add_event(Event({
+						func = function()
+							play_sound('tarot1')
+							card:start_dissolve({ G.C.RED }, nil, 1.6)
+							return true
+						end
+					}))
 					return {
 						message = localize("k_mstg_closed_ex"),
 						colour = G.C.RED
