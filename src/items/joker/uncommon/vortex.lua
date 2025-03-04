@@ -53,6 +53,12 @@ local j = {
 				end
 			end
 		end
+
+		if context.joker_main then
+			return {
+				Xmult = card.ability.extra.Xmult
+			}
+		end
 	end
 }
 
