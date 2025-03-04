@@ -20,4 +20,4 @@ times = 1
 [patches.module]
 source = "mistiutils.lua"
 before = "main.lua"
-name = 'mistigris.mistiutils'
+name = 'mistiutils'

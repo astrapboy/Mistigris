@@ -197,7 +197,7 @@ function mistiutils.highest_lvl_hand()
 end
 
 --- Selects a random hand. (Based on JenLib)
---- @param ignore string|table The hands that are to be ignored in the selection process.
+--- @param ignore string|table|nil The hands that are to be ignored in the selection process.
 --- @param seed string? The seed to use when selecting hands.
 --- @param allowhidden boolean? Whether or not this search should include hands not yet discovered by the player.
 --- @return table|nil: A randomly selected hand, considering the above criteria.
@@ -325,6 +325,10 @@ function mistiutils.is_any_of_these_suits(card, suits)
 	return false
 end
 
+--- Gets a random card in the deck that is of a specified suit.
+--- @param suit string The suit to look for
+--- @return table: The card that's been selected (as a card)
+--- @return table: The card that's been selected (as a center)
 function mistiutils.get_random_card_in_deck_of_suit(suit)
 	while true do
 		local card = pseudorandom_element(G.playing_cards, pseudoseed("get_random_card_in_deck_of_suit"))

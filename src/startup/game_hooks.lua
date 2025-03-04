@@ -1,4 +1,4 @@
-local mistiutils = require('mistigris.mistiutils')
+local mistiutils = require('mistiutils')
 
 -- G Functions
 local G_FUNCS_rerollshopRef = G.FUNCS.reroll_shop

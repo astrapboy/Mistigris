@@ -1,5 +1,5 @@
 -- #region UTILITY CODE. KEEP THE SAME ACROSS ALL JOKERS OR I WILL FUCKING KILL YOU
-local mistiutils = require('mistigris.mistiutils')
+local mistiutils = require('mistiutils')
 -- #endregion
 
 local enable = true
@@ -37,7 +37,7 @@ local j = {
 
 		juice_card_until(card, eval, true)
 
-		if context.selling_self and card.ability.extra.can_multiply and not context.blueprint then
+		if context.selling_self and card.ability.extra.can_multiply then
 			local new_amt = to_big(G.GAME.chips) * to_big(card.ability.extra.multiplier)
 			ease_chips(new_amt)
 			if new_amt >= to_big(G.GAME.blind.chips) then

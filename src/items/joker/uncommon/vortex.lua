@@ -1,5 +1,5 @@
 -- #region UTILITY CODE. KEEP THE SAME ACROSS ALL JOKERS OR I WILL FUCKING KILL YOU
-local mistiutils = require('mistigris.mistiutils')
+local mistiutils = require('mistiutils')
 -- #endregion
 
 local enable = true
@@ -14,15 +14,18 @@ local j = {
 		local stg = card.ability.extra
 		return { vars = { stg.Xmult_gain, stg.Xmult } }
 	end,
+	eternal_compat = false,
+	perishable_compat = false,
 	blueprint_compat = true,
 	rarity = 2,
 	cost = 7,
 	calculate = function(self, card, context)
 		if context.ending_shop then
-			if #G.consumeables.cards > 0 and not context.blueprint then
+			if #G.consumeables.cards > 0 then
 				local victims = mistiutils.killable(card, G.consumeables)
 				local to_destroy = pseudorandom_element(victims, pseudoseed("vortex")) or nil
 				if to_destroy then
+					to_destroy.getting_sliced = true
 					card.ability.extra.Xmult = card.ability.extra.Xmult + card.ability.extra.Xmult_gain
 					G.E_MANAGER:add_event(Event({
 						func = function()

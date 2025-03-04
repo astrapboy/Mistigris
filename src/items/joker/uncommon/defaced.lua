@@ -1,5 +1,5 @@
 -- #region UTILITY CODE. KEEP THE SAME ACROSS ALL JOKERS OR I WILL FUCKING KILL YOU
-local mistiutils = require('mistigris.mistiutils')
+local mistiutils = require('mistiutils')
 -- #endregion
 
 local enable = true
@@ -41,7 +41,7 @@ local j = {
 
 				G.E_MANAGER:add_event(Event({
 					func = function()
-						other_card:change_suit("Hearts")
+						SMODS.change_base(other_card, "Hearts")
 						return true
 					end,
 					delay = 0.1,

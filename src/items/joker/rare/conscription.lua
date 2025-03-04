@@ -1,5 +1,5 @@
 -- #region UTILITY CODE. KEEP THE SAME ACROSS ALL JOKERS OR I WILL FUCKING KILL YOU
-local mistiutils = require('mistigris.mistiutils')
+local mistiutils = require('mistiutils')
 -- #endregion
 
 local enable = true
