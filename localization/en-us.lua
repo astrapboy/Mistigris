@@ -138,8 +138,8 @@ return {
 					"are {C:attention}guaranteed to break"
 				}
 			},
-			j_mstg_beaver = {
-				name = "Beaver",
+			j_mstg_wallflower = {
+				name = "Wallflower",
 				text = {
 					"{X:mult,C:white}X#1#{} Mult if this is",
 					"the {C:attention}leftmost Joker{}"

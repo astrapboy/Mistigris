@@ -48,6 +48,7 @@ Keep up with development and chat with others who might like the mod!
 **Additional Ideas:**
 * 3XPL (Scythe)
 * Astra (Defaced Joker...in a roundabout way)
+* Falsedoll (Wallflower)
 
 **Additional Code:**
 * Breezebuilder (Text Colour)

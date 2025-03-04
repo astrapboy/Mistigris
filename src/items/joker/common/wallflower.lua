@@ -6,7 +6,7 @@ local enable = true
 
 --- @type SMODS.Joker
 local j = {
-	key = "beaver",
+	key = "wallflower",
 	config = {
 		extra = {
 			Xmult = 2
