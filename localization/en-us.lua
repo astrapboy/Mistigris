@@ -130,6 +130,21 @@ return {
 					"Joker if sold",
 				},
 			},
+			j_mstg_emergency = {
+				name = "Emergency",
+				text = {
+					"During the {C:attention}final hand{} of a",
+					"round, all scoring {C:attention}Glass{} cards",
+					"are {C:attention}guaranteed to break"
+				}
+			},
+			j_mstg_beaver = {
+				name = "Beaver",
+				text = {
+					"{X:mult,C:white}X#1#{} Mult if this is",
+					"the {C:attention}leftmost Joker{}"
+				}
+			},
 			--- Uncommon
 			j_mstg_boulder = {
 				name = "Boulder",

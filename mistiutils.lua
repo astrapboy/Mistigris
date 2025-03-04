@@ -342,4 +342,13 @@ function mistiutils.get_random_card_in_deck_of_suit(suit)
 	end
 end
 
+--- Checks a certain cardarea for any cards that have a chosen enhancement.
+function mistiutils.tally_enhancement(enhancement, area)
+	local tally = 0
+	for k, v in pairs(area) do
+		if SMODS.has_enhancement(v, enhancement) then tally = tally + 1 end
+	end
+	return tally
+end
+
 return mistiutils

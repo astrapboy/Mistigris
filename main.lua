@@ -68,6 +68,16 @@ local function load_smods_type(type, load_order, name_field, items_field)
 	end
 end
 
+local function load_smods_fieldless_type(type, load_order, name_field)
+	for _, item in pairs(load_order) do
+		local path = "src/items/" .. string.lower(type) .. "/" .. (name_field or "")
+		local loaded_item = assert(SMODS.load_file(path .. "/" .. item .. ".lua"),
+			"Failed to load " .. type .. " " .. item .. "!")()
+		if loaded_item then assert(SMODS[type](loaded_item), "Failed to create SMODS " .. type .. " " .. item .. "!") end
+	end
+end
+
+
 -- #region Joker Loading
 local joker_load_order = {
 	-- #region Common
@@ -87,6 +97,8 @@ local joker_load_order = {
 			"missing_poster",
 			"jenga",
 			"sacrifice",
+			"emergency",
+			"beaver"
 		}
 	},
 	-- #endregion
@@ -132,11 +144,9 @@ load_smods_type("Joker", joker_load_order, "rarity", "jokers")
 --#endregion
 -- #region Blind Loading
 local blind_load_order = {
-	{
-		"journey"
-	}
+	"journey"
 }
 
-load_smods_type("Blind", blind_load_order)
+load_smods_fieldless_type("Blind", blind_load_order)
 -- #endregion
 -- #endregion
