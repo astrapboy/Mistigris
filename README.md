@@ -54,7 +54,7 @@ Keep up with development and chat with others who might like the mod!
 * Breezebuilder (Text Colour)
 * Aiksi Lotl (Boulder)
 * Autumn (Banana Factory)
-* Khaki (Conscription)
+* Khaki (Conscription) <!-- literally 1984 -->
 * Eremel (Conscription)
 
 ### Copyright © 2025 RabbitAddix.

@@ -333,6 +333,14 @@ return {
 					"a random {C:attention}playing card{} from the suit",
 					"which you have {C:attention}the most of{}"
 				},
+			},
+			-- Legendary
+			j_mstg_archibald = {
+				name = "Archibald",
+				text = {
+					"Sell this Joker to reset",
+					"{C:attention}Ante{} back to {C:attention}#1#"
+				},
 			}
 		},
 		Other = {},

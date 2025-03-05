@@ -135,6 +135,14 @@ local joker_load_order = {
 			"unstable_atom",
 			"invitation_letter"
 		}
+	},
+	-- #endregion
+	-- #region Legendary
+	[4] = {
+		rarity = "legendary",
+		jokers = {
+			"archibald",
+		}
 	}
 	-- #endregion
 }
