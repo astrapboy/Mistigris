@@ -9,7 +9,7 @@ local b = {
 	key = "joy",
 	dollars = 5,
 	mult = 2,
-	boss = { min = 1 },
+	boss = { min = 3 },
 	boss_colour = HEX("334461"),
 	disable = function(self)
 		G.jokers.mstg_joy_pin = false
