@@ -36,17 +36,8 @@ return {
 			j_mstg_peeking = {
 				name = "Peeking Joker",
 				text = {
-					"{C:mult}+#1#{} Mult if chips",
-					"scored are less than",
-					"{C:attention}#2#%{} of required chips",
-				},
-			},
-			j_mstg_ninja = {
-				name = "Ninja Joker",
-				text = {
-					"{C:chips}+#1#{} Chips if chips",
-					"scored are less than",
-					"{C:attention}#2#%{} of required chips",
+					"{C:mult}+#1#{} Mult if this is",
+					"the {C:attention}rightmost Joker{}"
 				},
 			},
 			j_mstg_timesheet = {

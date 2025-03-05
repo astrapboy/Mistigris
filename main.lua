@@ -86,7 +86,6 @@ local joker_load_order = {
 		jokers = {
 			"diminishing_returns",
 			"peeking",
-			"ninja",
 			"timesheet",
 			"up_to_eleven",
 			"sleepy",

@@ -10,20 +10,20 @@ local j = {
 	atlas = "jokers",
 	pos = { x = 1, y = 0 },
 	blueprint_compat = true,
-	config = { extra = { threshold = 0.6, mult_bonus = 8 } },
+	config = { extra = { mult = 16 } },
 	loc_vars = function(self, info_queue, card)
 		local stg = card.ability.extra
-		return { vars = { stg.mult_bonus, stg.threshold * 100 } }
+		return { vars = { stg.mult } }
 	end,
 	rarity = 1,
 	cost = 5,
 	calculate = function(self, card, context)
 		if
 			 context.joker_main
-			 and to_big(G.GAME.chips) / to_big(G.GAME.blind.chips) < to_big(card.ability.extra.threshold)
+			 and card == G.jokers.cards[#G.jokers.cards]
 		then
 			return {
-				mult = card.ability.extra.mult_bonus,
+				mult = card.ability.extra.mult,
 			}
 		end
 	end,
