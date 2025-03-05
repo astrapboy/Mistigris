@@ -1,0 +1,21 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 5
+
+# Add Pinning Logic
+[[patches]]
+[patches.pattern]
+target = "cardarea.lua"
+pattern = '''
+for k, card in ipairs(self.cards) do
+	card.rank = k
+end'''
+position = "after"
+payload = '''
+if self.mstg_joy_pin then
+	table.sort(self.cards, function(a, b) return (a.mstg_pindex < b.mstg_pindex) end)
+end
+'''
+match_indent = true
+times = 1

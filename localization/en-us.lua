@@ -11,6 +11,14 @@ return {
 					"must not be less",
 					"than previous",
 				},
+			},
+			bl_mstg_joy = {
+				name = "The Joy",
+				text = {
+					"Jokers are sorted",
+					"into collection order",
+					"(and cannot be moved)",
+				},
 			}
 		},
 		Edition = {},

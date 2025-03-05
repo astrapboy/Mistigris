@@ -155,7 +155,8 @@ load_smods_type("Joker", joker_load_order, "rarity", "jokers")
 --#endregion
 -- #region Blind Loading
 local blind_load_order = {
-	"journey"
+	"journey",
+	"joy"
 }
 
 load_smods_fieldless_type("Blind", blind_load_order)

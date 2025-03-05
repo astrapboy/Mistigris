@@ -4,8 +4,8 @@
 Welcome to Mistigris! Inspired by the likes of Paperback, Ortalab and Maximus, this is a vanilla-style mod intended to bring new, spicy gimmicks and playstyles to Balatro, while ensuring there is still a sense of order and balance!
 
 This mod currently has:
-* **36** new Jokers
-* **1** new Boss Blind
+* **37** new Jokers
+* **2** new Boss Blinds
 
 with more to come in the future!
 

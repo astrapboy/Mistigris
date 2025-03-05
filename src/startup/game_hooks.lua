@@ -44,6 +44,16 @@ end
 -- CardArea Functions
 local CardArea_emplaceRef = CardArea.emplace
 CardArea.emplace = function(self, card, location, stay_flipped)
+	if self == G.jokers then
+		local k = card.config.center.key
+		for key, value in pairs(G.P_CENTER_POOLS.Joker) do
+			if k == value.key then
+				card.mstg_pindex = value.order
+				break
+			end
+		end
+	end
+
 	CardArea_emplaceRef(self, card, location, stay_flipped)
 	if self == G.jokers then
 		local k = card.config.center.key

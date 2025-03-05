@@ -10,7 +10,7 @@ local b = {
 	dollars = 5,
 	mult = 2,
 	boss = { min = 1 },
-	boss_colour = HEX("50bf7c"),
+	boss_colour = HEX("fd9e57"),
 	set_blind = function(self)
 		G.GAME.blind.discards_sub = to_big(math.mininteger)
 	end,
