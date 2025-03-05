@@ -56,7 +56,8 @@ load_folder("src/items", false)
 -- #endregion
 -- #region Content loading
 local function load_smods_type(type, load_order, name_field, items_field)
-	for _, items in pairs(load_order) do
+	table.sort(load_order, function(a, b) return a.key < b.key end)
+	for key, items in pairs(load_order) do
 		local search = items[items_field] or items
 		local path = "src/items/" .. string.lower(type) .. "/" .. (items[name_field] or "")
 		for i = 1, #search do
@@ -81,7 +82,8 @@ end
 -- #region Joker Loading
 local joker_load_order = {
 	-- #region Common
-	[1] = {
+	{
+		key = 1,
 		rarity = "common",
 		jokers = {
 			"diminishing_returns",
@@ -102,7 +104,8 @@ local joker_load_order = {
 	},
 	-- #endregion
 	-- #region Uncommon
-	[2] = {
+	{
+		key = 2,
 		rarity = "uncommon",
 		jokers = {
 			"boulder",
@@ -124,7 +127,8 @@ local joker_load_order = {
 	},
 	-- #endregion
 	-- #region Rare
-	[3] = {
+	{
+		key = 3,
 		rarity = "rare",
 		jokers = {
 			"power_of_three",
@@ -135,8 +139,16 @@ local joker_load_order = {
 			"unstable_atom",
 			"invitation_letter"
 		}
-	}
+	},
 	-- #endregion
+	-- #region Legendary
+	{
+		key = 4,
+		rarity = "legendary",
+		jokers = {
+			"archibald",
+		}
+	}
 }
 
 load_smods_type("Joker", joker_load_order, "rarity", "jokers")

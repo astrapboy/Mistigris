@@ -49,12 +49,13 @@ Keep up with development and chat with others who might like the mod!
 * 3XPL (Scythe)
 * Astra (Defaced Joker...in a roundabout way)
 * Falsedoll (Wallflower)
+* Khaki (Archibald)
 
 **Additional Code:**
 * Breezebuilder (Text Colour)
 * Aiksi Lotl (Boulder)
 * Autumn (Banana Factory)
-* Khaki (Conscription)
+* Khaki (Conscription & Archibald)
 * Eremel (Conscription)
 
 ### Copyright © 2025 RabbitAddix.
