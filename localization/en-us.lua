@@ -15,9 +15,18 @@ return {
 			bl_mstg_joy = {
 				name = "The Joy",
 				text = {
-					"Jokers are sorted",
-					"into collection order",
-					"(and cannot be moved)",
+					"Jokers are",
+					"re-arranged using",
+					"the order from",
+					"the Collection",
+				},
+			},
+			bl_mstg_day = {
+				name = "The Day",
+				text = {
+					"Held-in-hand",
+					"effects are",
+					"disabled",
 				},
 			}
 		},
