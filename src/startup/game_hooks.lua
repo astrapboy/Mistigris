@@ -12,10 +12,11 @@ local Game_igoRef = Game.init_game_object
 Game.init_game_object = function(self)
 	local ref = Game_igoRef(self)
 	ref.probabilities.mstg_base_normal = 1
-	ref.mstg = {}
-	ref.mstg.unique_jokers = {}
-	ref.mstg.joy_pin = false
-	ref.mstg.joker_pindexes = {}
+	ref.mstg = {
+		unique_jokers = {},
+		joy_pin = false,
+		joker_pindexes = {}
+	}
 	return ref
 end
 
@@ -48,13 +49,13 @@ CardArea.emplace = function(self, card, location, stay_flipped)
 	if self == G.jokers then
 		local k = card.config.center.key
 		if G.GAME.mstg.unique_jokers[k] == nil then
-			table.insert(G.GAME.mstg.unique_jokers, k)
+			table.insert(G.GAME.mstg.unique_jokers, k, true)
 			G.GAME.mstg.unique_jokers[k] = true
 		end
 		if G.GAME.mstg.joker_pindexes[k] == nil then
 			for key, value in pairs(G.P_CENTER_POOLS.Joker) do
 				if k == value.key then
-					G.GAME.mstg.joker_pindexes[k] = value.order
+					table.insert(G.GAME.mstg.joker_pindexes, k, value.order)
 					break
 				end
 			end
