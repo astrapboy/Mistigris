@@ -50,7 +50,6 @@ CardArea.emplace = function(self, card, location, stay_flipped)
 		local k = card.config.center.key
 		local o = card.config.center.order
 		if G.GAME.mstg.unique_jokers[k] == nil then
-			table.insert(G.GAME.mstg.unique_jokers, k, true)
 			G.GAME.mstg.unique_jokers[k] = true
 		end
 		if G.GAME.mstg.joker_pindexes[k] == nil then
