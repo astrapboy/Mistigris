@@ -15,7 +15,7 @@ Game.init_game_object = function(self)
 	ref.mstg = {
 		unique_jokers = {},
 		joy_pin = false,
-		joker_pindexes = {}
+		joker_pindexes = {},
 	}
 	return ref
 end

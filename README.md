@@ -5,7 +5,7 @@ Welcome to Mistigris! Inspired by the likes of Paperback, Ortalab and Maximus, t
 
 This mod currently has:
 * **37** new Jokers
-* **2** new Boss Blinds
+* **3** new Boss Blinds
 
 with more to come in the future!
 
@@ -20,7 +20,7 @@ Keep up with development and chat with others who might like the mod!
 * [Cryptid](<https://github.com/MathIsFun0/Cryptid>): For a dash of extra insanity in that mod.
 
 ## Install Guide
-> Requires Steamodded 1.0.0~BETA-0301a (or newer) and Lovely 0.7.1 (or newer)
+> Requires Steamodded 1.0.0~BETA-0305c (or newer) and Lovely 0.7.1 (or newer)
 1. If you don't have Steamodded, be sure to install that first before proceeding any further! (Guide available [here](<https://github.com/Steamodded/smods/wiki>))
 2. Download the Mistigris source code through [this link](<https://github.com/astrapboy/Mistigris/archive/refs/heads/main.zip>).
 3. Navigate to your mod folder, based on what your operating system is.
@@ -57,6 +57,7 @@ Keep up with development and chat with others who might like the mod!
 * Autumn (Banana Factory)
 * Khaki (Conscription & Archibald)
 * Eremel (Conscription)
+* NH6574 (The Day)
 
 ### Copyright © 2025 RabbitAddix.
 
