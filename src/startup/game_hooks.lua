@@ -48,17 +48,13 @@ CardArea.emplace = function(self, card, location, stay_flipped)
 	CardArea_emplaceRef(self, card, location, stay_flipped)
 	if self == G.jokers then
 		local k = card.config.center.key
+		local o = card.config.center.order
 		if G.GAME.mstg.unique_jokers[k] == nil then
 			table.insert(G.GAME.mstg.unique_jokers, k, true)
 			G.GAME.mstg.unique_jokers[k] = true
 		end
 		if G.GAME.mstg.joker_pindexes[k] == nil then
-			for key, value in pairs(G.P_CENTER_POOLS.Joker) do
-				if k == value.key then
-					table.insert(G.GAME.mstg.joker_pindexes, k, value.order)
-					break
-				end
-			end
+			G.GAME.mstg.joker_pindexes[k] = o
 		end
 	end
 end
