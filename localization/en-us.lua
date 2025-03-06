@@ -12,6 +12,14 @@ return {
 					"than previous",
 				},
 			},
+			bl_mstg_horse = {
+				name = "The Horse",
+				text = {
+					"After defeating blind",
+					"add a Sticker to a",
+					"random Joker"
+				},
+			},
 			bl_mstg_joy = {
 				name = "The Joy",
 				text = {
