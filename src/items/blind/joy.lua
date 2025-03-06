@@ -7,18 +7,18 @@ local enable = true
 --- @type SMODS.Blind
 local b = {
 	key = "joy",
-	dollars = 5,
-	mult = 2,
 	boss = { min = 3 },
 	boss_colour = HEX("334461"),
+	dollars = 5,
+	mult = 2,
+	set_blind = function(self)
+		G.GAME.mstg.joy_pin = true
+	end,
 	disable = function(self)
-		G.jokers.mstg_joy_pin = false
+		G.GAME.mstg.joy_pin = false
 	end,
 	defeat = function(self)
-		G.jokers.mstg_joy_pin = false
-	end,
-	set_blind = function(self)
-		G.jokers.mstg_joy_pin = true
+		G.GAME.mstg.joy_pin = false
 	end,
 }
 

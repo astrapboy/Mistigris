@@ -12,9 +12,10 @@ local Game_igoRef = Game.init_game_object
 Game.init_game_object = function(self)
 	local ref = Game_igoRef(self)
 	ref.probabilities.mstg_base_normal = 1
-	ref.mstg = {
-		unique_jokers = {}
-	}
+	ref.mstg = {}
+	ref.mstg.unique_jokers = {}
+	ref.mstg.joy_pin = false
+	ref.mstg.joker_pindexes = {}
 	return ref
 end
 
@@ -31,7 +32,6 @@ Game.update = function(self, dt)
 	self.C.MISTIGRIS[3] = (sin_time * -0.5 + 0.5) * (0.50 - 0.00) + 0.00 -- b = 0.50 -> 0.00
 end
 
--- Card Functions
 local Card_isfaceRef = Card.is_face
 Card.is_face = function(self, from_boss)
 	if next(SMODS.find_card("j_mstg_up_to_eleven")) and self:get_id() >= 10 then
@@ -44,16 +44,6 @@ end
 -- CardArea Functions
 local CardArea_emplaceRef = CardArea.emplace
 CardArea.emplace = function(self, card, location, stay_flipped)
-	if self == G.jokers then
-		local k = card.config.center.key
-		for key, value in pairs(G.P_CENTER_POOLS.Joker) do
-			if k == value.key then
-				card.mstg_pindex = value.order
-				break
-			end
-		end
-	end
-
 	CardArea_emplaceRef(self, card, location, stay_flipped)
 	if self == G.jokers then
 		local k = card.config.center.key
@@ -61,5 +51,22 @@ CardArea.emplace = function(self, card, location, stay_flipped)
 			table.insert(G.GAME.mstg.unique_jokers, k)
 			G.GAME.mstg.unique_jokers[k] = true
 		end
+		if G.GAME.mstg.joker_pindexes[k] == nil then
+			for key, value in pairs(G.P_CENTER_POOLS.Joker) do
+				if k == value.key then
+					G.GAME.mstg.joker_pindexes[k] = value.order
+					break
+				end
+			end
+		end
+	end
+end
+
+local CardArea_aligncardsRef = CardArea.align_cards
+CardArea.align_cards = function(self)
+	CardArea_aligncardsRef(self)
+	if G.GAME.mstg.joy_pin and self.config.type == 'joker' then
+		table.sort(self.cards,
+			function(a, b) return (G.GAME.mstg.joker_pindexes[a.config.center.key] < G.GAME.mstg.joker_pindexes[b.config.center.key]) end)
 	end
 end
