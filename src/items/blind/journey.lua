@@ -12,7 +12,7 @@ local b = {
 	dollars = 5,
 	mult = 2,
 	set_blind = function(self)
-		G.GAME.blind.discards_sub = to_big(math.mininteger)
+		G.GAME.blind.discards_sub = to_big(-math.huge)
 	end,
 	debuff_hand = function(self, cards, hand, handname, check)
 		if
