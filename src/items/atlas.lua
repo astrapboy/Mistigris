@@ -12,6 +12,14 @@ atlas_collection = {
 		px = 71,
 		py = 95,
 	},
+	-- Main Blind atlas
+	["blinds"] = {
+		path = "blinds.png",
+		px = 34,
+		py = 34,
+		atlas_table = 'ANIMATION_ATLAS',
+		frames = 20
+	},
 }
 
 for key, atlas in pairs(atlas_collection) do
