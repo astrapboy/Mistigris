@@ -5,7 +5,7 @@ Welcome to Mistigris! Inspired by the likes of Paperback, Ortalab and Maximus, t
 
 This mod currently has:
 * **37** new Jokers
-* **3** new Boss Blinds
+* **4** new Boss Blinds
 
 with more to come in the future!
 

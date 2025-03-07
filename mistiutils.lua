@@ -268,6 +268,27 @@ function mistiutils.destroy_joker(card, after)
 	}))
 end
 
+--- Makes one Joker kill another Joker in the same style that Ceremonial Dagger does.
+--- @param card Card The card that is calling this function.
+--- @param sliced_card Card The card that is being destroyed.
+--- @param during function? Function to call while the Joker is slicing.
+function mistiutils.slice_joker(card, sliced_card, during)
+	sliced_card.getting_sliced = true
+	G.GAME.joker_buffer = G.GAME.joker_buffer - 1
+	G.E_MANAGER:add_event(Event({
+		func = function()
+			G.GAME.joker_buffer = 0
+			if during and type(during) == "function" then
+				during()
+			end
+			card:juice_up(0.8, 0.8)
+			sliced_card:start_dissolve({ HEX("57ecab") }, nil, 1.6)
+			play_sound('slice1', 0.96 + math.random() * 0.08)
+			return true
+		end
+	}))
+end
+
 --- Replaces a Joker in the shop at the specified index.
 --- @param key string The Joker's key.
 --- @param index integer The one-based index of the shop item that should be replaced.
