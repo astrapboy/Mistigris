@@ -27,7 +27,7 @@ local bl = {
 		end
 	end,
 	defeat = function(self)
-		for k, v in ipairs(G.hand.cards) do
+		for k, v in ipairs(G.playing_cards) do
 			SMODS.debuff_card(v, false, "mstg_day_blind")
 		end
 	end
