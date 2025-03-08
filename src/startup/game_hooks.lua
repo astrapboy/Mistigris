@@ -15,7 +15,6 @@ Game.init_game_object = function(self)
 	ref.mstg = {
 		unique_jokers = {},
 		joy_pin = false,
-		joker_pindexes = {},
 	}
 	return ref
 end
@@ -52,9 +51,6 @@ CardArea.emplace = function(self, card, location, stay_flipped)
 		if G.GAME.mstg.unique_jokers[k] == nil then
 			G.GAME.mstg.unique_jokers[k] = true
 		end
-		if G.GAME.mstg.joker_pindexes[k] == nil then
-			G.GAME.mstg.joker_pindexes[k] = o
-		end
 	end
 end
 
@@ -67,7 +63,7 @@ CardArea.align_cards = function(self)
 				if a.config.center.key == b.config.center.key then
 					return a.sort_id < b.sort_id
 				else
-					return (G.GAME.mstg.joker_pindexes[a.config.center.key] < G.GAME.mstg.joker_pindexes[b.config.center.key])
+					return a.config.center.order < b.config.center.order
 				end
 			end)
 	end
