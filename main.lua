@@ -99,7 +99,7 @@ local joker_load_order = {
 			"jenga",
 			"sacrifice",
 			"emergency",
-			"wallflower"
+			"wallflower",
 		}
 	},
 	-- #endregion

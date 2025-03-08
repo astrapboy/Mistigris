@@ -63,6 +63,12 @@ CardArea.align_cards = function(self)
 	CardArea_aligncardsRef(self)
 	if G.GAME.mstg.joy_pin and self.config.type == 'joker' then
 		table.sort(self.cards,
-			function(a, b) return (G.GAME.mstg.joker_pindexes[a.config.center.key] < G.GAME.mstg.joker_pindexes[b.config.center.key]) end)
+			function(a, b)
+				if a.config.center.key == b.config.center.key then
+					return a.sort_id < b.sort_id
+				else
+					return (G.GAME.mstg.joker_pindexes[a.config.center.key] < G.GAME.mstg.joker_pindexes[b.config.center.key])
+				end
+			end)
 	end
 end

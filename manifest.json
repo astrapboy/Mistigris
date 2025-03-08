@@ -8,8 +8,8 @@
 	"description": "A mod that's designed to spice up the gameplay of Balatro, while still feeling balanced enough to not cause too much mayhem!",
 	"prefix": "mstg",
 	"main_file": "main.lua",
-	"priority": 0,
-	"version": "0.1.0-dev_25w10j",
+	"priority": 69,
+	"version": "0.1.0-dev_25w10k",
 	"dependencies": [
 		"Steamodded (>=1.0.0~BETA-0305c)",
 		"Lovely (>=0.7.1)"

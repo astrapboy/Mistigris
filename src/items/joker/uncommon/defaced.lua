@@ -41,7 +41,7 @@ local j = {
 
 				G.E_MANAGER:add_event(Event({
 					func = function()
-						SMODS.change_base(other_card, "Hearts")
+						assert(SMODS.change_base(other_card, "Hearts"))
 						return true
 					end,
 					delay = 0.1,
