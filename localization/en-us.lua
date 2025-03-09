@@ -248,6 +248,17 @@ return {
 					"{C:inactive}(Currently {X:mult,C:white} X#2# {C:inactive} Mult)",
 				},
 			},
+			j_mstg_rover = {
+				name = "Rover",
+				text = {
+					"Gains {X:mult,C:white} X#1# {} Mult",
+					"if a {C:attention}#2#{} is",
+					"{C:attention}leveled up{},",
+					"poker hand changes",
+					"at end of round",
+					"{C:inactive}(Currently {X:mult,C:white} X#3# {C:inactive} Mult)"
+				}
+			},
 			j_mstg_briefcase = {
 				name = "Briefcase",
 				text = {

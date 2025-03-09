@@ -68,3 +68,12 @@ CardArea.align_cards = function(self)
 			end)
 	end
 end
+
+-- Global events hooks
+local CommonEvents_luhRef = level_up_hand
+level_up_hand = function(card, hand, instant, amount)
+	CommonEvents_luhRef(card, hand, instant, amount)
+	if to_big(amount or 1) > to_big(0) then
+		SMODS.calculate_context({ mstg_level_up_hand = true, mstg_level_up_hand_name = hand })
+	end
+end

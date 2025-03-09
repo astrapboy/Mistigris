@@ -117,6 +117,7 @@ local joker_load_order = {
 			"scythe",
 			"cupid",
 			"vortex",
+			"rover",
 			"briefcase",
 			"ufo",
 			"great_red_spot",
