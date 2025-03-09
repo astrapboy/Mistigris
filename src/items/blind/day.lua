@@ -5,7 +5,7 @@ local mistiutils = require('mistiutils')
 local enable = true
 
 --- @type SMODS.Blind
-local b = {
+local bl = {
 	key = "day",
 	boss = {
 		min = 5,
@@ -27,10 +27,10 @@ local b = {
 		end
 	end,
 	defeat = function(self)
-		for k, v in ipairs(G.hand.cards) do
+		for k, v in ipairs(G.playing_cards) do
 			SMODS.debuff_card(v, false, "mstg_day_blind")
 		end
 	end
 }
 
-return enable and b or nil
+return enable and bl or nil

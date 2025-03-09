@@ -99,7 +99,7 @@ local joker_load_order = {
 			"jenga",
 			"sacrifice",
 			"emergency",
-			"wallflower"
+			"wallflower",
 		}
 	},
 	-- #endregion
@@ -157,7 +157,8 @@ load_smods_type("Joker", joker_load_order, "rarity", "jokers")
 local blind_load_order = {
 	"journey",
 	"joy",
-	"day"
+	"day",
+	"yew"
 }
 
 load_smods_fieldless_type("Blind", blind_load_order)

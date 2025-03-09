@@ -28,6 +28,15 @@ return {
 					"effects are",
 					"disabled",
 				},
+			},
+			bl_mstg_yew = {
+				name = "The Yew",
+				text = {
+					"#1# in #2# cards",
+					"drawn face down,",
+					"flip after hand",
+					"is played"
+				},
 			}
 		},
 		Edition = {},

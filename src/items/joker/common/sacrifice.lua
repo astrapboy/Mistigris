@@ -18,7 +18,7 @@ local j = {
 		return { vars = { stg.bonus_xmult } }
 	end,
 	rarity = 1,
-	cost = 7,
+	cost = 4,
 	calculate = function(self, card, context)
 		if context.selling_self then
 			local victims = mistiutils.killable(card, G.jokers)

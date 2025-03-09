@@ -5,7 +5,7 @@ local mistiutils = require('mistiutils')
 local enable = true
 
 --- @type SMODS.Blind
-local b = {
+local bl = {
 	key = "joy",
 	boss = { min = 3 },
 	boss_colour = HEX("334461"),
@@ -22,4 +22,4 @@ local b = {
 	end,
 }
 
-return enable and b or nil
+return enable and bl or nil
