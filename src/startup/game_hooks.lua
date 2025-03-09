@@ -1,23 +1,23 @@
 local mistiutils = require('mistiutils')
 
 -- G Functions
-local G_FUNCS_rerollshopRef = G.FUNCS.reroll_shop
+local g_f_rs = G.FUNCS.reroll_shop
 G.FUNCS.reroll_shop = function(self, e)
 	G.GAME.current_round.caught_reroll = false
-	G_FUNCS_rerollshopRef(self, e)
+	g_f_rs(self, e)
 end
 
-local G_FUNCS_evaluateplayRef = G.FUNCS.evaluate_play
+local g_f_ep = G.FUNCS.evaluate_play
 G.FUNCS.evaluate_play = function(self, e)
-	G_FUNCS_evaluateplayRef(self, e)
+	g_f_ep(self, e)
 	local text = G.FUNCS.get_poker_hand_info(G.play.cards)
 	G.GAME.current_round.mstg_used_hands[text] = G.GAME.current_round.mstg_used_hands[text] + 1
 end
 
 -- Game Functions
-local Game_igoRef = Game.init_game_object
+local gm_igo = Game.init_game_object
 Game.init_game_object = function(self)
-	local ref = Game_igoRef(self)
+	local ref = gm_igo(self)
 	ref.probabilities.mstg_base_normal = 1
 	ref.mstg = {
 		unique_jokers = {},
@@ -26,9 +26,9 @@ Game.init_game_object = function(self)
 	return ref
 end
 
-local Game_updateRef = Game.update
+local gm_u = Game.update
 Game.update = function(self, dt)
-	Game_updateRef(self, dt)
+	gm_u(self, dt)
 
 	-- Shoutout to Breezebuilder for this next bit
 	local cycle_speed = 1.3
@@ -39,19 +39,19 @@ Game.update = function(self, dt)
 	self.C.MISTIGRIS[3] = (sin_time * -0.5 + 0.5) * (0.50 - 0.00) + 0.00 -- b = 0.50 -> 0.00
 end
 
-local Card_isfaceRef = Card.is_face
+local c_if = Card.is_face
 Card.is_face = function(self, from_boss)
 	if next(SMODS.find_card("j_mstg_up_to_eleven")) and self:get_id() >= 10 then
 		return true
 	else
-		return Card_isfaceRef(self, from_boss)
+		return c_if(self, from_boss)
 	end
 end
 
 -- CardArea Functions
-local CardArea_emplaceRef = CardArea.emplace
+local ca_e = CardArea.emplace
 CardArea.emplace = function(self, card, location, stay_flipped)
-	CardArea_emplaceRef(self, card, location, stay_flipped)
+	ca_e(self, card, location, stay_flipped)
 	if self == G.jokers then
 		local k = card.config.center.key
 		local o = card.config.center.order
@@ -61,9 +61,9 @@ CardArea.emplace = function(self, card, location, stay_flipped)
 	end
 end
 
-local CardArea_aligncardsRef = CardArea.align_cards
+local ca_ac = CardArea.align_cards
 CardArea.align_cards = function(self)
-	CardArea_aligncardsRef(self)
+	ca_ac(self)
 	if G.GAME.mstg.joy_pin and self.config.type == 'joker' then
 		table.sort(self.cards,
 			function(a, b)
@@ -77,17 +77,17 @@ CardArea.align_cards = function(self)
 end
 
 -- Global events hooks
-local CommonEvents_luhRef = level_up_hand
+local luh = level_up_hand
 level_up_hand = function(card, hand, instant, amount)
-	CommonEvents_luhRef(card, hand, instant, amount)
+	luh(card, hand, instant, amount)
 	if to_big(amount or 1) > to_big(0) then
 		SMODS.calculate_context({ mstg_level_up_hand = true, mstg_level_up_hand_name = hand })
 	end
 end
 
-local StateEvents_newroundRef = new_round
+local nr = new_round
 new_round = function()
-	StateEvents_newroundRef()
+	nr()
 
 	G.GAME.current_round.mstg_used_hands = {}
 	for k, v in pairs(G.GAME.hands) do

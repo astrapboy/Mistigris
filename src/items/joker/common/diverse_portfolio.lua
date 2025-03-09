@@ -28,13 +28,15 @@ local j = {
 	unlocked = true,
 	discovered = true,
 	calc_dollar_bonus = function(self, card)
-		for k, v in pairs(G.GAME.current_round.mstg_used_hands) do
-			if v > 1 then
-				return nil
+		if G.GAME.current_round.mstg_used_hands then
+			for k, v in pairs(G.GAME.current_round.mstg_used_hands) do
+				if v > 1 then
+					return nil
+				end
 			end
-		end
 
-		return card.ability.extra.money
+			return card.ability.extra.money
+		end
 	end
 }
 
