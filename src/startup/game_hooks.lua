@@ -7,6 +7,13 @@ G.FUNCS.reroll_shop = function(self, e)
 	G_FUNCS_rerollshopRef(self, e)
 end
 
+local G_FUNCS_evaluateplayRef = G.FUNCS.evaluate_play
+G.FUNCS.evaluate_play = function(self, e)
+	G_FUNCS_evaluateplayRef(self, e)
+	local text = G.FUNCS.get_poker_hand_info(G.play.cards)
+	G.GAME.current_round.mstg_used_hands[text] = G.GAME.current_round.mstg_used_hands[text] + 1
+end
+
 -- Game Functions
 local Game_igoRef = Game.init_game_object
 Game.init_game_object = function(self)
@@ -75,5 +82,15 @@ level_up_hand = function(card, hand, instant, amount)
 	CommonEvents_luhRef(card, hand, instant, amount)
 	if to_big(amount or 1) > to_big(0) then
 		SMODS.calculate_context({ mstg_level_up_hand = true, mstg_level_up_hand_name = hand })
+	end
+end
+
+local StateEvents_newroundRef = new_round
+new_round = function()
+	StateEvents_newroundRef()
+
+	G.GAME.current_round.mstg_used_hands = {}
+	for k, v in pairs(G.GAME.hands) do
+		G.GAME.current_round.mstg_used_hands[k] = 0
 	end
 end

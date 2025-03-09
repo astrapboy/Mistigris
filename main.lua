@@ -100,6 +100,7 @@ local joker_load_order = {
 			"sacrifice",
 			"emergency",
 			"wallflower",
+			"diverse_portfolio"
 		}
 	},
 	-- #endregion

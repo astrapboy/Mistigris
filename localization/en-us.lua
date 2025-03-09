@@ -162,6 +162,14 @@ return {
 					"the {C:attention}leftmost Joker{}"
 				}
 			},
+			j_mstg_diverse_portfolio = {
+				name = "Diverse Portfolio",
+				text = {
+					"Earn {C:money}$#1#{} if",
+					"no hand types are",
+					"{C:attention}repeated{} this round"
+				}
+			},
 			--- Uncommon
 			j_mstg_boulder = {
 				name = "Boulder",
