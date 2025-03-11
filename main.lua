@@ -123,6 +123,7 @@ local joker_load_order = {
 			"ufo",
 			"great_red_spot",
 			"defaced",
+			"benign",
 			"plasma",
 			"outcast",
 		}
@@ -164,5 +165,12 @@ local blind_load_order = {
 }
 
 load_smods_fieldless_type("Blind", blind_load_order)
+-- #endregion
+-- #region Deck Loading
+local back_load_order = {
+	"tribute"
+}
+
+load_smods_fieldless_type("Back", back_load_order)
 -- #endregion
 -- #endregion

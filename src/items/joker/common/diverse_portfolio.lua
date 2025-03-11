@@ -9,7 +9,7 @@ local j = {
 	key = "diverse_portfolio",
 	config = {
 		extra = {
-			money = 5, win = true
+			money = 8, win = true
 		}
 	},
 	loc_vars = function(self, info_queue, card)

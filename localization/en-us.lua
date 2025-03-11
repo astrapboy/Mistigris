@@ -1,7 +1,15 @@
 return {
 	descriptions = {
 		--- Decks
-		Back = {},
+		Back = {
+			b_mstg_tribute = {
+				name = "Tribute Deck",
+				text = {
+					"Every card is a",
+					"{C:attention}10{} of {C:spades}Spades{}"
+				}
+			}
+		},
 		--- Blinds
 		Blind = {
 			bl_mstg_journey = {
@@ -302,6 +310,15 @@ return {
 					"into {C:hearts}#1#{}",
 				},
 			},
+			j_mstg_benign = {
+				name = "Benign Joker",
+				text = {
+					"Adds one {C:attention}9{} to the deck",
+					"when {C:attention}Blind is selected",
+					"and retrigger first scored {C:attention}9{}",
+					"{C:attention}#1#{} additional time"
+				}
+			},
 			j_mstg_plasma = {
 				name = "Plasma Joker",
 				text = {
@@ -423,7 +440,8 @@ return {
 			k_mstg_nightmare_ex = "Nightmare!",
 			k_mstg_decay_ex = "Decayed!",
 			k_mstg_closed_ex = "Closed!",
-			k_mstg_plus_wild = "+1 Wild"
+			k_mstg_plus_wild = "+1 Wild",
+			k_mstg_plus_card = "+1 Card"
 		},
 		high_scores = {},
 		labels = {},

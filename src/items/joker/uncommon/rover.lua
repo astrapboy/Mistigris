@@ -9,7 +9,7 @@ local j = {
 	key = "rover",
 	config = {
 		extra = {
-			hand = "", Xmult = 1, Xmult_gain = 0.25
+			hand = "", Xmult = 1, Xmult_gain = 0.5
 		}
 	},
 	loc_vars = function(self, info_queue, card)
