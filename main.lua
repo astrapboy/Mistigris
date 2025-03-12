@@ -3,15 +3,15 @@
 -- Required for unscoring cards
 SMODS.optional_features.cardareas.unscored = true
 
-local mod_name = SMODS.current_mod.name
-local mod_path = SMODS.current_mod.path
+local mod_name, mod_path = "", ""
 
--- Custom badge
-SMODS.current_mod.badge_colour = G.C.MISTIGRIS
-
--- Make description not white
-SMODS.current_mod.description_loc_vars = function()
-	return { background_colour = G.C.CLEAR, text_colour = G.C.WHITE, scale = 1.2 }
+for _, mod in ipairs(SMODS.find_mod("mistigris")) do
+	mod_name = mod.name
+	mod_path = mod.path
+	mod.badge_colour = G.C.MISTIGRIS
+	mod.description_loc_vars = function()
+		return { background_colour = G.C.CLEAR, text_colour = G.C.WHITE, scale = 1.2 }
+	end
 end
 
 -- Talisman functions
@@ -95,7 +95,6 @@ local joker_load_order = {
 			"paper_shredder",
 			"losing_ticket",
 			"feral",
-			"missing_poster",
 			"jenga",
 			"sacrifice",
 			"emergency",
@@ -123,6 +122,7 @@ local joker_load_order = {
 			"ufo",
 			"great_red_spot",
 			"defaced",
+			"missing_poster",
 			"benign",
 			"plasma",
 			"outcast",

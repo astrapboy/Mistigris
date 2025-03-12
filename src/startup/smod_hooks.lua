@@ -1,6 +1,9 @@
 ﻿-- Info about the mod (what the prefix is, what the id is)
-local mod_prefix = SMODS.current_mod.prefix
-local mod_id = SMODS.current_mod.id
+local mod_prefix, mod_id = "", ""
+for _, mod in ipairs(SMODS.find_mod("mistigris")) do
+	mod_prefix = mod.prefix
+	mod_id = mod.id
+end
 
 -- This is a slightly updated Joker creator that allows for a custom placeholder atlas
 local register_joker = SMODS.Joker.register

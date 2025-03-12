@@ -8,7 +8,16 @@ return {
 					"Every card is a",
 					"{C:attention}10{} of {C:spades}Spades{}"
 				}
-			}
+			},
+			b_mstg_burning = {
+				name = "Burning Deck",
+				text = {
+					"{C:attention}+#1#{} Joker slots",
+					"{C:red}#2#{} Hand size",
+					"After round ends, {C:attention}destroy{} one",
+					"random card {C:attention}held in hand{}"
+				}
+			},
 		},
 		--- Blinds
 		Blind = {
@@ -126,15 +135,6 @@ return {
 					"Adds one {C:attention}Wild{} card",
 					"to deck when",
 					"{C:attention}Blind{} is selected",
-				},
-			},
-			j_mstg_missing_poster = {
-				name = "Missing Poster",
-				text = {
-					"Each {C:attention}face card{} held in hand",
-					"gives {C:mult}+#1#{} Mult if its suit",
-					"is not part of the",
-					"{C:attention}played hand{}"
 				},
 			},
 			j_mstg_jenga = {
@@ -308,6 +308,16 @@ return {
 					"Converts {C:attention}first discarded{}",
 					"hand of the round",
 					"into {C:hearts}#1#{}",
+				},
+			},
+			j_mstg_missing_poster = {
+				name = "Missing Poster",
+				text = {
+					"{C:attention}Straights{} including a {C:attention}10{},",
+					"{C:attention}Jack{} or {C:attention}Queen{} can be",
+					"completed with an {C:attention}Ace{}",
+					"{C:inactive}(ex 1: {C:attention}A 10 9 8 7{C:inactive})",
+					"{C:inactive}(ex 2: {C:attention}A J 10 9 8{C:inactive})"
 				},
 			},
 			j_mstg_benign = {
