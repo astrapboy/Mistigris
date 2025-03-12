@@ -7,6 +7,8 @@ local enable = true
 --- @type SMODS.Blind
 local bl = {
 	key = "joy",
+	atlas = "blinds",
+	pos = { x = 0, y = 0 },
 	boss = { min = 3 },
 	boss_colour = HEX("334461"),
 	dollars = 5,

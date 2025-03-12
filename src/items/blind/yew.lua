@@ -7,6 +7,8 @@ local enable = true
 --- @type SMODS.Blind
 local bl = {
 	key = "yew",
+	atlas = "blinds",
+	pos = { x = 0, y = 0 },
 	boss = {
 		min = 3,
 		showdown = false

@@ -6,10 +6,10 @@ local enable = true
 
 --- @type SMODS.Joker
 local j = {
-	key = "up_to_eleven",
-	blueprint_compat = false,
-	rarity = 1,
-	cost = 4,
+    key = "up_to_eleven",
+    blueprint_compat = false,
+    rarity = 1,
+    cost = 4,
 }
 
 return enable and j or nil
