@@ -51,7 +51,6 @@ load_folder("src/startup", true)
 
 -- Then literally everything else
 load_folder("src", false)
-load_folder("src/items", false)
 
 -- #endregion
 -- #region Content loading
@@ -59,7 +58,7 @@ local function load_smods_type(type, load_order, name_field, items_field)
     table.sort(load_order, function(a, b) return a.key < b.key end)
     for key, items in pairs(load_order) do
         local search = items[items_field] or items
-        local path = "src/items/" .. string.lower(type) .. "/" .. (items[name_field] or "")
+        local path = "src/native-items/" .. string.lower(type) .. "/" .. (items[name_field] or "")
         for i = 1, #search do
             local item = search[i]
             local loaded_item = assert(SMODS.load_file(path .. "/" .. item .. ".lua"),
@@ -71,7 +70,7 @@ end
 
 local function load_smods_fieldless_type(type, load_order, name_field)
     for _, item in pairs(load_order) do
-        local path = "src/items/" .. string.lower(type) .. "/" .. (name_field or "")
+        local path = "src/native-items/" .. string.lower(type) .. "/" .. (name_field or "")
         local loaded_item = assert(SMODS.load_file(path .. "/" .. item .. ".lua"),
             "Failed to load " .. type .. " " .. item .. "!")()
         if loaded_item then assert(SMODS[type](loaded_item), "Failed to create SMODS " .. type .. " " .. item .. "!") end
@@ -124,6 +123,7 @@ local joker_load_order = {
             "defaced",
             "missing_poster",
             "benign",
+            "number_blocks",
             "plasma",
             "outcast",
         }
@@ -140,7 +140,8 @@ local joker_load_order = {
             "travel_miles",
             "augment",
             "unstable_atom",
-            "invitation_letter"
+            "invitation_letter",
+            "resurrection"
         }
     },
     -- #endregion
@@ -152,6 +153,7 @@ local joker_load_order = {
             "archibald",
         }
     }
+    -- #endregion
 }
 
 load_smods_type("Joker", joker_load_order, "rarity", "jokers")
@@ -173,4 +175,6 @@ local back_load_order = {
 
 load_smods_fieldless_type("Back", back_load_order)
 -- #endregion
+-- #region Cross-Mod Content Loading
+load_folder("src/crossmod-items/sleeve", false)
 -- #endregion

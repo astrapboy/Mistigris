@@ -22,6 +22,7 @@ Game.init_game_object = function(self)
     ref.mstg = {
         unique_jokers = {},
         joy_pin = false,
+        resurrect = nil
     }
     return ref
 end
@@ -34,11 +35,12 @@ Game.update = function(self, dt)
     local cycle_speed = 1.3
     local sin_time = math.sin(self.TIMERS.REAL * cycle_speed)
 
-    self.C.MISTIGRIS[1] = (sin_time * 0.5 + 0.5) * (1.00 - 0.50) + 0.50 -- r = 0.50 -> 1.00
-    self.C.MISTIGRIS[2] = (sin_time * 0.5 + 0.5) * (0.65 - 0.00) + 0.00 -- g = 0.00 -> 0.65
+    self.C.MISTIGRIS[1] = (sin_time * 0.5 + 0.5) * (1.00 - 0.50) + 0.50  -- r = 0.50 -> 1.00
+    self.C.MISTIGRIS[2] = (sin_time * 0.5 + 0.5) * (0.65 - 0.00) + 0.00  -- g = 0.00 -> 0.65
     self.C.MISTIGRIS[3] = (sin_time * -0.5 + 0.5) * (0.50 - 0.00) + 0.00 -- b = 0.50 -> 0.00
 end
 
+-- Card Functions
 local c_if = Card.is_face
 Card.is_face = function(self, from_boss)
     if next(SMODS.find_card("j_mstg_up_to_eleven")) and self:get_id() >= 10 then
@@ -46,6 +48,12 @@ Card.is_face = function(self, from_boss)
     else
         return c_if(self, from_boss)
     end
+end
+
+local c_sd = Card.start_dissolve
+function Card:start_dissolve(dissolve_colours, silent, dissolve_time_fac, no_juice)
+    if self.ability.set == "Joker" then G.GAME.mstg.resurrect = self.config.center.key end
+    c_sd(self, dissolve_colours, silent, dissolve_time_fac, no_juice)
 end
 
 -- CardArea Functions
@@ -59,6 +67,12 @@ CardArea.emplace = function(self, card, location, stay_flipped)
             G.GAME.mstg.unique_jokers[k] = true
         end
     end
+end
+
+local ca_r = CardArea.remove_card
+CardArea.remove_card = function(self, card, discarded_only)
+    if self == G.jokers then G.GAME.mstg.resurrect = card.config.center.key end
+    return ca_r(self, card, discarded_only)
 end
 
 local ca_ac = CardArea.align_cards

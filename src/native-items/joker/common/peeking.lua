@@ -10,7 +10,7 @@ local j = {
     atlas = "jokers",
     pos = { x = 1, y = 0 },
     blueprint_compat = true,
-    config = { extra = { mult = 16 } },
+    config = { extra = { mult = 24 } },
     loc_vars = function(self, info_queue, card)
         local stg = card.ability.extra
         return { vars = { stg.mult } }

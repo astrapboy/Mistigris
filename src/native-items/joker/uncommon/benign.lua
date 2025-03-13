@@ -16,7 +16,7 @@ local j = {
     eternal_compat = true,
     perishable_compat = true,
     rarity = 2,
-    cost = 4,
+    cost = 6,
     unlocked = true,
     discovered = true,
     calculate = function(self, card, context)
@@ -53,22 +53,6 @@ local j = {
             draw_card(G.play, G.deck, 90, 'up', nil)
 
             playing_card_joker_effects({ c })
-        end
-
-        if context.repetition and context.cardarea == G.play then
-            local first_nine = nil
-            for k, v in ipairs(G.play.cards) do
-                if v:get_id() == 9 then
-                    first_nine = v
-                    break
-                end
-            end
-            if context.other_card == first_nine then
-                return {
-                    message = localize("k_again_ex"),
-                    repetitions = card.ability.extra.repetitions
-                }
-            end
         end
     end
 }

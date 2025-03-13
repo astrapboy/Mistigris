@@ -29,7 +29,7 @@ local j = {
             card.ability.extra.nightmared = true
             mistiutils.destroy_joker(card, function()
                 if G.jokers then
-                    local c = SMODS.add_card({ set = "Joker", key = "j_mstg_awake" })
+                    local c = SMODS.add_card(mistiutils.new_card_with_other_cards_values(card, "j_mstg_awake"))
                     c.ability.extra.Xmult = card.ability.extra.xmult_to_pass
                     return true
                 end
@@ -55,7 +55,7 @@ local j = {
             G.E_MANAGER:add_event(Event({
                 func = function()
                     if G.jokers then
-                        local c = SMODS.add_card({ set = "Joker", key = "j_mstg_awake" })
+                        local c = SMODS.add_card(mistiutils.new_card_with_other_cards_values(card, "j_mstg_awake"))
                         c.ability.extra.Xmult = card.ability.extra.xmult_to_pass
                         return true
                     end

@@ -14,6 +14,14 @@ SMODS.Atlas({
     py = 95
 })
 
+-- Placeholder atlas! (for sleeves)
+SMODS.Atlas({
+    key = "sleeve-ph",
+    path = "placeholder-sleeve.png",
+    px = 71,
+    py = 95
+})
+
 -- Blind atlas! Currently only has a placeholder
 SMODS.Atlas({
     key = "blinds",

@@ -372,4 +372,21 @@ function mistiutils.tally_enhancement(enhancement, area)
     return tally
 end
 
+function mistiutils.new_card_with_other_cards_values(card, key)
+    local stickers = {}
+    for k, v in pairs(SMODS.Stickers) do
+        if card.ability[k] then table.insert(stickers, k) end
+    end
+
+    local c = {
+        set = "Joker",
+        key = key,
+        edition = card.edition and card.edition.key or nil,
+        stickers =
+            stickers
+    }
+
+    return c
+end
+
 return mistiutils

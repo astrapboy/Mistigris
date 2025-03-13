@@ -7,7 +7,7 @@ local enable = true
 --- @type SMODS.Joker
 local j = {
     key = "unstable_atom",
-    config = { extra = { Xmult = 5, sd_odds = 4, xmult_odds = 4 } },
+    config = { extra = { Xmult = 5, sd_odds = 6, xmult_odds = 3 } },
     loc_vars = function(self, info_queue, card)
         local stg = card.ability.extra
         return { vars = { G.GAME.probabilities.normal, stg.xmult_odds, stg.Xmult, stg.sd_odds } }
