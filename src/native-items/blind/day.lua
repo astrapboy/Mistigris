@@ -1,8 +1,5 @@
--- #region UTILITY CODE. KEEP THE SAME ACROSS ALL JOKERS OR I WILL FUCKING KILL YOU
+-- Utility Code
 local mistiutils = require('mistiutils')
--- #endregion
-
-local enable = true
 
 --- @type SMODS.Blind
 local bl = {
@@ -35,4 +32,4 @@ local bl = {
     end
 }
 
-return enable and bl or nil
+return bl

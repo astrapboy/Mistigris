@@ -1,10 +1,9 @@
--- #region UTILITY CODE. KEEP THE SAME ACROSS ALL JOKERS OR I WILL FUCKING KILL YOU
+-- Utility Code
 local mistiutils = require('mistiutils')
--- #endregion
 
 local enable = true
 
-if CardSleeves and enable then
+if CardSleeves then
     CardSleeves.Sleeve {
         key = "tribute",
         name = "Tribute Sleeve",

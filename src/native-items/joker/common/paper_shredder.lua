@@ -1,9 +1,6 @@
--- #region UTILITY CODE. KEEP THE SAME ACROSS ALL JOKERS OR I WILL FUCKING KILL YOU
+-- Utility Code
 local mistiutils = require('mistiutils')
--- #endregion
-
-local enable = true
-
+ 
 --- @type SMODS.Joker
 local j = {
     key = "paper_shredder",
@@ -21,4 +18,4 @@ local j = {
     end,
 }
 
-return enable and j or nil
+return j

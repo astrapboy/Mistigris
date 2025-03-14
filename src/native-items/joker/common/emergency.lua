@@ -1,8 +1,5 @@
--- #region UTILITY CODE. KEEP THE SAME ACROSS ALL JOKERS OR I WILL FUCKING KILL YOU
+-- Utility Code
 local mistiutils = require('mistiutils')
--- #endregion
-
-local enable = true
 
 --- @type SMODS.Joker
 local j = {
@@ -18,7 +15,7 @@ local j = {
     unlocked = true,
     discovered = true,
     calculate = function(self, card, context)
-        if context.repetition and SMODS.has_enhancement(context.other_card, "m_glass") then
+        if context.repetition and context.cardarea == G.play and G.GAME.current_round.hands_left == 0 and SMODS.has_enhancement(context.other_card, "m_glass") then
             return {
                 repetitions = 1
             }
@@ -31,4 +28,4 @@ local j = {
     end
 }
 
-return enable and j or nil
+return j
