@@ -12,7 +12,7 @@ self.sell_cost = math.max(1, math.floor(self.cost/2)) + (self.ability.extra_valu
 '''
 position = "after"
 payload = '''
-if next(SMODS.find_card("j_mstg_market_stability")) then
+if next(SMODS.find_card("j_mstg_know_your_worth")) then
     local temp_cost = math.max(1, math.floor((self.base_cost + self.extra_cost + 0.5)))
     self.sell_cost = math.max(1, math.floor(temp_cost/2)) + (self.ability.extra_value or 0)
 end
