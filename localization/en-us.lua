@@ -333,8 +333,8 @@ return {
                 text = {
                     "When played hand",
                     "contains a {C:attention}Straight{},",
-                    "sum up the involved {C:attention}Card{}",
-                    "values and add to {C:mult}Mult{}"
+                    "sum up included {C:attention}ranks{}",
+                    "and add to {C:mult}Mult{}"
                 }
             },
             j_mstg_plasma = {
@@ -353,6 +353,15 @@ return {
                     "{C:attention}non-scoring{} card",
                     "{C:inactive}(Currently {X:mult,C:white} X#2# {C:inactive} Mult)",
                 },
+            },
+            j_mstg_sunk_cost = {
+                name = "Sunk Cost Fallacy",
+                text = {
+                    "When {C:attention}Blind{} is selected,",
+                    "steal {C:money}$#1#{} of sell value",
+                    "from every other {C:attention}Joker{}",
+                    "and {C:attention}Consumable{} card"
+                }
             },
             --- Rare
             j_mstg_power_of_three = {
@@ -478,7 +487,8 @@ return {
             k_mstg_decay_ex = "Decayed!",
             k_mstg_closed_ex = "Closed!",
             k_mstg_plus_wild = "+1 Wild",
-            k_mstg_plus_card = "+1 Card"
+            k_mstg_plus_card = "+1 Card",
+            k_mstg_val_down = "Value Down"
         },
         high_scores = {},
         labels = {},

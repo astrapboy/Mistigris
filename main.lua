@@ -78,6 +78,7 @@ local function load_smods_fieldless_type(type, load_order, name_field)
 end
 
 
+-- Comment out any Jokers you don't want
 -- #region Joker Loading
 local joker_load_order = {
     -- #region Common
@@ -126,6 +127,7 @@ local joker_load_order = {
             "number_blocks",
             "plasma",
             "outcast",
+            "sunk_cost"
         }
     },
     -- #endregion
