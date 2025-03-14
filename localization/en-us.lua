@@ -363,6 +363,13 @@ return {
                     "and {C:attention}Consumable{} card"
                 }
             },
+            j_mstg_know_your_worth = {
+                name = "Know Your Worth",
+                text = {
+                    "Vouchers affect {C:attention}buy price{},",
+                    "but not {C:attention}sell value{}",
+                }
+            },
             --- Rare
             j_mstg_power_of_three = {
                 name = "Power of Three",

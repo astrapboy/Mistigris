@@ -127,7 +127,8 @@ local joker_load_order = {
             "number_blocks",
             "plasma",
             "outcast",
-            "sunk_cost"
+            "sunk_cost",
+            "know_your_worth"
         }
     },
     -- #endregion
