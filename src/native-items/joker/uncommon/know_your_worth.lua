@@ -1,5 +1,6 @@
 -- Utility Code
 local mistiutils = require('mistiutils')
+
 local function cost_refresh(self, card, from_debuff)
     G.E_MANAGER:add_event(Event({
         func = function()
