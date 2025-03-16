@@ -328,8 +328,8 @@ return {
                     "when {C:attention}Blind is selected",
                 }
             },
-            j_mstg_number_blocks = {
-                name = "Number Blocks",
+            j_mstg_gauss = {
+                name = "Gauss",
                 text = {
                     "When played hand",
                     "contains a {C:attention}Straight{},",
