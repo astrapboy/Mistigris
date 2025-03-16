@@ -124,7 +124,7 @@ local joker_load_order = {
             "defaced",
             "missing_poster",
             "benign",
-            "number_blocks",
+            "gauss",
             "plasma",
             "outcast",
             "sunk_cost",

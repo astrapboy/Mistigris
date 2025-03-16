@@ -1,6 +1,6 @@
 -- Utility Code
 local mistiutils = require('mistiutils')
- 
+
 --- @type SMODS.Joker
 local j = {
     key = "aiko_fu",
@@ -12,6 +12,9 @@ local j = {
     eternal_compat = true,
     perishable_compat = true,
     rarity = 1,
+    in_pool = function(self, args)
+        return false
+    end,
     cost = 4,
     unlocked = true,
     discovered = true,

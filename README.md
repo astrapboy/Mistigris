@@ -50,6 +50,7 @@ Keep up with development and chat with others who might like the mod!
 * 3XPL (Scythe)
 * Astra (Defaced Joker...in a roundabout way)
 * Falsedoll (Wallflower)
+* SkywardTARDIS (Gauss)
 * Khaki (Archibald)
 
 **Additional Code:**

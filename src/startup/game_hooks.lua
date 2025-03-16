@@ -71,7 +71,13 @@ end
 
 local ca_r = CardArea.remove_card
 CardArea.remove_card = function(self, card, discarded_only)
-    if self == G.jokers then G.GAME.mstg.resurrect = card.config.center.key end
+    if self == G.jokers and card.config.center then
+        G.GAME.mstg.resurrect = card.config.center.key
+    else
+        if self == G.jokers then
+            G.GAME.mstg.resurrect = card.key
+        end
+    end
     return ca_r(self, card, discarded_only)
 end
 

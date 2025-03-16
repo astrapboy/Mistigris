@@ -1,9 +1,9 @@
 -- Utility Code
 local mistiutils = require('mistiutils')
- 
+
 --- @type SMODS.Joker
 local j = {
-    key = "number_blocks",
+    key = "gauss",
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
