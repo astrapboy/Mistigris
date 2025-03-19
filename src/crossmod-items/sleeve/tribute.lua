@@ -1,8 +1,6 @@
 -- Utility Code
 local mistiutils = require('mistiutils')
 
-local enable = true
-
 if CardSleeves then
     CardSleeves.Sleeve {
         key = "tribute",

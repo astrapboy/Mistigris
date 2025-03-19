@@ -9,6 +9,11 @@ for _, mod in ipairs(SMODS.find_mod("mistigris")) do
     mod_name = mod.name
     mod_path = mod.path
     mod.badge_colour = G.C.MISTIGRIS
+    mod.reset_game_globals = function(run_start)
+        if run_start then
+            G.GAME.probabilities.mstg_base_normal = 1
+        end
+    end
     mod.description_loc_vars = function()
         return { background_colour = G.C.CLEAR, text_colour = G.C.WHITE, scale = 1.2 }
     end
@@ -128,7 +133,8 @@ local joker_load_order = {
             "plasma",
             "outcast",
             "sunk_cost",
-            "know_your_worth"
+            "know_your_worth",
+            "hot_potato"
         }
     },
     -- #endregion

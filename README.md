@@ -4,7 +4,7 @@
 Welcome to Mistigris! Inspired by the likes of Paperback, Ortalab and Maximus, this is a vanilla-style mod intended to bring new, spicy gimmicks and playstyles to Balatro, while ensuring there is still a sense of order and balance!
 
 This mod currently has:
-* **44** new Jokers
+* **45** new Jokers
 * **4** new Boss Blinds
 * **1** new Deck
 
@@ -61,8 +61,13 @@ Keep up with development and chat with others who might like the mod!
 * Eremel (Conscription)
 * NH6574 (The Day)
 
-### Copyright © 2025 RabbitAddix.
+### Licensing Info
+*Mistigris v0.2.3 and newer are currently available under the GPLv3 license. Read more [here](https://github.com/astrapboy/Mistigris/blob/main/LICENSE).*
 
-### Mistigris is available under the MIT License. Read more [here](https://github.com/astrapboy/Mistigris/blob/main/LICENSE).
+*Mistigris v0.1.0-v0.2.2 are available under the MIT license. Read more [here](https://github.com/astrapboy/Mistigris/blob/main/LICENSE_OLD).*
 
-### Balatro is the sole property of LocalThunk.
+*Balatro is the sole property of LocalThunk.*
+
+**If you believe Mistigris includes your own code/assets, and that you have not been given proper attribution or that your license has been violated, contact @astrapboy on Discord to resolve the matter privately.**
+
+***© 2025 RabbitAddix.***

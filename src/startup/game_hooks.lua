@@ -18,7 +18,6 @@ end
 local gm_igo = Game.init_game_object
 Game.init_game_object = function(self)
     local ref = gm_igo(self)
-    ref.probabilities.mstg_base_normal = 1
     ref.mstg = {
         unique_jokers = {},
         joy_pin = false,

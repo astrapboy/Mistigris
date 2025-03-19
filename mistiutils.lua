@@ -363,6 +363,21 @@ function mistiutils.get_random_card_in_deck_of_suit(suit)
     end
 end
 
+--- Gets a random rank that is present in the deck.
+--- @return table: The rank that has been selected, both named and ID'd
+function mistiutils.get_random_rank_thats_in_deck()
+    while true do
+        if G.playing_cards then
+            local card = pseudorandom_element(G.playing_cards, pseudoseed("get_random_rank_thats_in_deck"))
+            if not SMODS.has_enhancement(card, "m_stone") and not SMODS.has_no_rank(card) then
+                return { name = SMODS.Ranks[card.base.value].key, id = card.base.id }
+            end
+        else
+            return { name = "Ace", id = 14 }
+        end
+    end
+end
+
 --- Checks a certain cardarea for any cards that have a chosen enhancement.
 function mistiutils.tally_enhancement(enhancement, area)
     local tally = 0
@@ -372,6 +387,9 @@ function mistiutils.tally_enhancement(enhancement, area)
     return tally
 end
 
+--- Creates a new card that retains the basic center information of another card. Use SMODS.add_card() to properly utilize this function.
+--- @param card Card The card that sources the information
+--- @param key string The string of the new card.
 function mistiutils.new_card_with_other_cards_values(card, key)
     local stickers = {}
     for k, v in pairs(SMODS.Stickers) do
