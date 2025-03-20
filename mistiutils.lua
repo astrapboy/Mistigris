@@ -45,12 +45,12 @@ end
 
 --- Checks how many times a specific rank occurs in played hand.
 --- @param hand table The hand to select from.
---- @param rank integer The rank to search for.
+--- @param rank string The rank to search for.
 --- @return integer: How many times does this rank occur during the played hand?
 function mistiutils.rank_count(hand, rank)
     local rank_counter = 0
     for i = 1, #hand do
-        if hand[i]:get_id() == rank then
+        if hand[i].base.value == rank then
             rank_counter = rank_counter + 1
         end
     end
@@ -65,7 +65,7 @@ function mistiutils.ranks_count(hand, ranks)
     local rank_counter = 0
     for hand_index = 1, #hand do
         for rank_index = 1, #ranks do
-            if hand[hand_index]:get_id() == ranks[rank_index] then
+            if hand[hand_index].base.value == ranks[rank_index] then
                 rank_counter = rank_counter + 1
             end
         end
@@ -79,7 +79,7 @@ end
 --- @return boolean: Does this card fit in the table of ranks?
 function mistiutils.matches_rank(card, ranks)
     for i = 1, #ranks do
-        if card:get_id() == ranks[i] then
+        if card.base.value == ranks[i] then
             return true
         end
     end
@@ -364,16 +364,16 @@ function mistiutils.get_random_card_in_deck_of_suit(suit)
 end
 
 --- Gets a random rank that is present in the deck.
---- @return table: The rank that has been selected, both named and ID'd
+--- @return string: The rank that has been selected
 function mistiutils.get_random_rank_thats_in_deck()
     while true do
         if G.playing_cards then
             local card = pseudorandom_element(G.playing_cards, pseudoseed("get_random_rank_thats_in_deck"))
-            if not SMODS.has_enhancement(card, "m_stone") and not SMODS.has_no_rank(card) then
-                return { name = SMODS.Ranks[card.base.value].key, id = card.base.id }
+            if not SMODS.has_no_rank(card) then
+                return card.base.value
             end
         else
-            return { name = "Ace", id = 14 }
+            return "Ace"
         end
     end
 end

@@ -1,22 +1,19 @@
 -- #region Pre-Loading
 
--- Required for unscoring cards
-SMODS.optional_features.cardareas.unscored = true
-
-local mod_name, mod_path = "", ""
-
-for _, mod in ipairs(SMODS.find_mod("mistigris")) do
-    mod_name = mod.name
-    mod_path = mod.path
-    mod.badge_colour = G.C.MISTIGRIS
-    mod.reset_game_globals = function(run_start)
-        if run_start then
-            G.GAME.probabilities.mstg_base_normal = 1
-        end
+-- Initialize mod object
+MistigrisMod = SMODS.find_mod("mistigris")[1]
+MistigrisMod.badge_colour = G.C.MISTIGRIS
+MistigrisMod.optional_features = {
+    retrigger_joker = true,
+    post_trigger = true,
+}
+MistigrisMod.reset_game_globals = function(run_start)
+    if run_start then
+        G.GAME.probabilities.mstg_base_normal = 1
     end
-    mod.description_loc_vars = function()
-        return { background_colour = G.C.CLEAR, text_colour = G.C.WHITE, scale = 1.2 }
-    end
+end
+MistigrisMod.description_loc_vars = function()
+    return { background_colour = G.C.CLEAR, text_colour = G.C.WHITE, scale = 1.2 }
 end
 
 -- Talisman functions
@@ -32,7 +29,7 @@ end
 local loaded = {}
 
 local function load_folder(path, include_subfolders)
-    local full_path = mod_path .. path
+    local full_path = MistigrisMod.path .. path
     local files = NFS.getDirectoryItemsInfo(full_path)
     for i = 1, #files do
         local info = files[i]
@@ -40,10 +37,10 @@ local function load_folder(path, include_subfolders)
         if info.type == "file" then
             if not loaded[file] then
                 loaded[file] = true
-                sendInfoMessage("Successfully loaded " .. file .. "!", mod_name)
+                sendInfoMessage("Successfully loaded " .. file .. "!", MistigrisMod.name)
                 assert(SMODS.load_file(file), "Failed to load " .. file .. "!")()
             else
-                sendInfoMessage("Tried to load " .. file .. " but file was already loaded!", mod_name)
+                sendInfoMessage("Tried to load " .. file .. " but file was already loaded!", MistigrisMod.name)
             end
         elseif info.type == "directory" and include_subfolders then
             load_folder(file, true)
@@ -59,11 +56,12 @@ load_folder("src", false)
 
 -- #endregion
 -- #region Content loading
+local smods_content_path = "src/content/smods/"
 local function load_smods_type(type, load_order, name_field, items_field)
     table.sort(load_order, function(a, b) return a.key < b.key end)
     for key, items in pairs(load_order) do
         local search = items[items_field] or items
-        local path = "src/native-items/" .. string.lower(type) .. "/" .. (items[name_field] or "")
+        local path = smods_content_path .. string.lower(type) .. "/" .. (items[name_field] or "")
         for i = 1, #search do
             local item = search[i]
             local loaded_item = assert(SMODS.load_file(path .. "/" .. item .. ".lua"),
@@ -75,7 +73,7 @@ end
 
 local function load_smods_fieldless_type(type, load_order, name_field)
     for _, item in pairs(load_order) do
-        local path = "src/native-items/" .. string.lower(type) .. "/" .. (name_field or "")
+        local path = smods_content_path .. string.lower(type) .. "/" .. (name_field or "")
         local loaded_item = assert(SMODS.load_file(path .. "/" .. item .. ".lua"),
             "Failed to load " .. type .. " " .. item .. "!")()
         if loaded_item then assert(SMODS[type](loaded_item), "Failed to create SMODS " .. type .. " " .. item .. "!") end
@@ -104,7 +102,9 @@ local joker_load_order = {
             "sacrifice",
             "emergency",
             "wallflower",
-            "diverse_portfolio"
+            "diverse_portfolio",
+            "aiko",
+            "aiko_fu"
         }
     },
     -- #endregion
@@ -185,5 +185,5 @@ local back_load_order = {
 load_smods_fieldless_type("Back", back_load_order)
 -- #endregion
 -- #region Cross-Mod Content Loading
-load_folder("src/crossmod-items/sleeve", false)
+load_folder("src/content/sleeve", false)
 -- #endregion

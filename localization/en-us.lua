@@ -373,8 +373,8 @@ return {
             j_mstg_hot_potato = {
                 name = "Hot Potato",
                 text = {
-                    "{C:white,X:mult}X#1#{} Mult when {C:attention}#2#{} is",
-                    "scored, {C:red}self-destructs{} if",
+                    "{C:white,X:mult}X#1#{} Mult if {C:attention}scoring hand{}",
+                    "includes {C:attention}#2#{}, {C:red}self-destructs{} if",
                     "{C:attention}#2#{} is not scored within",
                     "the next {C:attention}#3#{} hands",
                     "{s:0.8}Rank changes once scored",

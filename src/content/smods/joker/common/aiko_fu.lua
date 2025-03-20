@@ -15,6 +15,9 @@ local j = {
     in_pool = function(self, args)
         return false
     end,
+    dependencies = {
+        "aikoyorisshenanigans"
+    },
     cost = 4,
     unlocked = true,
     discovered = true,

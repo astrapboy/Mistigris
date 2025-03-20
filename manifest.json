@@ -9,7 +9,7 @@
     "prefix": "mstg",
     "main_file": "main.lua",
     "priority": 69,
-    "version": "0.3.0",
+    "version": "0.3.0b",
     "dependencies": [
         "Steamodded (>=1.0.0~BETA-0312b)",
         "Lovely (>=0.7.1)"

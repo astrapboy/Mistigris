@@ -1,6 +1,6 @@
 -- Utility Code
 local mistiutils = require('mistiutils')
- 
+
 --- @type SMODS.Joker
 local j = {
     key = "conscription",
@@ -14,8 +14,7 @@ local j = {
         juice_card_until(card, eval, true)
 
         if
-            context.destroying_card
-            and context.cardarea == "unscored"
+            context.destroy_card and context.cardarea == "unscored"
             and G.GAME.current_round.hands_played == 0
             and not context.blueprint
         then

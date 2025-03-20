@@ -6,7 +6,7 @@ local j = {
     key = "hot_potato",
     config = {
         extra = {
-            rank = {}, base_countdown = 3, countdown = 3, Xmult = 2
+            rank = "", base_countdown = 3, countdown = 3, Xmult = 2
         }
     },
     set_ability = function(self, card, initial, delay_sprites)
@@ -17,7 +17,7 @@ local j = {
         local stg = card.ability.extra
         return {
             vars = {
-                stg.Xmult, localize(stg.rank.name, "ranks"), stg.countdown
+                stg.Xmult, localize(stg.rank, "ranks"), stg.countdown
             }
         }
     end,
@@ -34,7 +34,7 @@ local j = {
     calculate = function(self, card, context)
         local stg = card.ability.extra
         if context.joker_main then
-            if mistiutils.rank_count(context.scoring_hand, stg.rank.id) > 0 then
+            if mistiutils.rank_count(context.scoring_hand, stg.rank) > 0 then
                 stg.rank = mistiutils.get_random_rank_thats_in_deck()
                 stg.countdown = stg.base_countdown
                 return {

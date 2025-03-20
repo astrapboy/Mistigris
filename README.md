@@ -62,7 +62,7 @@ Keep up with development and chat with others who might like the mod!
 * NH6574 (The Day)
 
 ### Licensing Info
-*Mistigris v0.2.3 and newer are currently available under the GPLv3 license. Read more [here](https://github.com/astrapboy/Mistigris/blob/main/LICENSE).*
+*Mistigris v0.3.0 and newer are currently available under the GPLv3 license. Read more [here](https://github.com/astrapboy/Mistigris/blob/main/LICENSE).*
 
 *Mistigris v0.1.0-v0.2.2 are available under the MIT license. Read more [here](https://github.com/astrapboy/Mistigris/blob/main/LICENSE_OLD).*
 
