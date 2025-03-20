@@ -6,7 +6,7 @@ local j = {
     key = "hot_potato",
     config = {
         extra = {
-            rank = "", base_countdown = 3, countdown = 3, Xmult = 2
+            rank = "Ace", base_countdown = 3, countdown = 3, Xmult = 2
         }
     },
     set_ability = function(self, card, initial, delay_sprites)

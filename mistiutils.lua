@@ -368,9 +368,13 @@ end
 function mistiutils.get_random_rank_thats_in_deck()
     while true do
         if G.playing_cards then
-            local card = pseudorandom_element(G.playing_cards, pseudoseed("get_random_rank_thats_in_deck"))
-            if not SMODS.has_no_rank(card) then
-                return card.base.value
+            local card = pseudorandom_element(G.playing_cards, pseudoseed("get_random_rank_thats_in_deck")) or nil
+            if card then
+                if not SMODS.has_no_rank(card) then
+                    return card.base.value
+                end
+            else
+                return "Ace"
             end
         else
             return "Ace"
