@@ -1,6 +1,6 @@
 -- Utility Code
 local mistiutils = require('mistiutils')
- 
+
 --- @type SMODS.Joker
 local j = {
     key = "augment",
@@ -14,7 +14,7 @@ local j = {
     end,
     blueprint_compat = true,
     rarity = 3,
-    cost = 12,
+    cost = 8,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.hand and SMODS.has_enhancement(context.other_card, "m_gold") and not context.other_card.debuff and not context.end_of_round then
             return {

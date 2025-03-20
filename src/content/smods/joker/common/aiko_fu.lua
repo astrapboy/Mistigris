@@ -22,15 +22,23 @@ local j = {
     unlocked = true,
     discovered = true,
     calculate = function(self, card, context)
-        if #G.jokers.cards < G.jokers.config.card_limit then
+        if (#G.jokers.cards + G.GAME.joker_buffer) < G.jokers.config.card_limit then
+            local chicots_to_create = G.jokers.config.card_limit - (#G.jokers.cards + G.GAME.joker_buffer)
+            G.GAME.joker_buffer = G.GAME.joker_buffer + chicots_to_create
             G.E_MANAGER:add_event(Event({
                 func = function()
-                    if G.jokers then
-                        local c = SMODS.add_card({ set = "Joker", key = "j_chicot" })
-                        return true
+                    for i = 1, chicots_to_create do
+                        if G.jokers then
+                            local c = SMODS.add_card({ set = "Joker", key = "j_chicot" })
+                            G.GAME.joker_buffer = G.GAME.joker_buffer - 1
+                        end
                     end
+                    return true
                 end
             }))
+            return {
+                message = localize('k_plus_joker')
+            }
         end
     end
 }

@@ -71,8 +71,8 @@ return {
             j_mstg_diminishing_returns = {
                 name = "Diminishing Returns",
                 text = {
-                    "{X:mult,C:white} X#1# {} Mult minus",
-                    "{X:mult,C:white} X#2# {} Mult for each",
+                    "{C:mult}+#1#{} Mult minus",
+                    "{C:mult}-#2#{} Mult for each",
                     "card in played hand",
                 },
             },
@@ -96,23 +96,6 @@ return {
                     "{C:attention}10{}s and {C:attention}Aces{}",
                     "are considered",
                     "{C:attention}face{} cards",
-                },
-            },
-            j_mstg_sleepy = {
-                name = "Sleepy Joker",
-                text = {
-                    "Stores {X:mult,C:white} X#1# {} Mult",
-                    "at the end of",
-                    "the round, sell",
-                    "to create",
-                    "{C:attention}#2#{}",
-                    "{C:inactive}(Will have {X:mult,C:white} X#3# {C:inactive} Mult)",
-                },
-            },
-            j_mstg_awake = {
-                name = "Awake Joker",
-                text = {
-                    "{X:mult,C:white} X#1# {} Mult",
                 },
             },
             j_mstg_paper_shredder = {
@@ -180,6 +163,23 @@ return {
                 }
             },
             --- Uncommon
+            j_mstg_sleepy = {
+                name = "Sleepy Joker",
+                text = {
+                    "Stores {X:mult,C:white} X#1# {} Mult",
+                    "at the end of",
+                    "the round, sell",
+                    "to create",
+                    "{C:attention}#2#{}",
+                    "{C:inactive}(Will have {X:mult,C:white} X#3# {C:inactive} Mult)",
+                },
+            },
+            j_mstg_awake = {
+                name = "Awake Joker",
+                text = {
+                    "{X:mult,C:white} X#1# {} Mult",
+                },
+            },
             j_mstg_boulder = {
                 name = "Boulder",
                 text = {
@@ -288,8 +288,7 @@ return {
                 text = {
                     "{X:mult,C:white} X#1# {} Mult for every",
                     "{C:attention}hand type{} that has",
-                    "{C:attention}never been played{}",
-                    "this run",
+                    "been played this run",
                     "{C:inactive}(Currently {X:mult,C:white} X#2# {C:inactive} Mult)",
                 },
             },

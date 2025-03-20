@@ -324,6 +324,18 @@ function mistiutils.get_unplayed_hand_count_this_run()
     return hand_count
 end
 
+--- Counts how many hands have been played in the current run.
+--- @return integer: The number of hands played.
+function mistiutils.get_played_hand_count_this_run()
+    local hand_count = 0
+    for name, handinfo in pairs(G.GAME.hands) do
+        if handinfo.played > 0 then
+            hand_count = hand_count + 1
+        end
+    end
+    return hand_count
+end
+
 --- Gets the suits included within a specific set of cards.
 --- @param cards table The set of cards to test against.
 --- @return table: The suits that are included in this card set.

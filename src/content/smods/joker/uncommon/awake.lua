@@ -12,7 +12,7 @@ local j = {
     blueprint_compat = true,
     eternal_compat = false,
     perishable_compat = false,
-    rarity = 1,
+    rarity = 2,
     in_pool = function()
         return false
     end,

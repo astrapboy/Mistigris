@@ -1,10 +1,10 @@
 -- Utility Code
 local mistiutils = require('mistiutils')
- 
+
 --- @type SMODS.Joker
 local j = {
     key = "sleepy",
-    config = { extra = { xmult_gain = 0.2, xmult_to_pass = 1, nightmared = false } },
+    config = { extra = { xmult_gain = 0.25, xmult_to_pass = 1, nightmared = false } },
     loc_vars = function(self, info_queue, card)
         local stg = card.ability.extra
         return {
@@ -18,7 +18,7 @@ local j = {
     blueprint_compat = false,
     eternal_compat = false,
     perishable_compat = false,
-    rarity = 1,
+    rarity = 2,
     cost = 4,
     calculate = function(self, card, context)
         -- Nightmare!

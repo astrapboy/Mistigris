@@ -7,6 +7,7 @@ MistigrisMod.optional_features = {
     retrigger_joker = true,
     post_trigger = true,
 }
+
 MistigrisMod.reset_game_globals = function(run_start)
     if run_start then
         G.GAME.probabilities.mstg_base_normal = 1
@@ -93,8 +94,6 @@ local joker_load_order = {
             "peeking",
             "timesheet",
             "up_to_eleven",
-            "sleepy",
-            "awake",
             "paper_shredder",
             "losing_ticket",
             "feral",
@@ -113,6 +112,8 @@ local joker_load_order = {
         key = 2,
         rarity = "uncommon",
         jokers = {
+            "sleepy",
+            "awake",
             "boulder",
             "comedian",
             "banana_factory",

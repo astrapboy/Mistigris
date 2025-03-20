@@ -1,13 +1,13 @@
 -- Utility Code
 local mistiutils = require('mistiutils')
- 
+
 --- @type SMODS.Joker
 local j = {
     key = "diminishing_returns",
-    config = { extra = { base_xmult = 3.5, penalty = 0.5 } },
+    config = { extra = { base_mult = 30, penalty = 5 } },
     loc_vars = function(self, info_queue, card)
         local stg = card.ability.extra
-        return { vars = { stg.base_xmult, stg.penalty } }
+        return { vars = { stg.base_mult, stg.penalty } }
     end,
     rarity = 1,
     cost = 5,
@@ -15,7 +15,7 @@ local j = {
     calculate = function(self, card, context)
         if context.joker_main then
             return {
-                Xmult = card.ability.extra.base_xmult - (card.ability.extra.penalty * #context.full_hand),
+                mult = card.ability.extra.base_mult - (card.ability.extra.penalty * #context.full_hand),
             }
         end
     end,
