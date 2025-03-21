@@ -4,6 +4,8 @@ local mistiutils = require('mistiutils')
 --- @type SMODS.Joker
 local j = {
     key = "sunk_cost",
+    atlas = "jokers",
+    pos = { x = 9, y = 0 },
     config = {
         extra = {
             steal = 2
