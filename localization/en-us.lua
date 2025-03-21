@@ -9,6 +9,13 @@ return {
                     "{C:attention}10{} of {C:spades}Spades{}"
                 }
             },
+            b_mstg_zany = {
+                name = "Zany Deck",
+                text = {
+                    "{C:attention}Mistigris{} content is",
+                    "{C:attention}3X{} more likely to appear"
+                }
+            },
             b_mstg_burning = {
                 name = "Burning Deck",
                 text = {

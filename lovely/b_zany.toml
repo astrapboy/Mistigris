@@ -1,0 +1,26 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 5
+
+# Card boost
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = '''
+if add and not G.GAME.banned_keys[v.key] then 
+'''
+position = "after"
+payload = '''
+    -- Code borrowed from Paperback and tweaked slightly
+    if G.GAME.modifiers.mistigris_boost then
+        if v.mod and v.mod.id == "mistigris" then
+            for i = 1, 2 do
+                _pool[#_pool + 1] = v.key
+                _pool_size = _pool_size + 1
+            end
+        end       
+    end
+'''
+match_indent = true
+times = 1

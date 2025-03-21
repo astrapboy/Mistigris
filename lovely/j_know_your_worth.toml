@@ -3,7 +3,7 @@ version = "1.0.0"
 dump_lua = true
 priority = 5
 
-# Add the context
+# Recalc sell cost
 [[patches]]
 [patches.pattern]
 target = "card.lua"
