@@ -1,11 +1,20 @@
-﻿-- This is a slightly updated Joker creator that allows for a custom placeholder atlas
+﻿-- Placeholder registry
 local register_joker = SMODS.Joker.register
-SMODS.Joker.register = function(joker)
-    -- Placeholder Joker Atlas
-    if (joker.atlas == nil or joker.atlas == 'Joker') and SMODS.current_mod.id == MistigrisMod.id then
-        joker.atlas = MistigrisMod.prefix .. '_placeholder'
-        joker.pos = { x = joker.rarity - 1, y = 0 }
+SMODS.Joker.register = function(self)
+    if (self.atlas == nil or self.atlas == 'Joker') and SMODS.current_mod.id == MistigrisMod.id then
+        self.atlas = MistigrisMod.prefix .. '_placeholder'
+        self.pos = { x = self.rarity - 1, y = 0 }
     end
 
-    return register_joker(joker)
+    return register_joker(self)
+end
+
+local register_back = SMODS.Back.register
+SMODS.Back.register = function(self)
+    if (self.atlas == nil or self.atlas == 'centers') and SMODS.current_mod.id == MistigrisMod.id then
+        self.atlas = MistigrisMod.prefix .. '_placeholder'
+        self.pos = { x = 4, y = 2 }
+    end
+
+    return register_back(self)
 end
