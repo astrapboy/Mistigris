@@ -25,6 +25,14 @@ return {
                     "random card {C:attention}held in hand{}"
                 }
             },
+            b_mstg_plaid = {
+                name = "Plaid Deck",
+                text = {
+                    "Start run with",
+                    "{C:attention}26{C:clubs} Clubs{} and",
+                    "{C:attention}26{C:diamonds} Diamonds{} in deck",
+                },
+            },
         },
         --- Blinds
         Blind = {
@@ -42,7 +50,7 @@ return {
                     "Jokers are",
                     "re-arranged using",
                     "the order from",
-                    "the Collection",
+                    "the Collection"
                 },
             },
             bl_mstg_day = {
@@ -94,7 +102,7 @@ return {
                 name = "Timesheet",
                 text = {
                     "Earn {C:money}$#1#{} every time",
-                    "a playing card is {C:attention}retriggered{}",
+                    "a playing card is {C:attention}retriggered{}"
                 },
             },
             j_mstg_up_to_eleven = {

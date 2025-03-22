@@ -181,7 +181,8 @@ load_smods_fieldless_type("Blind", blind_load_order)
 -- #region Deck Loading
 local back_load_order = {
     "tribute",
-    "zany"
+    "zany",
+    "plaid"
 }
 
 load_smods_fieldless_type("Back", back_load_order)
