@@ -148,7 +148,7 @@ local joker_load_order = {
             "power_of_three",
             "weighted_dice",
             "conscription",
-            -- "travel_miles",
+            "travel_miles",
             "augment",
             "unstable_atom",
             "invitation_letter",

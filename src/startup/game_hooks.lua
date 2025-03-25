@@ -24,6 +24,7 @@ Game.init_game_object = function(self)
 
     ref.mstg = {
         unique_jokers = {},
+        unique_joker_tally = 0,
         joy_pin = false,
         resurrect = nil,
         valid_hands_played_this_round = 0
@@ -66,6 +67,7 @@ CardArea.emplace = function(self, card, location, stay_flipped)
     ca_e(self, card, location, stay_flipped)
     if self == G.jokers and not G.GAME.mstg.unique_jokers[card.config.center.key] then
         G.GAME.mstg.unique_jokers[card.config.center.key] = true
+        G.GAME.mstg.unique_joker_tally = G.GAME.mstg.unique_joker_tally + 1
     end
 end
 
