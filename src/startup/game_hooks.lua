@@ -10,7 +10,10 @@ end
 local g_f_ep = G.FUNCS.evaluate_play
 G.FUNCS.evaluate_play = function(self, e)
     g_f_ep(self, e)
-    local text = G.FUNCS.get_poker_hand_info(G.play.cards)
+    local text, disp_text, poker_hands, scoring_hand, non_loc_disp_text = G.FUNCS.get_poker_hand_info(G.play.cards)
+    if not G.GAME.blind:debuff_hand(G.play.cards, poker_hands, text) then
+        G.GAME.current_round.mstg_valid_hands = G.GAME.current_round.mstg_valid_hands + 1
+    end
     G.GAME.current_round.mstg_used_hands[text] = G.GAME.current_round.mstg_used_hands[text] + 1
 end
 
@@ -18,10 +21,12 @@ end
 local gm_igo = Game.init_game_object
 Game.init_game_object = function(self)
     local ref = gm_igo(self)
+
     ref.mstg = {
         unique_jokers = {},
         joy_pin = false,
-        resurrect = nil
+        resurrect = nil,
+        valid_hands_played_this_round = 0
     }
     return ref
 end
@@ -59,12 +64,8 @@ end
 local ca_e = CardArea.emplace
 CardArea.emplace = function(self, card, location, stay_flipped)
     ca_e(self, card, location, stay_flipped)
-    if self == G.jokers then
-        local k = card.config.center.key
-        local o = card.config.center.order
-        if G.GAME.mstg.unique_jokers[k] == nil then
-            G.GAME.mstg.unique_jokers[k] = true
-        end
+    if self == G.jokers and not G.GAME.mstg.unique_jokers[card.config.center.key] then
+        G.GAME.mstg.unique_jokers[card.config.center.key] = true
     end
 end
 
@@ -108,6 +109,7 @@ local nr = new_round
 new_round = function()
     nr()
 
+    G.GAME.current_round.mstg_valid_hands = 0
     G.GAME.current_round.mstg_used_hands = {}
     for k, v in pairs(G.GAME.hands) do
         G.GAME.current_round.mstg_used_hands[k] = 0

@@ -2,6 +2,12 @@ return {
     descriptions = {
         --- Decks
         Back = {
+            b_mstg_temp = {
+                name = "Temp Deck",
+                text = {
+                    "Allan please add details",
+                }
+            },
             b_mstg_tribute = {
                 name = "Tribute Deck",
                 text = {
@@ -69,7 +75,23 @@ return {
                     "flip after hand",
                     "is played"
                 },
-            }
+            },
+            bl_mstg_elk = {
+                name = "The Elk",
+                text = {
+                    "Playing a #1#",
+                    "shatters played cards"
+                }
+            },
+            bl_mstg_birch = {
+                name = "The Birch",
+                text = {
+                    "Hands won't score",
+                    "until you use",
+                    "(one of) your",
+                    "least played one(s)",
+                }
+            },
         },
         Edition = {},
         Enhanced = {},
@@ -393,6 +415,14 @@ return {
                     "the next {C:attention}#3#{} hands",
                     "{s:0.8}Rank changes once scored",
                     "{s:0.8}Countdown resets once scored"
+                }
+            },
+            j_mstg_encore = {
+                name = "Encore",
+                text = {
+                    "{C:attention}Retrigger{} each played",
+                    "{V:1}#1#{}, suit changes at",
+                    "the end of the round"
                 }
             },
             --- Rare

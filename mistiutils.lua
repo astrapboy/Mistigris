@@ -132,6 +132,17 @@ function mistiutils.second_fav_hand()
     return chosen_hand
 end
 
+--- Used for The Birch. Checks if the current hand counts as the lesat played hand of the run.
+--- @return boolean: Isn't least played?
+function mistiutils.is_not_least_fav_hand(hand)
+    local played_count = G.GAME.hands[hand].played
+    if G.STATE == G.STATES.HAND_PLAYED then played_count = played_count - 1 end
+    for k, v in pairs(G.GAME.hands) do
+        if v.played < played_count then return true end
+    end
+    return false
+end
+
 --- Gets the ranking of a hand based on how often it has been used during the current run. (Based on JenLib)
 --- @param hand string The selected hand.
 --- @return integer: The hand's ranking.

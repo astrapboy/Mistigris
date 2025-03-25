@@ -135,7 +135,8 @@ local joker_load_order = {
             "outcast",
             "sunk_cost",
             "know_your_worth",
-            "hot_potato"
+            "hot_potato",
+            "encore"
         }
     },
     -- #endregion
@@ -147,7 +148,7 @@ local joker_load_order = {
             "power_of_three",
             "weighted_dice",
             "conscription",
-            "travel_miles",
+            -- "travel_miles",
             "augment",
             "unstable_atom",
             "invitation_letter",
@@ -173,7 +174,9 @@ local blind_load_order = {
     "journey",
     "joy",
     "day",
-    "yew"
+    "yew",
+    "elk",
+    "birch"
 }
 
 load_smods_fieldless_type("Blind", blind_load_order)
