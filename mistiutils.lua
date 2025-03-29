@@ -45,12 +45,12 @@ end
 
 --- Checks how many times a specific rank occurs in played hand.
 --- @param hand table The hand to select from.
---- @param rank integer The rank to search for.
+--- @param rank string The rank to search for.
 --- @return integer: How many times does this rank occur during the played hand?
 function mistiutils.rank_count(hand, rank)
     local rank_counter = 0
     for i = 1, #hand do
-        if hand[i]:get_id() == rank then
+        if hand[i].base.value == rank and not SMODS.has_no_rank(hand[i]) then
             rank_counter = rank_counter + 1
         end
     end
@@ -65,7 +65,7 @@ function mistiutils.ranks_count(hand, ranks)
     local rank_counter = 0
     for hand_index = 1, #hand do
         for rank_index = 1, #ranks do
-            if hand[hand_index]:get_id() == ranks[rank_index] then
+            if hand[hand_index].base.value == ranks[rank_index] and not SMODS.has_no_rank(hand[hand_index]) then
                 rank_counter = rank_counter + 1
             end
         end
@@ -79,7 +79,7 @@ end
 --- @return boolean: Does this card fit in the table of ranks?
 function mistiutils.matches_rank(card, ranks)
     for i = 1, #ranks do
-        if card:get_id() == ranks[i] then
+        if card.base.value == ranks[i] and not SMODS.has_no_rank(card) then
             return true
         end
     end
@@ -130,6 +130,17 @@ function mistiutils.second_fav_hand()
     end
     chosen_hand = _handname
     return chosen_hand
+end
+
+--- Used for The Birch. Checks if the current hand counts as the lesat played hand of the run.
+--- @return boolean: Isn't least played?
+function mistiutils.is_not_least_fav_hand(hand)
+    local played_count = G.GAME.hands[hand].played
+    if G.STATE == G.STATES.HAND_PLAYED then played_count = played_count - 1 end
+    for k, v in pairs(G.GAME.hands) do
+        if v.played < played_count then return true end
+    end
+    return false
 end
 
 --- Gets the ranking of a hand based on how often it has been used during the current run. (Based on JenLib)
@@ -324,6 +335,18 @@ function mistiutils.get_unplayed_hand_count_this_run()
     return hand_count
 end
 
+--- Counts how many hands have been played in the current run.
+--- @return integer: The number of hands played.
+function mistiutils.get_played_hand_count_this_run()
+    local hand_count = 0
+    for name, handinfo in pairs(G.GAME.hands) do
+        if handinfo.played > 0 then
+            hand_count = hand_count + 1
+        end
+    end
+    return hand_count
+end
+
 --- Gets the suits included within a specific set of cards.
 --- @param cards table The set of cards to test against.
 --- @return table: The suits that are included in this card set.
@@ -363,6 +386,23 @@ function mistiutils.get_random_card_in_deck_of_suit(suit)
     end
 end
 
+--- Gets a random rank that is present in the deck.
+--- @return string: The rank that has been selected
+function mistiutils.get_random_rank_thats_in_deck()
+    if G.playing_cards then
+        local eligible = {}
+        for k, v in ipairs(G.playing_cards) do
+            if not SMODS.has_no_rank(v) then
+                eligible[#eligible + 1] = v
+            end
+            local card = pseudorandom_element(eligible, pseudoseed("get_random_rank_thats_in_deck")) or nil
+            return card.base.value
+        end
+    else
+        return "Ace"
+    end
+end
+
 --- Checks a certain cardarea for any cards that have a chosen enhancement.
 function mistiutils.tally_enhancement(enhancement, area)
     local tally = 0
@@ -370,6 +410,26 @@ function mistiutils.tally_enhancement(enhancement, area)
         if SMODS.has_enhancement(v, enhancement) then tally = tally + 1 end
     end
     return tally
+end
+
+--- Creates a new card that retains the basic center information of another card. Use SMODS.add_card() to properly utilize this function.
+--- @param card Card The card that sources the information
+--- @param key string The string of the new card.
+function mistiutils.new_card_with_other_cards_values(card, key)
+    local stickers = {}
+    for k, v in pairs(SMODS.Stickers) do
+        if card.ability[k] then table.insert(stickers, k) end
+    end
+
+    local c = {
+        set = "Joker",
+        key = key,
+        edition = card.edition and card.edition.key or nil,
+        stickers =
+            stickers
+    }
+
+    return c
 end
 
 return mistiutils
