@@ -389,19 +389,17 @@ end
 --- Gets a random rank that is present in the deck.
 --- @return string: The rank that has been selected
 function mistiutils.get_random_rank_thats_in_deck()
-    while true do
-        if G.playing_cards then
-            local card = pseudorandom_element(G.playing_cards, pseudoseed("get_random_rank_thats_in_deck")) or nil
-            if card then
-                if not SMODS.has_no_rank(card) then
-                    return card.base.value
-                end
-            else
-                return "Ace"
+    if G.playing_cards then
+        local eligible = {}
+        for k, v in ipairs(G.playing_cards) do
+            if not SMODS.has_no_rank(v) then
+                eligible[#eligible + 1] = v
             end
-        else
-            return "Ace"
+            local card = pseudorandom_element(eligible, pseudoseed("get_random_rank_thats_in_deck")) or nil
+            return card.base.value
         end
+    else
+        return "Ace"
     end
 end
 

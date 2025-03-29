@@ -10,13 +10,10 @@ local bl = {
     boss_colour = HEX("fd9e57"),
     dollars = 5,
     mult = 2,
-    set_blind = function(self)
-        G.GAME.blind.discards_sub = to_big(-math.huge)
-    end,
     debuff_hand = function(self, cards, hand, handname, check)
         if
             to_big(G.GAME.hands[handname].chips) * to_big(G.GAME.hands[handname].mult)
-            >= to_big(G.GAME.blind.discards_sub)
+            >= to_big(G.GAME.blind.mstg.min_score)
         then
             return false
         else
@@ -24,8 +21,8 @@ local bl = {
         end
     end,
     modify_hand = function(self, cards, poker_hands, handname, mult, hand_chips)
-        if to_big(hand_chips) * to_big(mult) >= to_big(G.GAME.blind.discards_sub) then
-            G.GAME.blind.discards_sub = to_big(hand_chips) * to_big(mult)
+        if to_big(hand_chips) * to_big(mult) >= to_big(G.GAME.blind.mstg.min_score) then
+            G.GAME.blind.mstg.min_score = to_big(hand_chips) * to_big(mult)
         end
         return mult, hand_chips, false
     end,

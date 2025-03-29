@@ -1,6 +1,6 @@
 -- Utility Code
 local mistiutils = require('mistiutils')
- 
+
 --- @type SMODS.Joker
 local j = {
     key = "power_of_three",

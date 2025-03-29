@@ -192,4 +192,5 @@ load_smods_fieldless_type("Back", back_load_order)
 -- #endregion
 -- #region Cross-Mod Content Loading
 load_folder("src/content/sleeve", false)
+load_folder("src/content/compat", false)
 -- #endregion

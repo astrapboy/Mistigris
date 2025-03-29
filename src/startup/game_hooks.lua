@@ -2,13 +2,13 @@ local mistiutils = require('mistiutils')
 
 -- G Functions
 local g_f_rs = G.FUNCS.reroll_shop
-G.FUNCS.reroll_shop = function(self, e)
+function G.FUNCS:reroll_shop(e)
     G.GAME.current_round.caught_reroll = false
     g_f_rs(self, e)
 end
 
 local g_f_ep = G.FUNCS.evaluate_play
-G.FUNCS.evaluate_play = function(self, e)
+function G.FUNCS:evaluate_play(e)
     g_f_ep(self, e)
     local text, disp_text, poker_hands, scoring_hand, non_loc_disp_text = G.FUNCS.get_poker_hand_info(G.play.cards)
     if not G.GAME.blind:debuff_hand(G.play.cards, poker_hands, text) then
@@ -19,7 +19,7 @@ end
 
 -- Game Functions
 local gm_igo = Game.init_game_object
-Game.init_game_object = function(self)
+function Game:init_game_object()
     local ref = gm_igo(self)
 
     ref.mstg = {
@@ -33,7 +33,7 @@ Game.init_game_object = function(self)
 end
 
 local gm_u = Game.update
-Game.update = function(self, dt)
+function Game:update(dt)
     gm_u(self, dt)
 
     -- Shoutout to Breezebuilder for this next bit
@@ -45,9 +45,33 @@ Game.update = function(self, dt)
     self.C.MISTIGRIS[3] = (sin_time * -0.5 + 0.5) * (0.50 - 0.00) + 0.00 -- b = 0.50 -> 0.00
 end
 
+-- Blind Functions
+local bl_sb = Blind.set_blind
+function Blind:set_blind(blind, reset, silent)
+    if not reset then
+        self.mstg = {
+            max_score = to_big(-math.huge)
+        }
+    end
+    bl_sb(self, blind, reset, silent)
+end
+
+local bl_sv = Blind.save
+function Blind:save()
+    local blindTable = bl_sv(self)
+    blindTable.mstg = self.mstg
+    return blindTable
+end
+
+local bl_ld = Blind.load
+function Blind:load(blindTable)
+    self.mstg = blindTable.mstg
+    bl_ld(self, blindTable)
+end
+
 -- Card Functions
 local c_if = Card.is_face
-Card.is_face = function(self, from_boss)
+function Card:is_face(from_boss)
     if next(SMODS.find_card("j_mstg_up_to_eleven")) and self:get_id() >= 10 then
         return true
     else
@@ -63,7 +87,7 @@ end
 
 -- CardArea Functions
 local ca_e = CardArea.emplace
-CardArea.emplace = function(self, card, location, stay_flipped)
+function CardArea:emplace(card, location, stay_flipped)
     ca_e(self, card, location, stay_flipped)
     if self == G.jokers and not G.GAME.mstg.unique_jokers[card.config.center.key] then
         G.GAME.mstg.unique_jokers[card.config.center.key] = true
@@ -72,7 +96,7 @@ CardArea.emplace = function(self, card, location, stay_flipped)
 end
 
 local ca_r = CardArea.remove_card
-CardArea.remove_card = function(self, card, discarded_only)
+function CardArea:remove_card(card, discarded_only)
     if self == G.jokers and card.config.center then
         G.GAME.mstg.resurrect = card.config.center.key
     else
@@ -84,7 +108,7 @@ CardArea.remove_card = function(self, card, discarded_only)
 end
 
 local ca_ac = CardArea.align_cards
-CardArea.align_cards = function(self)
+function CardArea:align_cards()
     ca_ac(self)
     if G.GAME.mstg.joy_pin and self.config.type == 'joker' then
         table.sort(self.cards,
@@ -100,7 +124,7 @@ end
 
 -- Global events hooks
 local luh = level_up_hand
-level_up_hand = function(card, hand, instant, amount)
+function level_up_hand(card, hand, instant, amount)
     luh(card, hand, instant, amount)
     if to_big(amount or 1) > to_big(0) then
         SMODS.calculate_context({ mstg_level_up_hand = true, mstg_level_up_hand_name = hand })
@@ -108,7 +132,7 @@ level_up_hand = function(card, hand, instant, amount)
 end
 
 local nr = new_round
-new_round = function()
+function new_round()
     nr()
 
     G.GAME.current_round.mstg_valid_hands = 0
