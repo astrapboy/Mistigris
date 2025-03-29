@@ -21,7 +21,6 @@ end
 local gm_igo = Game.init_game_object
 function Game:init_game_object()
     local ref = gm_igo(self)
-
     ref.mstg = {
         unique_jokers = {},
         unique_joker_tally = 0,
@@ -50,7 +49,7 @@ local bl_sb = Blind.set_blind
 function Blind:set_blind(blind, reset, silent)
     if not reset then
         self.mstg = {
-            max_score = to_big(-math.huge)
+            min_score = to_big(-math.huge)
         }
     end
     bl_sb(self, blind, reset, silent)
