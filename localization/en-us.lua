@@ -199,6 +199,16 @@ return {
                     "{C:attention}repeated{} this round"
                 }
             },
+            j_mstg_bouncer = {
+                name = "Bouncer",
+                text = {
+                    "{C:chips}+#2#{} Chips if a",
+                    "{C:attention}#1#{} is",
+                    "{C:attention}discarded{} this round",
+                    "{s:0.8}poker hand changes at end of round",
+                    "{s:0.8}Chips reset at end of round"
+                }
+            },
             --- Uncommon
             j_mstg_sleepy = {
                 name = "Sleepy Joker",

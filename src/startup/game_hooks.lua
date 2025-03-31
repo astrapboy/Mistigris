@@ -133,7 +133,6 @@ end
 local nr = new_round
 function new_round()
     nr()
-
     G.GAME.current_round.mstg_valid_hands = 0
     G.GAME.current_round.mstg_used_hands = {}
     for k, v in pairs(G.GAME.hands) do

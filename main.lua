@@ -102,6 +102,7 @@ local joker_load_order = {
             "emergency",
             "wallflower",
             "diverse_portfolio",
+            "bouncer",
             "aiko",
             "aiko_fu"
         }
@@ -115,7 +116,7 @@ local joker_load_order = {
             "sleepy",
             "awake",
             "boulder",
-            "comedian",
+            -- "comedian",
             "banana_factory",
             "medusa",
             "tortoise",
