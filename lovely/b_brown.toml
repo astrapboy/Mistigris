@@ -81,7 +81,7 @@ if G.GAME.modifiers.mstg_reroll_limit then
                                                                     n = G.UIT.R,
                                                                     config = { align = "cm", maxw = 1.3, minw = 1 },
                                                                     nodes = {
-                                                                        { n = G.UIT.T, config = { ref_table = G.GAME.current_round, ref_value = 'mstg_brown_deck_rerolls', scale = 0.75, colour = G.C.WHITE, shadow = true } },
+                                                                        { n = G.UIT.T, config = { ref_table = G.GAME.current_round, ref_value = 'mstg_reroll_limit_number', scale = 0.75, colour = G.C.WHITE, shadow = true } },
                                                                         { n = G.UIT.T, config = { text = localize('mstg_rerolls_left'), scale = 0.7, colour = G.C.WHITE, shadow = true } },
                                                                     }
                                                                 }

@@ -4,7 +4,7 @@ local mistiutils = require('mistiutils')
 local g_f_rs = G.FUNCS.reroll_shop
 function G.FUNCS:reroll_shop(e)
     if G.GAME.modifiers.mstg_reroll_limit then
-        G.GAME.current_round.mstg_brown_deck_rerolls = G.GAME.current_round.mstg_brown_deck_rerolls - 1
+        G.GAME.current_round.mstg_reroll_limit_number = G.GAME.current_round.mstg_reroll_limit_number - 1
     end
     G.GAME.current_round.caught_reroll = false
     g_f_rs(self, e)
@@ -13,7 +13,7 @@ end
 local g_f_cr = G.FUNCS.can_reroll
 function G.FUNCS.can_reroll(e)
     if G.GAME.modifiers.mstg_reroll_limit then
-        if to_big(G.GAME.current_round.mstg_brown_deck_rerolls) <= to_big(0) then
+        if to_big(G.GAME.current_round.mstg_reroll_limit_number) <= to_big(0) then
             e.config.colour = G.C.UI.BACKGROUND_INACTIVE
             e.config.button = nil
         else
@@ -152,10 +152,19 @@ end
 local nr = new_round
 function new_round()
     nr()
-    G.GAME.current_round.mstg_brown_deck_rerolls = 0
+    G.GAME.current_round.mstg_reroll_limit_number = 0
     G.GAME.current_round.mstg_valid_hands = 0
     G.GAME.current_round.mstg_used_hands = {}
     for k, v in pairs(G.GAME.hands) do
         G.GAME.current_round.mstg_used_hands[k] = 0
+    end
+end
+
+local er = end_round
+function end_round()
+    er()
+    if G.GAME.modifiers.mstg_reroll_limit then
+        G.GAME.current_round.mstg_reroll_limit_number = G.GAME.interest_amount *
+                math.min(math.floor(to_number(G.GAME.dollars) / 5), G.GAME.interest_cap / 5)
     end
 end

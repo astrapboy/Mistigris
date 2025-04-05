@@ -536,6 +536,18 @@ return {
                     "{C:attention}10{} of {C:spades}Spades{}"
                 }
             },
+            sleeve_mstg_brown = {
+                name = "Brown Deck",
+                text = {
+                    "Cannot {C:money}pay{} for {C:green}rerolls",
+                    "",
+                    "Earn no {C:attention}Interest",
+                    "",
+                    "Convert {C:attention}Interest{} into",
+                    "{C:green}free rerolls{} at end",
+                    "of the round"
+                }
+            },
         },
         Spectral = {},
         Stake = {},
