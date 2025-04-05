@@ -3,8 +3,26 @@ local mistiutils = require('mistiutils')
 -- G Functions
 local g_f_rs = G.FUNCS.reroll_shop
 function G.FUNCS:reroll_shop(e)
+    if G.GAME.modifiers.mstg_reroll_limit then
+        G.GAME.current_round.mstg_brown_deck_rerolls = G.GAME.current_round.mstg_brown_deck_rerolls - 1
+    end
     G.GAME.current_round.caught_reroll = false
     g_f_rs(self, e)
+end
+
+local g_f_cr = G.FUNCS.can_reroll
+function G.FUNCS.can_reroll(e)
+    if G.GAME.modifiers.mstg_reroll_limit then
+        if to_big(G.GAME.current_round.mstg_brown_deck_rerolls) <= to_big(0) then
+            e.config.colour = G.C.UI.BACKGROUND_INACTIVE
+            e.config.button = nil
+        else
+            e.config.colour = G.C.GREEN
+            e.config.button = 'reroll_shop'
+        end
+        return
+    end
+    g_f_cr(e)
 end
 
 local g_f_ep = G.FUNCS.evaluate_play
@@ -52,6 +70,7 @@ function Blind:set_blind(blind, reset, silent)
             min_score = to_big(-math.huge)
         }
     end
+
     bl_sb(self, blind, reset, silent)
 end
 
@@ -133,6 +152,7 @@ end
 local nr = new_round
 function new_round()
     nr()
+    G.GAME.current_round.mstg_brown_deck_rerolls = 0
     G.GAME.current_round.mstg_valid_hands = 0
     G.GAME.current_round.mstg_used_hands = {}
     for k, v in pairs(G.GAME.hands) do

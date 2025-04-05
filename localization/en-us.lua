@@ -39,6 +39,18 @@ return {
                     "{C:attention}26{C:diamonds} Diamonds{} in deck",
                 },
             },
+            b_mstg_brown = {
+                name = "Brown Deck",
+                text = {
+                    "Cannot {C:money}pay{} for {C:green}rerolls",
+                    "",
+                    "Earn no {C:attention}Interest",
+                    "",
+                    "Convert {C:attention}Interest{} into",
+                    "{C:green}free rerolls{} at end",
+                    "of the round"
+                }
+            },
         },
         --- Blinds
         Blind = {
@@ -551,6 +563,7 @@ return {
         challenge_names = {},
         collabs = {},
         dictionary = {
+            mstg_rerolls_left = " left",
             k_mstg_resurrection_none = "None",
             k_mstg_rigged_ex = "Rigged!",
             k_mstg_stone_ex = "Stone!",

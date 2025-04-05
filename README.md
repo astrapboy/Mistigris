@@ -6,7 +6,7 @@ Welcome to Mistigris! Inspired by the likes of Paperback, Ortalab and Maximus, t
 This mod currently has:
 * **46** new Jokers
 * **6** new Boss Blinds
-* **3** new Decks
+* **4** new Decks
 
 with more to come in the future!
 
@@ -52,6 +52,7 @@ Keep up with development and chat with others who might like the mod!
 * Falsedoll (Wallflower)
 * SkywardTARDIS (Gauss)
 * Khaki (Archibald)
+* Myst (Brown Deck)
 
 **Additional Code:**
 * Breezebuilder (Text Colour)

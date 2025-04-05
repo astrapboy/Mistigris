@@ -186,7 +186,8 @@ load_smods_fieldless_type("Blind", blind_load_order)
 local back_load_order = {
     "tribute",
     "zany",
-    "plaid"
+    "plaid",
+    "brown"
 }
 
 load_smods_fieldless_type("Back", back_load_order)
