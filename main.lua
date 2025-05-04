@@ -37,9 +37,14 @@ local function load_folder(path, include_subfolders)
         local file = path .. "/" .. info.name
         if info.type == "file" then
             if not loaded[file] then
-                loaded[file] = true
-                sendInfoMessage("Successfully loaded " .. file .. "!", MistigrisMod.name)
-                assert(SMODS.load_file(file), "Failed to load " .. file .. "!")()
+                local loaded_file = SMODS.load_file(file)
+                if loaded_file then
+                    loaded[file] = true
+                    sendInfoMessage("Successfully loaded " .. file .. "!", MistigrisMod.name)
+                    loaded_file()
+                else
+                    print("Failed to load " .. file .. "!")
+                end
             else
                 sendInfoMessage("Tried to load " .. file .. " but file was already loaded!", MistigrisMod.name)
             end
