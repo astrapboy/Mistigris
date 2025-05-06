@@ -57,8 +57,8 @@ function Game:update(dt)
     local cycle_speed = 1.3
     local sin_time = math.sin(self.TIMERS.REAL * cycle_speed)
 
-    self.C.MISTIGRIS[1] = (sin_time * 0.5 + 0.5) * (1.00 - 0.50) + 0.50  -- r = 0.50 -> 1.00
-    self.C.MISTIGRIS[2] = (sin_time * 0.5 + 0.5) * (0.65 - 0.00) + 0.00  -- g = 0.00 -> 0.65
+    self.C.MISTIGRIS[1] = (sin_time * 0.5 + 0.5) * (1.00 - 0.50) + 0.50 -- r = 0.50 -> 1.00
+    self.C.MISTIGRIS[2] = (sin_time * 0.5 + 0.5) * (0.65 - 0.00) + 0.00 -- g = 0.00 -> 0.65
     self.C.MISTIGRIS[3] = (sin_time * -0.5 + 0.5) * (0.50 - 0.00) + 0.00 -- b = 0.50 -> 0.00
 end
 
@@ -67,7 +67,7 @@ local bl_sb = Blind.set_blind
 function Blind:set_blind(blind, reset, silent)
     if not reset then
         self.mstg = {
-            min_score = to_big(-math.huge)
+            min_score = nil
         }
     end
 
@@ -99,7 +99,9 @@ end
 
 local c_sd = Card.start_dissolve
 function Card:start_dissolve(dissolve_colours, silent, dissolve_time_fac, no_juice)
-    if self.ability.set == "Joker" then G.GAME.mstg.resurrect = self.config.center.key end
+    if self.ability.set == "Joker" then
+        G.GAME.mstg.resurrect = self.config.center.key
+    end
     c_sd(self, dissolve_colours, silent, dissolve_time_fac, no_juice)
 end
 
@@ -129,14 +131,13 @@ local ca_ac = CardArea.align_cards
 function CardArea:align_cards()
     ca_ac(self)
     if G.GAME.mstg.joy_pin and self.config.type == 'joker' then
-        table.sort(self.cards,
-            function(a, b)
-                if a.config.center.key == b.config.center.key then
-                    return a.sort_id < b.sort_id
-                else
-                    return a.config.center.order < b.config.center.order
-                end
-            end)
+        table.sort(self.cards, function(a, b)
+            if a.config.center.key == b.config.center.key then
+                return a.sort_id < b.sort_id
+            else
+                return a.config.center.order < b.config.center.order
+            end
+        end)
     end
 end
 
@@ -145,7 +146,10 @@ local luh = level_up_hand
 function level_up_hand(card, hand, instant, amount)
     luh(card, hand, instant, amount)
     if to_big(amount or 1) > to_big(0) then
-        SMODS.calculate_context({ mstg_level_up_hand = true, mstg_level_up_hand_name = hand })
+        SMODS.calculate_context({
+            mstg_level_up_hand = true,
+            mstg_level_up_hand_name = hand
+        })
     end
 end
 
@@ -165,6 +169,7 @@ function end_round()
     er()
     if G.GAME.modifiers.mstg_reroll_limit then
         G.GAME.current_round.mstg_reroll_limit_number = G.GAME.interest_amount *
-                math.min(math.floor(to_number(G.GAME.dollars) / 5), G.GAME.interest_cap / 5)
+                                                            math.min(math.floor(to_number(G.GAME.dollars) / 5),
+                G.GAME.interest_cap / 5)
     end
 end
